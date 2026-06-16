@@ -1,0 +1,348 @@
+---
+---
+
+<section class="workshops section" id="workshops">
+  <div class="container">
+    <div class="workshops-layout">
+      <div class="workshops-image animate-in">
+        <div class="img-frame">
+          <img 
+            src="/images/workshop.png" 
+            alt="Acting workshop circle — students training on stage" 
+            loading="lazy"
+          />
+        </div>
+        <div class="img-caption">
+          <span>Actors Academy of Rajasthan</span>
+          <span class="caption-addr">Tonk Road, Jaipur</span>
+        </div>
+        <div class="workshop-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <div>
+            <strong>Actors Academy</strong>
+            <span>Professional Theatre Training</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workshops-content animate-in">
+        <span class="section-label">Academy & Workshops</span>
+        <h2 class="section-title">Train with the<br />Best in Rajasthan</h2>
+        <div class="gold-divider"></div>
+
+        <p class="workshops-text">
+          The Actors Academy of Rajasthan is ATR's educational wing — a dedicated space 
+          for serious theatre artists. Our faculty includes seasoned directors, National School 
+          of Drama alumni, and cultural practitioners with decades of experience.
+        </p>
+
+        <div class="course-list">
+          <div class="course-item">
+            <div class="course-num">01</div>
+            <div class="course-details">
+              <h4>Foundation in Theatre Arts</h4>
+              <p>Voice modulation, body movement, stage presence, and script reading — the essential toolkit for every actor.</p>
+              <div class="course-meta">
+                <span>3 Months</span>
+                <span>•</span>
+                <span>Beginner – Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">02</div>
+            <div class="course-details">
+              <h4>Direction & Dramaturgy</h4>
+              <p>Learn the craft of stage direction, play analysis, blocking, and visual storytelling from experienced directors.</p>
+              <div class="course-meta">
+                <span>6 Months</span>
+                <span>•</span>
+                <span>Intermediate – Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">03</div>
+            <div class="course-details">
+              <h4>Applied Theatre for Social Change</h4>
+              <p>Use theatre as a tool for community engagement, awareness campaigns, and advocacy in social contexts.</p>
+              <div class="course-meta">
+                <span>Intensive Workshop</span>
+                <span>•</span>
+                <span>All Levels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">04</div>
+            <div class="course-details">
+              <h4>Rajasthani Folk Traditions</h4>
+              <p>Study traditional Maach, Khyal, Turra-Kalagi and other folk performance forms unique to Rajasthan.</p>
+              <div class="course-meta">
+                <span>Ongoing</span>
+                <span>•</span>
+                <span>Heritage Track</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+          Enrol in a Workshop
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Workshop audience section -->
+    <div class="audience-block animate-in">
+      <div class="audience-image">
+        <img 
+          src="/images/706812230_4570883783144514_5747671397064883337_n.jpg" 
+          alt="Engaged audience watching a theatre performance" 
+          loading="lazy"
+        />
+      </div>
+      <div class="audience-content">
+        <h3>Reaching Every Corner of Rajasthan</h3>
+        <p>
+          From packed proscenium theatres in Jaipur to village squares in rural districts, 
+          ATR takes theatre to where it matters most. Our outreach programmes have brought 
+          live performances to audiences who have never experienced professional theatre.
+        </p>
+        <div class="audience-stats">
+          <div class="astat">
+            <span class="astat-n">10,000+</span>
+            <span class="astat-l">Audience per Festival</span>
+          </div>
+          <div class="astat">
+            <span class="astat-n">100+</span>
+            <span class="astat-l">School Performances</span>
+          </div>
+          <div class="astat">
+            <span class="astat-n">20+</span>
+            <span class="astat-l">Districts Reached</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .workshops {
+    background: var(--section-mid);
+  }
+
+  .workshops-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .img-frame {
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 1rem;
+  }
+
+  .img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .img-frame:hover img {
+    transform: scale(1.04);
+  }
+
+  .img-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 0 0.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .caption-addr {
+    font-style: italic;
+  }
+
+  .workshop-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(201, 168, 76, 0.06);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--gold);
+  }
+
+  .workshop-badge div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .workshop-badge strong {
+    font-size: 0.9rem;
+    color: var(--ivory);
+  }
+
+  .workshop-badge span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .workshops-text {
+    font-size: 0.97rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+
+  /* Course list */
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .course-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+
+  .course-item:hover {
+    border-color: rgba(201, 168, 76, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .course-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(201, 168, 76, 0.2);
+    min-width: 32px;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .course-details h4 {
+    font-size: 0.95rem;
+    color: var(--ivory);
+    margin-bottom: 0.4rem;
+  }
+
+  .course-details p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* Audience block */
+  .audience-block {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 3rem;
+    background: rgba(139, 26, 26, 0.08);
+    border: 1px solid rgba(139, 26, 26, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .audience-image {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .audience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .audience-content h3 {
+    font-size: 1.5rem;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+  }
+
+  .audience-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .audience-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .astat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .astat-n {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .astat-l {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .workshops-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .audience-block {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+    }
+  }
+</style>

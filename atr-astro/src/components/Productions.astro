@@ -1,0 +1,296 @@
+---
+const productions = [
+  {
+    title: "Mera Kya Kasoor",
+    subtitle: "What Is My Fault?",
+    genre: "Social Drama",
+    description: "A powerful play addressing gender discrimination, female foeticide, and the rights of the girl child. Performed at Rajrangam 2015, it moved national audiences and sparked widespread conversation about deep-rooted patriarchal norms.",
+    image: "/images/actors-academy-of-rajasthan-tonk-road-jaipur-acting-classes-7hrf4rk8f8.jpg",
+    tag: "Social Issues",
+    highlight: "National Recognition"
+  },
+  {
+    title: "Agnipath",
+    subtitle: "Path of Fire",
+    genre: "Patriotic Drama",
+    description: "A stirring tribute to India's freedom fighters, depicting the courage and sacrifice of ordinary Indians who stood against colonial oppression. Actors dressed in period costumes recreate iconic moments from the independence struggle.",
+    image: "/images/actors-academy-of-rajasthan-tonk-road-jaipur-acting-classes-9wo72hi4mb.jpg",
+    tag: "Historical",
+    highlight: "Republic Day Special"
+  },
+  {
+    title: "Chirangada",
+    subtitle: "The Princess Who Chose Herself",
+    genre: "Classical Adaptation",
+    description: "Based on Rabindranath Tagore's dance drama, this production reimagines Chirangada's journey through self-discovery, challenging gender roles in a visually stunning classical theatrical style with elaborate costumes and stagecraft.",
+    image: "/images/511530852_10060607880720167_8184964389718288958_n.jpg",
+    tag: "Classical Theatre",
+    highlight: "Rajrangam 7th Edition"
+  },
+  {
+    title: "Gopichand",
+    subtitle: "The Renunciant King",
+    genre: "Folk Musical",
+    description: "A traditional folk musical that brings alive the legend of King Gopichand who renounced his kingdom in pursuit of spiritual truth. Featuring live classical instruments and authentic Rajasthani folk elements.",
+    image: "/images/706930821_4570883119811247_2882408597650510381_n.jpg",
+    tag: "Folk Theatre",
+    highlight: "Cultural Heritage"
+  }
+];
+---
+
+<section class="productions section" id="productions">
+  <div class="container">
+    <div class="productions-header animate-in">
+      <span class="section-label">Our Productions</span>
+      <h2 class="section-title">Stories That<br />Demand to Be Told</h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        From intimate black-box performances to grand proscenium stagings — each production 
+        carries a message, each character carries a truth.
+      </p>
+    </div>
+
+    <div class="productions-grid">
+      {productions.map((play, i) => (
+        <article class={`production-card animate-in ${i === 0 ? 'featured' : ''}`}>
+          <div class="card-image">
+            <img src={play.image} alt={play.title + ' — ' + play.subtitle} loading="lazy" />
+            <div class="card-image-overlay"></div>
+            <div class="card-badges">
+              <span class="badge-genre">{play.genre}</span>
+              {play.highlight && <span class="badge-highlight">{play.highlight}</span>}
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-tag-small">{play.tag}</div>
+            <h3 class="card-title">{play.title}</h3>
+            <h4 class="card-subtitle">{play.subtitle}</h4>
+            <p class="card-description">{play.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- All plays CTA -->
+    <div class="productions-cta animate-in">
+      <p>ATR has staged <strong>40+ productions</strong> across Rajasthan and nationally at festivals including Bharat Rang Mahotsav</p>
+      <a href="#contact" class="btn-outline">
+        Invite Us to Perform
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .productions {
+    background: var(--section-dark);
+  }
+
+  .productions-header {
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  .productions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .production-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .production-card:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .production-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 55% 1fr;
+  }
+
+  .card-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .production-card.featured .card-image {
+    aspect-ratio: auto;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .production-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.7) 0%, transparent 50%);
+  }
+
+  .card-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge-genre {
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .badge-highlight {
+    background: rgba(139, 26, 26, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--gold-light);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .production-card.featured .card-body {
+    padding: 2.5rem;
+    justify-content: center;
+  }
+
+  .card-tag-small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    color: var(--ivory);
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+  }
+
+  .production-card.featured .card-title {
+    font-size: 2rem;
+  }
+
+  .production-card:hover .card-title {
+    color: var(--gold);
+  }
+
+  .card-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    flex-grow: 1;
+  }
+
+  /* CTA */
+  .productions-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    background: rgba(201, 168, 76, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+
+  .productions-cta p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .productions-cta p strong {
+    color: var(--ivory);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-outline:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+
+  @media (max-width: 900px) {
+    .production-card.featured {
+      grid-column: span 1;
+      display: block;
+    }
+
+    .productions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .productions-cta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

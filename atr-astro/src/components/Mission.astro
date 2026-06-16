@@ -1,0 +1,294 @@
+---
+---
+
+<section class="mission section" id="mission">
+  <div class="container">
+    <div class="mission-header animate-in">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title">Theatre as a Tool<br />for Social Change</h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        We believe every play has the power to change a mind, and every changed mind 
+        has the power to transform a community. Our work goes beyond the stage.
+      </p>
+    </div>
+
+    <div class="mission-cards">
+      <div class="mission-card animate-in" data-delay="0">
+        <div class="card-number">01</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Gender Justice & Women's Rights</h3>
+        <p>
+          Productions like <em>Mera Kya Kasoor</em> — which won national acclaim at Rajrangam — 
+          tackle female foeticide, gender discrimination, and the plight of the girl child. 
+          Our plays have reached schools, rural communities, and urban audiences alike.
+        </p>
+        <div class="card-tag">Social Theatre</div>
+      </div>
+
+      <div class="mission-card animate-in" data-delay="1">
+        <div class="card-number">02</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+          </svg>
+        </div>
+        <h3>Cultural Heritage & Identity</h3>
+        <p>
+          Rajasthani folk forms — Kuchipudi, Maach, Tamasha — are woven into our contemporary 
+          productions. We document, celebrate, and revive traditional performance styles 
+          that risk being lost to modernisation.
+        </p>
+        <div class="card-tag">Cultural Preservation</div>
+      </div>
+
+      <div class="mission-card animate-in" data-delay="2">
+        <div class="card-number">03</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Civic Awareness & Democracy</h3>
+        <p>
+          From celebrating India's freedom struggle to staging plays about political 
+          accountability and voter rights, ATR takes theatre into the heart of civic discourse, 
+          making complex issues accessible to all.
+        </p>
+        <div class="card-tag">Civic Theatre</div>
+      </div>
+
+      <div class="mission-card animate-in" data-delay="3">
+        <div class="card-number">04</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Youth Empowerment</h3>
+        <p>
+          Through the Actors Academy of Rajasthan, we train young artists in voice, 
+          movement, direction, and dramaturgy — giving them tools not just for performance, 
+          but for life and leadership.
+        </p>
+        <div class="card-tag">Education & Training</div>
+      </div>
+    </div>
+
+    <!-- Impact bar -->
+    <div class="impact-bar animate-in">
+      <div class="impact-item">
+        <span class="impact-num">7</span>
+        <span class="impact-label">Rajrangam Festivals Organised</span>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact-item">
+        <span class="impact-num">40+</span>
+        <span class="impact-label">Plays in Repertoire</span>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact-item">
+        <span class="impact-num">15+</span>
+        <span class="impact-label">National Theatre Groups Hosted</span>
+      </div>
+      <div class="impact-sep"></div>
+      <div class="impact-item">
+        <span class="impact-num">∞</span>
+        <span class="impact-label">Stories Still to Tell</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission {
+    background: var(--section-mid);
+    position: relative;
+  }
+
+  .mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  .mission-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .mission-header .gold-divider {
+    margin: 1.5rem auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    width: 80px;
+  }
+
+  .mission-header .section-subtitle {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .mission-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .mission-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .mission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .mission-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .mission-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(201, 168, 76, 0.25);
+    transform: translateY(-4px);
+  }
+
+  .card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(201, 168, 76, 0.08);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(139, 26, 26, 0.15);
+    border: 1px solid rgba(139, 26, 26, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--crimson-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-card h3 {
+    font-size: 1.15rem;
+    color: var(--ivory);
+    margin-bottom: 0.75rem;
+  }
+
+  .mission-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-card p em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  /* Impact bar */
+  .impact-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(139, 26, 26, 0.15), rgba(201, 168, 76, 0.05));
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 2.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .impact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .impact-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .impact-sep {
+    width: 1px;
+    height: 50px;
+    background: var(--border-subtle);
+  }
+
+  @media (max-width: 768px) {
+    .mission-cards {
+      grid-template-columns: 1fr;
+    }
+    .impact-bar {
+      gap: 1.5rem;
+    }
+    .impact-sep {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,275 @@
+---
+---
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="/images/hero-bg.png" alt="Empty theatre stage with dramatic lighting" class="hero-img" />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-badge animate-in">
+      <span class="badge-dot"></span>
+      Registered NGO · Since 1995
+    </div>
+
+    <h1 class="hero-title animate-in">
+      Where Stories<br />
+      <em>Transform</em> Society
+    </h1>
+
+    <p class="hero-description animate-in">
+      Actors Theatre Rajasthan is a cultural force using the power of theatre 
+      to illuminate social issues, preserve heritage, and awaken communities 
+      across the heartland of India.
+    </p>
+
+    <div class="hero-actions animate-in">
+      <a href="#productions" class="btn-primary">
+        <span>Explore Our Work</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#rajrangam" class="btn-ghost">
+        Rajrangam Festival
+      </a>
+    </div>
+
+    <div class="hero-stats animate-in">
+      <div class="stat-item">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">Years of Impact</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">200+</span>
+        <span class="stat-label">Productions Staged</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">50K+</span>
+        <span class="stat-label">Lives Touched</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.45) saturate(0.8);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(14, 10, 4, 0.88) 0%,
+      rgba(184, 92, 0, 0.12) 50%,
+      rgba(14, 10, 4, 0.72) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    background: rgba(201, 168, 76, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: shimmer 2s infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    color: var(--ivory);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-description {
+    font-size: 1.15rem;
+    color: rgba(250, 246, 239, 0.75);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--crimson);
+    color: var(--ivory);
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: var(--transition);
+    border: 1px solid var(--crimson);
+  }
+
+  .btn-primary:hover {
+    background: var(--crimson-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(139, 26, 26, 0.4);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--ivory);
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    border: 1px solid rgba(250, 246, 239, 0.25);
+    transition: var(--transition);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(201, 168, 76, 0.2);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  .hero-scroll span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    color: var(--text-muted);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scroll-pulse 2s infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-scroll { display: none; }
+    .hero-stats { gap: 1.5rem; }
+    .stat-divider { display: none; }
+  }
+</style>

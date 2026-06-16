@@ -14,7 +14,7 @@
     <meta property="og:description" content="Join our 30-day intensive acting workshop or explore our national stage plays. Led by Dr. Chandradeep Hada (Ph.D. Dramatics, UGC NET).">
     <meta property="og:image" content="assets/hero-bg.png">
 
-    <title>Actors Theatre@Rajasthan | Acting Academy & Theatre Group Jaipur</title>
+    <title data-i18n="site-title">Actors Theatre@Rajasthan | Acting Academy & Theatre Group Jaipur</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,13 +29,14 @@
 </head>
 <body>
 
+
     <!-- Header & Navigation -->
     <header class="header">
         <div class="top-bar">
             <div class="container top-bar-container">
                 <div class="top-bar-contact">
                     <a href="tel:+917821844466"><i class="fa-solid fa-phone"></i> +91 78218 44466</a>
-                    <a href="https://wa.me/917821844466" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://wa.me/917821844466" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="top-bar-wa">WhatsApp</span></a>
                 </div>
                 <div class="top-bar-socials">
                     <a href="https://www.instagram.com/actorstheatreatrajasthan/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
@@ -45,21 +46,34 @@
         </div>
         <div class="container nav-container">
             <a href="#home" class="logo">
-                <span class="logo-sub">ACTORS THEATRE</span>
-                <span class="logo-main">@RAJASTHAN</span>
+                <span class="logo-sub" data-i18n="logo-sub">ACTORS THEATRE</span>
+                <span class="logo-main" data-i18n="logo-main">@RAJASTHAN</span>
             </a>
             
             <nav class="nav-links" id="navLinks">
-                <a href="#home" class="nav-item active">Home</a>
-                <a href="#about" class="nav-item">About</a>
-                <a href="#workshops" class="nav-item">Workshops</a>
-                <a href="#productions" class="nav-item">Productions</a>
-                <a href="#festival" class="nav-item">Raj Rangam</a>
-                <a href="#gallery" class="nav-item">Gallery</a>
-                <a href="#updates" class="nav-item">Updates</a>
-                <a href="#press" class="nav-item">Press</a>
-                <a href="#contact" class="nav-item">Contact</a>
-                <button class="btn btn-primary btn-nav open-modal-btn">Join Workshop</button>
+                <a href="#home" class="nav-item active" data-i18n="nav-home">Home</a>
+                <a href="#about" class="nav-item" data-i18n="nav-about">About</a>
+                <a href="#workshops" class="nav-item" data-i18n="nav-workshops">Workshops</a>
+                <a href="#productions" class="nav-item" data-i18n="nav-productions">Productions</a>
+                <a href="#festival" class="nav-item" data-i18n="nav-festival">Raj Rangam</a>
+                <a href="#gallery" class="nav-item" data-i18n="nav-gallery">Gallery</a>
+                <a href="#updates" class="nav-item" data-i18n="nav-updates">Updates</a>
+                <a href="#press" class="nav-item" data-i18n="nav-press">Press</a>
+                <a href="#contact" class="nav-item" data-i18n="nav-contact">Contact</a>
+                
+                <div class="lang-selector-wrapper">
+                    <i class="fa-solid fa-language lang-icon"></i>
+                    <select id="languageSelect" class="lang-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="rj">राजस्थानी</option>
+                    </select>
+                </div>
+
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="btn btn-primary btn-nav open-modal-btn" data-i18n="btn-join-workshop">Join Workshop</button>
             </nav>
 
             <button class="mobile-nav-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
@@ -72,18 +86,18 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero" style="background-image: linear-gradient(rgba(13, 13, 17, 0.85), rgba(13, 13, 17, 0.95)), url('assets/hero-bg.png');">
+        <section id="home" class="hero" style="background-image: linear-gradient(rgba(255, 253, 248, 0.65), rgba(255, 253, 248, 0.85)), url('assets/hero-bg.png');">
             <div class="hero-spotlight"></div>
             <div class="container hero-container">
-                <span class="hero-tagline scroll-anim">Jaipur's Premier Theatre & Acting Academy</span>
+                <span class="hero-tagline scroll-anim" data-i18n="hero-tagline">Jaipur's Leading Theatre & Acting Academy</span>
                 <h1 class="hero-title scroll-anim">
-                    Master the Art of <br>
-                    <span class="txt-rotate" data-period="2000" data-rotate='[ "Expression", "Acting", "Emotion", "Drama", "Stagecraft" ]'>Expression</span>
+                    <span data-i18n="hero-title-prefix">Master the Art of</span> <br>
+                    <span class="txt-rotate" id="heroTxtRotate" data-period="2000" data-rotate='["Acting", "Expression", "Emotion", "Drama", "Stagecraft"]'>Expression</span>
                 </h1>
-                <p class="hero-desc scroll-anim">Step into the spotlight. Explore professional theatre workshops, classical training, and award-winning stage productions under the guidance of Dr. Chandradeep Hada.</p>
+                <p class="hero-desc scroll-anim" data-i18n="hero-desc">Step into the spotlight. Explore professional theatre workshops, classical training, and national stage productions dedicated to preserving cultural heritage and creating social awareness.</p>
                 <div class="hero-actions scroll-anim">
-                    <a href="#workshops" class="btn btn-primary">Explore Workshops <i class="fa-solid fa-arrow-right icon-right"></i></a>
-                    <a href="#productions" class="btn btn-secondary">Our Plays</a>
+                    <a href="#workshops" class="btn btn-primary" data-i18n="hero-btn-workshops">Explore Workshops <i class="fa-solid fa-arrow-right icon-right"></i></a>
+                    <a href="#productions" class="btn btn-secondary" data-i18n="hero-btn-plays">Our Plays</a>
                 </div>
             </div>
             <div class="hero-wave">
@@ -97,33 +111,33 @@
         <section id="about" class="about section-padding">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Who We Are</span>
-                    <h2 class="section-title">Nurturing Creative Talents</h2>
+                    <span class="section-subtitle" data-i18n="about-subtitle">Who We Are</span>
+                    <h2 class="section-title" data-i18n="about-title">Nurturing Creative Talents</h2>
                     <div class="section-bar"></div>
                 </div>
 
                 <div class="about-grid">
                     <div class="about-content scroll-anim">
-                        <h3>Actors Theatre@Rajasthan</h3>
-                        <p>Actors Theatre@Rajasthan (ATR) is a registered cultural organization dedicated to promoting, researching, and teaching theatre arts in Jaipur, Rajasthan. Operating in close association with the <strong>Actors Academy of Rajasthan</strong>, the group has become a vital hub for dramatic excellence, training hundreds of aspiring actors, directors, and stage technicians.</p>
-                        <p>We work in collaboration with national and state institutions, including the <strong>Ministry of Culture (Govt. of India)</strong>, <strong>Sangeet Natak Akademi</strong>, and <strong>Jawahar Kala Kendra (JKK)</strong>. Our productions preserve the rich oral history of Rajasthan while exploring modern and social narratives.</p>
+                        <h3 data-i18n="about-group-name">Actors Theatre@Rajasthan</h3>
+                        <p data-i18n="about-p1">Actors Theatre@Rajasthan (ATR) is a premier registered cultural organization dedicated to promoting, researching, and teaching theatre arts in Jaipur. Operating in close association with the Actors Academy of Rajasthan, the group has become a vital hub for dramatic excellence, training hundreds of aspiring actors and preserving traditional performance arts.</p>
+                        <p data-i18n="about-p2">We work in collaboration with national and state institutions, including the Ministry of Culture (Govt. of India), Sangeet Natak Akademi, and Jawahar Kala Kendra (JKK). Our productions focus on documenting oral folklore history while raising public awareness about pressing social themes.</p>
                         
                         <div class="stats-grid">
                             <div class="stat-card">
-                                <span class="stat-num">30+</span>
-                                <span class="stat-label">Years of Legacy</span>
+                                <span class="stat-num" data-i18n="stat-1-num">30+</span>
+                                <span class="stat-label" data-i18n="stat-1-label">Years of Legacy</span>
                             </div>
                             <div class="stat-card">
-                                <span class="stat-num">500+</span>
-                                <span class="stat-label">Students Trained</span>
+                                <span class="stat-num" data-i18n="stat-2-num">500+</span>
+                                <span class="stat-label" data-i18n="stat-2-label">Students Trained</span>
                             </div>
                             <div class="stat-card">
-                                <span class="stat-num">25+</span>
-                                <span class="stat-label">Major Productions</span>
+                                <span class="stat-num" data-i18n="stat-3-num">25+</span>
+                                <span class="stat-label" data-i18n="stat-3-label">Major Productions</span>
                             </div>
                             <div class="stat-card">
-                                <span class="stat-num">5+</span>
-                                <span class="stat-label">National Grants</span>
+                                <span class="stat-num" data-i18n="stat-4-num">5+</span>
+                                <span class="stat-label" data-i18n="stat-4-label">National Grants</span>
                             </div>
                         </div>
                     </div>
@@ -131,32 +145,26 @@
                     <div class="about-director scroll-anim">
                         <div class="director-card">
                             <div class="director-avatar-wrapper">
-                                <!-- Styled Theatrical Director Avatar via CSS/SVG because of photo limits -->
                                 <div class="director-svg-avatar">
                                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                         <defs>
                                             <radialGradient id="grad" cx="50%" cy="50%" r="50%">
-                                                <stop offset="0%" stop-color="#E5A93B" />
-                                                <stop offset="100%" stop-color="#A82034" />
+                                                <stop offset="0%" stop-color="#FF7B00" />
+                                                <stop offset="100%" stop-color="#9E1B26" />
                                             </radialGradient>
                                         </defs>
-                                        <circle cx="100" cy="100" r="95" fill="#16161D" stroke="url(#grad)" stroke-width="4"/>
-                                        <!-- Drama Masks inside avatar -->
-                                        <path d="M60 85 C60 70, 90 70, 90 85 C90 95, 60 95, 60 85" fill="none" stroke="#E5A93B" stroke-width="3"/>
-                                        <path d="M110 85 C110 70, 140 70, 140 85 C140 95, 110 95, 110 85" fill="none" stroke="#E5A93B" stroke-width="3"/>
-                                        <path d="M75 125 Q100 155 125 125" fill="none" stroke="#E5A93B" stroke-width="3"/>
-                                        <text x="50%" y="170" dominant-baseline="middle" text-anchor="middle" fill="#FFF" font-size="12" font-family="Plus Jakarta Sans" letter-spacing="2">DR. CHANDRADEEP</text>
+                                        <circle cx="100" cy="100" r="95" fill="#FAF2E5" stroke="url(#grad)" stroke-width="4"/>
+                                        <path d="M60 85 C60 70, 90 70, 90 85 C90 95, 60 95, 60 85" fill="none" stroke="#FF7B00" stroke-width="3"/>
+                                        <path d="M110 85 C110 70, 140 70, 140 85 C140 95, 110 95, 110 85" fill="none" stroke="#FF7B00" stroke-width="3"/>
+                                        <path d="M75 125 Q100 155 125 125" fill="none" stroke="#FF7B00" stroke-width="3"/>
                                     </svg>
                                 </div>
-                                <div class="director-tag">Director</div>
+                                <div class="director-tag" data-i18n="director-role">Director</div>
                             </div>
                             <div class="director-info">
-                                <h4>Dr. Chandradeep Hada</h4>
-                                <p class="director-titles">Ph.D. in Dramatics | UGC NET | Senior Fellow</p>
-                                <p class="director-desc">Dr. Chandradeep Hada is a veteran performing artist, director, researcher, and educator. With a Ph.D. in Dramatic Arts, he has spent decades training youth in voice culture, body language, and acting. He is recognized by the Sangeet Natak Akademi and Ministry of Culture for his extensive documentation of folk cultural expressions (such as the Kachchhi Ghodi dance style) and has directed numerous acclaimed plays across India.</p>
-                                <div class="director-socials">
-                                    <span class="director-signature">Chandradeep Hada</span>
-                                </div>
+                                <h4 data-i18n="director-name">Dr. Chandradeep Hada</h4>
+                                <p class="director-titles" data-i18n="director-titles">Ph.D. in Dramatics | UGC NET | Senior Fellow</p>
+                                <p class="director-desc" data-i18n="director-desc">Dr. Chandradeep Hada is a veteran performing artist, director, researcher, and educator. With a Ph.D. in Dramatic Arts, he has spent decades training youth in voice culture and body language. He is recognized by the Ministry of Culture for documenting Rajasthani folk arts (such as Kachchhi Ghodi dance) and has directed numerous acclaimed plays across India.</p>
                             </div>
                         </div>
                     </div>
@@ -168,63 +176,140 @@
         <section id="workshops" class="workshops section-padding bg-darker">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Learn Acting</span>
-                    <h2 class="section-title">Intensive Acting Workshops</h2>
+                    <span class="section-subtitle" data-i18n="workshops-subtitle">Flagship Workshops</span>
+                    <h2 class="section-title" data-i18n="workshops-title">Intensive Acting Workshops</h2>
                     <div class="section-bar"></div>
                 </div>
 
                 <div class="workshop-featured scroll-anim">
                     <div class="workshop-img-container">
                         <img src="assets/workshop.png" alt="Acting Workshop Circle" class="workshop-img">
-                        <div class="workshop-badge">Flagship Course</div>
+                        <div class="workshop-badge" data-i18n="workshops-badge">Admissions Open</div>
                     </div>
                     <div class="workshop-details">
-                        <span class="workshop-duration"><i class="fa-regular fa-calendar-days icon-left"></i> 30-Day Production Oriented Program</span>
-                        <h3>Acting & Personality Development</h3>
-                        <p class="workshop-tagline">Unleash your creative potential, build stage presence, and master performance techniques.</p>
+                        <span class="workshop-duration" data-i18n="workshops-duration"><i class="fa-regular fa-calendar-days icon-left"></i> 30-Day Production Oriented Program</span>
+                        <h3 data-i18n="workshops-details-title">Acting & Personality Development</h3>
+                        <p class="workshop-tagline" data-i18n="workshops-details-tagline">Unleash your creative potential, build stage presence, and master performance techniques. Join our next cohort in Jaipur!</p>
                         
                         <div class="curriculum-list">
                             <div class="curriculum-item">
                                 <div class="curriculum-icon"><i class="fa-solid fa-masks-theater"></i></div>
                                 <div>
-                                    <h5>Classical & Modern Theories</h5>
-                                    <p>Deep study of Bharat Muni's <em>Natyashastra</em> (Rasa & Bhava), Stanislavski's Method, and Brechtian Epic Theatre.</p>
+                                    <h5 data-i18n="curr-1-title">Classical & Modern Theories</h5>
+                                    <p data-i18n="curr-1-desc">Deep study of Bharat Muni's Natyashastra (Rasa & Bhava), Stanislavski's Method, and Brechtian Epic Theatre.</p>
                                 </div>
                             </div>
                             
                             <div class="curriculum-item">
                                 <div class="curriculum-icon"><i class="fa-solid fa-microphone-lines"></i></div>
                                 <div>
-                                    <h5>Voice & Body Language</h5>
-                                    <p>Voice modulation, projection, pronunciation clarity, physical expression, stage movement, and mime.</p>
+                                    <h5 data-i18n="curr-2-title">Voice & Body Language</h5>
+                                    <p data-i18n="curr-2-desc">Voice modulation, projection, pronunciation clarity, physical expression, stage movement, and mime.</p>
                                 </div>
                             </div>
                             
                             <div class="curriculum-item">
                                 <div class="curriculum-icon"><i class="fa-solid fa-video"></i></div>
                                 <div>
-                                    <h5>Camera Acting Techniques</h5>
-                                    <p>Understanding screen space, lens focus, micro-expressions, scripting, and adapting stage acting for the screen.</p>
+                                    <h5 data-i18n="curr-3-title">Camera Acting Techniques</h5>
+                                    <p data-i18n="curr-3-desc">Understanding screen space, lens focus, micro-expressions, scripting, and adapting stage acting for the screen.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="workshop-meta-grid">
                             <div class="meta-item">
-                                <span class="meta-label">Batches</span>
-                                <span class="meta-val">Evening (5:30 PM - 8:30 PM)</span>
+                                <span class="meta-label" data-i18n="meta-batches-label">Batches</span>
+                                <span class="meta-val" data-i18n="meta-batches-val">Evening (5:30 PM - 8:30 PM)</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Location</span>
-                                <span class="meta-val">Tonk Road, Jaipur</span>
+                                <span class="meta-label" data-i18n="meta-location-label">Location</span>
+                                <span class="meta-val" data-i18n="meta-location-val">Tonk Road, Jaipur</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Outcome</span>
-                                <span class="meta-val">Live Stage Play & Certificate</span>
+                                <span class="meta-label" data-i18n="meta-outcome-label">Outcome</span>
+                                <span class="meta-val" data-i18n="meta-outcome-val">Live Stage Play & Certificate</span>
                             </div>
                         </div>
 
-                        <button class="btn btn-primary open-modal-btn">Enquire / Register Now <i class="fa-solid fa-paper-plane icon-right"></i></button>
+                        <div class="workshop-ctas">
+                            <button class="btn btn-primary open-modal-btn pulse-button" data-i18n="btn-register-now">Register Online Now <i class="fa-solid fa-paper-plane icon-right"></i></button>
+                            <a href="https://wa.me/917821844466?text=Hello,%20I%20am%20interested%20in%20your%20acting%20workshop." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-direct" data-i18n="btn-whatsapp-query"><i class="fa-brands fa-whatsapp icon-left"></i> Enquire on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navarasa Section -->
+        <section id="navarasa" class="navarasa section-padding">
+            <div class="container">
+                <div class="section-header scroll-anim">
+                    <span class="section-subtitle" data-i18n="navarasa-subtitle">The Actor's Craft</span>
+                    <h2 class="section-title" data-i18n="navarasa-title">Navarasa: The Nine Emotions</h2>
+                    <div class="section-bar"></div>
+                    <p class="section-intro scroll-anim" data-i18n="navarasa-intro" style="max-width: 800px; margin: 20px auto 0; color: var(--text-muted); font-size: 1.1rem;">In Indian classical drama, the <em>Natyashastra</em> defines nine primary aesthetic sentiments (Rasas). ATR students master these emotions to cultivate complete control over voice, breath, and expression.</p>
+                </div>
+
+                <div class="navarasa-container scroll-anim">
+                    <!-- Navarasa Grid Buttons -->
+                    <div class="rasa-wheel" id="rasaWheel">
+                        <button class="rasa-btn active" data-rasa="shringara" aria-label="Shringara Rasa">
+                            <span class="rasa-hindi">शृंगार</span>
+                            <span class="rasa-eng">Shringara</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="hasya" aria-label="Hasya Rasa">
+                            <span class="rasa-hindi">हास्य</span>
+                            <span class="rasa-eng">Hasya</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="karuna" aria-label="Karuna Rasa">
+                            <span class="rasa-hindi">करुण</span>
+                            <span class="rasa-eng">Karuna</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="raudra" aria-label="Raudra Rasa">
+                            <span class="rasa-hindi">रौद्र</span>
+                            <span class="rasa-eng">Raudra</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="veera" aria-label="Veera Rasa">
+                            <span class="rasa-hindi">वीर</span>
+                            <span class="rasa-eng">Veera</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="bhayanaka" aria-label="Bhayanaka Rasa">
+                            <span class="rasa-hindi">भयानक</span>
+                            <span class="rasa-eng">Bhayanaka</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="bibhatsa" aria-label="Bibhatsa Rasa">
+                            <span class="rasa-hindi">बीभत्स</span>
+                            <span class="rasa-eng">Bibhatsa</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="adbhuta" aria-label="Adbhuta Rasa">
+                            <span class="rasa-hindi">अद्भुत</span>
+                            <span class="rasa-eng">Adbhuta</span>
+                        </button>
+                        <button class="rasa-btn" data-rasa="shanta" aria-label="Shanta Rasa">
+                            <span class="rasa-hindi">शान्त</span>
+                            <span class="rasa-eng">Shanta</span>
+                        </button>
+                    </div>
+
+                    <!-- Navarasa Details Display Panel -->
+                    <div class="rasa-display glass-card" id="rasaDisplay">
+                        <div class="rasa-display-content" id="rasaDisplayContent">
+                            <div class="rasa-header-block">
+                                <div class="rasa-icon-badge" id="rasaIconBadge"><i class="fa-solid fa-heart"></i></div>
+                                <div>
+                                    <h3 class="rasa-title" id="rasaTitle">शृंगार — Shringara</h3>
+                                    <span class="rasa-sentiment" id="rasaSentiment">Sentiment: Love, Beauty, and Aesthetics</span>
+                                </div>
+                            </div>
+                            <div class="rasa-body-block">
+                                <p class="rasa-desc" id="rasaDesc">Shringara is the "King of Rasas" (Rasaraja). It represents romance, charm, beauty, and emotional warmth. On stage, it is expressed through soft voice modulation, subtle side glances, gentle posture changes, and graceful movements.</p>
+                                <div class="rasa-focus-card">
+                                    <h5 data-i18n="rasa-focus-title">ATR Training Focus / अभिनय अभ्यास:</h5>
+                                    <p id="rasaFocus">Students practice vocal resonance without aggression, coordination of eye movements (Drishti Bheda), and staging romantic and classical dramatic scenes from folklore.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,89 +319,105 @@
         <section id="productions" class="productions section-padding">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Our Stagecraft</span>
-                    <h2 class="section-title">Acclaimed Productions</h2>
+                    <span class="section-subtitle" data-i18n="plays-subtitle">Our Stagecraft</span>
+                    <h2 class="section-title" data-i18n="plays-title">Acclaimed Productions</h2>
                     <div class="section-bar"></div>
                 </div>
 
                 <!-- Category Filters -->
                 <div class="filter-wrapper scroll-anim">
-                    <button class="filter-btn active" data-filter="all">All Plays</button>
-                    <button class="filter-btn" data-filter="historical">Historical / Biopic</button>
-                    <button class="filter-btn" data-filter="social">Social & Modern</button>
-                    <button class="filter-btn" data-filter="comedy">Folk & Comedy</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter-all">All Plays</button>
+                    <button class="filter-btn" data-filter="historical" data-i18n="filter-historical">Historical / Biopic</button>
+                    <button class="filter-btn" data-filter="social" data-i18n="filter-social">Social & Modern</button>
+                    <button class="filter-btn" data-filter="comedy" data-i18n="filter-comedy">Folk & Comedy</button>
                 </div>
 
                 <div class="plays-grid">
-                    <!-- Play 1 -->
+                    <!-- Play 1: Savarkar -->
+                    <div class="play-card scroll-anim" data-category="historical">
+                        <div class="play-img-wrapper">
+                            <div class="play-img-placeholder" style="background-image: linear-gradient(135deg, #9E1B26, #FF7B00);">
+                                <i class="fa-solid fa-landmark"></i>
+                            </div>
+                            <div class="play-category-tag" data-i18n="play-1-tag">Historical</div>
+                        </div>
+                        <div class="play-info">
+                            <h4 data-i18n="play-1-title">Kalpurush: Krantikari Veer Savarkar</h4>
+                            <p class="play-sub" data-i18n="play-1-sub">Patriotic Biography</p>
+                            <p class="play-desc" data-i18n="play-1-desc">A powerful presentation showcasing the life, cellular jail struggles, and philosophical thoughts of Vinayak Damodar Savarkar. Highlighted by high-impact monologues, it evokes a deep sense of national pride and sacrifice.</p>
+                            <div class="play-meta">
+                                <span><i class="fa-solid fa-user-tie"></i> <span data-i18n="play-dir">Dir. Dr. C.D. Hada</span></span>
+                                <span><i class="fa-solid fa-clock"></i> 120 <span data-i18n="play-mins">Mins</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Play 2: Agnipath -->
                     <div class="play-card scroll-anim" data-category="historical">
                         <div class="play-img-wrapper">
                             <img src="assets/play-agnipath.png" alt="Agnipath Play Scene" class="play-img">
-                            <div class="play-category-tag">Historical</div>
+                            <div class="play-category-tag" data-i18n="play-2-tag">Historical</div>
                         </div>
                         <div class="play-info">
-                            <h4>Agnipath</h4>
-                            <p class="play-sub">Biopic of Netaji Subhash Chandra Bose</p>
-                            <p class="play-desc">A highly emotional, patriotic stage drama tracing Netaji's heroic struggle, the formation of the Azad Hind Fauj, and his indomitable spirit. Staged at prominent auditoriums including Ravindra Manch.</p>
+                            <h4 data-i18n="play-2-title">Agnipath</h4>
+                            <p class="play-sub" data-i18n="play-2-sub">Biopic of Netaji Subhash Chandra Bose</p>
+                            <p class="play-desc" data-i18n="play-2-desc">A highly emotional, patriotic stage drama tracing Netaji Bose's heroic struggle, the formation of the Azad Hind Fauj, and his indomitable spirit. Dedicated to fostering national pride among youth.</p>
                             <div class="play-meta">
-                                <span><i class="fa-solid fa-user-tie"></i> Dir. Dr. C.D. Hada</span>
-                                <span><i class="fa-solid fa-clock"></i> 110 Mins</span>
+                                <span><i class="fa-solid fa-user-tie"></i> <span data-i18n="play-dir">Dir. Dr. C.D. Hada</span></span>
+                                <span><i class="fa-solid fa-clock"></i> 110 <span data-i18n="play-mins">Mins</span></span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Play 2 -->
+                    <!-- Play 3: Meri Maa -->
+                    <div class="play-card scroll-anim" data-category="social">
+                        <div class="play-img-wrapper">
+                            <img src="assets/play-meri-maa.png" alt="Meri Maa Play Scene" class="play-img">
+                            <div class="play-category-tag" data-i18n="play-3-tag">Social / Modern</div>
+                        </div>
+                        <div class="play-info">
+                            <h4 data-i18n="play-3-title">Meri Maa</h4>
+                            <p class="play-sub" data-i18n="play-3-sub">Tribute to Motherhood & Social Integrity</p>
+                            <p class="play-desc" data-i18n="play-3-desc">A heart-touching family drama that captures maternal sacrifice and highlights critical societal issues like the isolation of parents in modern times, encouraging family values and compassion.</p>
+                            <div class="play-meta">
+                                <span><i class="fa-solid fa-user-tie"></i> <span data-i18n="play-dir">Dir. Dr. C.D. Hada</span></span>
+                                <span><i class="fa-solid fa-clock"></i> 100 <span data-i18n="play-mins">Mins</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Play 4: Raja Master -->
                     <div class="play-card scroll-anim" data-category="comedy">
                         <div class="play-img-wrapper">
                             <img src="assets/play-raja-master.png" alt="Raja Master Play Scene" class="play-img">
-                            <div class="play-category-tag">Folk / Comedy</div>
+                            <div class="play-category-tag" data-i18n="play-4-tag">Folk / Comedy</div>
                         </div>
                         <div class="play-info">
-                            <h4>The Great Raja Master Drama Company</h4>
-                            <p class="play-sub">Retro Folk-Musical Comedy</p>
-                            <p class="play-desc">A hilarious tribute to India's traditional commercial drama companies. Features vibrant retro music, spectacular physical comedy, and deep satirical insights on vintage showmanship.</p>
+                            <h4 data-i18n="play-4-title">The Great Raja Master Drama Company</h4>
+                            <p class="play-sub" data-i18n="play-4-sub">Parsi Style Satirical Comedy</p>
+                            <p class="play-desc" data-i18n="play-4-desc">A hilarious tribute to India's traditional commercial theatre companies. Features spectacular physical comedy and deep satirical insights on preserving historical theatrical methods.</p>
                             <div class="play-meta">
-                                <span><i class="fa-solid fa-user-tie"></i> Dir. Dr. C.D. Hada</span>
-                                <span><i class="fa-solid fa-clock"></i> 95 Mins</span>
+                                <span><i class="fa-solid fa-user-tie"></i> <span data-i18n="play-dir">Dir. Dr. C.D. Hada</span></span>
+                                <span><i class="fa-solid fa-clock"></i> 95 <span data-i18n="play-mins">Mins</span></span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Play 3 -->
-                    <div class="play-card scroll-anim" data-category="historical">
-                        <div class="play-img-wrapper">
-                            <!-- Fallback/Placeholder style background -->
-                            <div class="play-img-placeholder" style="background-image: linear-gradient(135deg, #A82034, #16161D);">
-                                <i class="fa-solid fa-landmark"></i>
-                            </div>
-                            <div class="play-category-tag">Historical</div>
-                        </div>
-                        <div class="play-info">
-                            <h4>Kalpurush: Krantikari Veer Savarkar</h4>
-                            <p class="play-sub">Biographical Drama</p>
-                            <p class="play-desc">A powerful presentation showcasing the life, cellular jail struggles, and philosophical thoughts of Vinayak Damodar Savarkar. Highlighted by high-impact monologues and historical accuracy.</p>
-                            <div class="play-meta">
-                                <span><i class="fa-solid fa-user-tie"></i> Dir. Dr. C.D. Hada</span>
-                                <span><i class="fa-solid fa-clock"></i> 120 Mins</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Play 4 -->
+                    <!-- Play 5: Chuno Vahi -->
                     <div class="play-card scroll-anim" data-category="social">
                         <div class="play-img-wrapper">
-                            <div class="play-img-placeholder" style="background-image: linear-gradient(135deg, #16161D, #D4AF37);">
+                            <div class="play-img-placeholder" style="background-image: linear-gradient(135deg, #FAF2E5, #FF7B00);">
                                 <i class="fa-solid fa-people-group"></i>
                             </div>
-                            <div class="play-category-tag">Social / Modern</div>
+                            <div class="play-category-tag" data-i18n="play-5-tag">Social / Modern</div>
                         </div>
                         <div class="play-info">
-                            <h4>Chuno Vahi Jo Ho Sahi</h4>
-                            <p class="play-sub">Civic Consciousness Play</p>
-                            <p class="play-desc">Staged in collaboration with municipal and election departments, this street-style proscenium play raises awareness about democratic values, voting responsibilities, and corruption.</p>
+                            <h4 data-i18n="play-5-title">Chuno Vahi Jo Ho Sahi</h4>
+                            <p class="play-sub" data-i18n="play-5-sub">Street Awareness Play</p>
+                            <p class="play-desc" data-i18n="play-5-desc">Staged in collaboration with municipal and election departments, this street-style play raises awareness about democratic values, voting duties, and civic responsibility.</p>
                             <div class="play-meta">
-                                <span><i class="fa-solid fa-user-tie"></i> Dir. Dr. C.D. Hada</span>
-                                <span><i class="fa-solid fa-clock"></i> 60 Mins</span>
+                                <span><i class="fa-solid fa-user-tie"></i> <span data-i18n="play-dir">Dir. Dr. C.D. Hada</span></span>
+                                <span><i class="fa-solid fa-clock"></i> 60 <span data-i18n="play-mins">Mins</span></span>
                             </div>
                         </div>
                     </div>
@@ -330,45 +431,45 @@
             <div class="container festival-container">
                 <div class="festival-grid">
                     <div class="festival-content scroll-anim">
-                        <span class="festival-badge"><i class="fa-solid fa-star"></i> Annual Celebration</span>
-                        <h2>Rajasthan Rang Mahotsav (Raj Rangam)</h2>
-                        <p>Under the vision of Dr. Chandradeep Hada, Actors Theatre@Rajasthan organizes **Raj Rangam**, a major annual theatre festival celebrating national performing arts. This festival acts as a vibrant cultural bridge, bringing together acclaimed directors, playwrights, and ensembles from all over India to perform in Jaipur.</p>
-                        <p>The festival hosts diverse play performances, street theatre (Nukkad Natak), scholarly seminars on Natyashastra, and photography exhibitions tracing the legacy of Rajasthani folk artists.</p>
+                        <span class="festival-badge" data-i18n="fest-badge"><i class="fa-solid fa-star"></i> Annual Celebration</span>
+                        <h2 data-i18n="fest-title">Rajasthan Rang Mahotsav (Raj Rangam)</h2>
+                        <p data-i18n="fest-p1">Under the vision of Dr. Chandradeep Hada, ATR organizes Raj Rangam, a major annual theatre festival celebrating national performing arts. This festival acts as a vibrant cultural bridge, bringing together acclaimed directors and playwrights from all over India to showcase plays in Jaipur.</p>
+                        <p data-i18n="fest-p2">The festival hosts diverse play performances, street theatre (Nukkad Natak), scholarly seminars on Natyashastra, and exhibitions tracing the historical legacy of folk theatre, serving to preserve our intangible oral culture.</p>
                         
                         <div class="festival-bullets">
                             <div class="bullet">
                                 <span class="bullet-icon"><i class="fa-solid fa-circle-check"></i></span>
-                                <span>National Theatre Group Screenings</span>
+                                <span data-i18n="fest-b1">National Theatre Group Screenings</span>
                             </div>
                             <div class="bullet">
                                 <span class="bullet-icon"><i class="fa-solid fa-circle-check"></i></span>
-                                <span>Panel Discussions and Art Exhibitions</span>
+                                <span data-i18n="fest-b2">Panel Discussions and Art Exhibitions</span>
                             </div>
                             <div class="bullet">
                                 <span class="bullet-icon"><i class="fa-solid fa-circle-check"></i></span>
-                                <span>Supported by Ministry of Culture & JKK</span>
+                                <span data-i18n="fest-b3">Supported by Ministry of Culture & JKK</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="festival-card-wrapper scroll-anim">
                         <div class="glass-card festival-promo">
-                            <h4>Raj Rangam Highlights</h4>
+                            <h4 data-i18n="promo-title">Raj Rangam Highlights</h4>
                             <div class="promo-timeline">
                                 <div class="timeline-item">
                                     <span class="timeline-year">10+</span>
-                                    <p>National Plays Hosted Annually</p>
+                                    <p data-i18n="promo-t1">National Plays Hosted Annually</p>
                                 </div>
                                 <div class="timeline-item">
                                     <span class="timeline-year">3000+</span>
-                                    <p>Theater Enthusiasts Attend</p>
+                                    <p data-i18n="promo-t2">Theater Enthusiasts Attend</p>
                                 </div>
                                 <div class="timeline-item">
                                     <span class="timeline-year">5+</span>
-                                    <p>Interactive Workshops & Seminars</p>
+                                    <p data-i18n="promo-t3">Interactive Workshops & Seminars</p>
                                 </div>
                             </div>
-                            <a href="#contact" class="btn btn-secondary btn-full">Get Next Festival Updates</a>
+                            <a href="#contact" class="btn btn-secondary btn-full" data-i18n="promo-btn">Get Next Festival Updates</a>
                         </div>
                     </div>
                 </div>
@@ -379,8 +480,8 @@
         <section id="gallery" class="gallery section-padding">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Visual Journey</span>
-                    <h2 class="section-title">Gallery</h2>
+                    <span class="section-subtitle" data-i18n="gallery-subtitle">Visual Journey</span>
+                    <h2 class="section-title" data-i18n="gallery-title">Gallery</h2>
                     <div class="section-bar"></div>
                 </div>
 
@@ -388,25 +489,25 @@
                     <div class="gallery-item">
                         <img src="assets/hero-bg.png" alt="Stage Spotlight Gallery">
                         <div class="gallery-overlay">
-                            <span>Stage Lights</span>
+                            <span data-i18n="gallery-item-1">Stage Lights</span>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="assets/workshop.png" alt="Acting Circle Gallery">
                         <div class="gallery-overlay">
-                            <span>Workshop Practices</span>
+                            <span data-i18n="gallery-item-2">Workshop Practices</span>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="assets/play-agnipath.png" alt="Agnipath Play Gallery">
                         <div class="gallery-overlay">
-                            <span>"Agnipath" Production</span>
+                            <span data-i18n="gallery-item-3">"Agnipath" Production</span>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/play-raja-master.png" alt="Raja Master Gallery">
+                        <img src="assets/play-meri-maa.png" alt="Meri Maa Play Gallery">
                         <div class="gallery-overlay">
-                            <span>"Raja Master" Play</span>
+                            <span data-i18n="gallery-item-4">"Meri Maa" Production</span>
                         </div>
                     </div>
                 </div>
@@ -417,23 +518,23 @@
         <section id="updates" class="social-feed section-padding bg-darker">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Stay Updated</span>
-                    <h2 class="section-title">Latest Updates & News</h2>
+                    <span class="section-subtitle" data-i18n="updates-subtitle">Stay Updated</span>
+                    <h2 class="section-title" data-i18n="updates-title">Latest Updates & News</h2>
                     <div class="section-bar"></div>
                 </div>
                 
                 <div class="social-feed-container scroll-anim">
                     <div class="fb-page-wrapper glass-card">
-                        <!-- Facebook Page Plugin Iframe -->
-                        <iframe 
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Factorstheatre.rajasthan%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                            width="500" 
-                            height="600" 
-                            style="border:none;overflow:hidden;border-radius:12px;background: #14141A;" 
-                            scrolling="no" 
-                            frameborder="0" 
-                            allowfullscreen="true" 
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        <!-- Official Meta Facebook Page Plugin via IFrame -->
+                        <iframe id="fb-iframe" 
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Factorstheatre.rajasthan%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&locale=en_US" 
+                                width="500" 
+                                height="600" 
+                                style="border:none;overflow:hidden;width:100%;height:600px;border-radius:12px;" 
+                                scrolling="no" 
+                                frameborder="0" 
+                                allowfullscreen="true" 
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                         </iframe>
                     </div>
                 </div>
@@ -444,8 +545,8 @@
         <section id="press" class="press section-padding">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">In the Spotlight</span>
-                    <h2 class="section-title">Media Mentions & Press</h2>
+                    <span class="section-subtitle" data-i18n="press-subtitle">In the Spotlight</span>
+                    <h2 class="section-title" data-i18n="press-title">Media Mentions & Press</h2>
                     <div class="section-bar"></div>
                 </div>
 
@@ -454,26 +555,26 @@
                         <div class="glass-card clipping-card">
                             <img src="assets/media-clipping.png" alt="Actors Theatre Rajasthan Media Clipping Collage" class="press-img">
                             <div class="clipping-overlay">
-                                <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> View Press Coverage</span>
+                                <span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i> <span data-i18n="press-zoom">View Press Coverage</span></span>
                             </div>
                         </div>
                     </div>
 
                     <div class="press-articles scroll-anim">
                         <div class="article-item">
-                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> Dainik Bhaskar</span>
-                            <h4>Dr. Chandradeep Hada Sanctioned Fellowship for Research on Intangible Cultural Heritage</h4>
-                            <p>Local media reports on the prestigious fellowship awarded to Dr. Hada by the Ministry of Culture, Government of India, for documenting Rajasthan's traditional folk art forms.</p>
+                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> <span data-i18n="article-1-source">Dainik Bhaskar</span></span>
+                            <h4 data-i18n="article-1-title">Dr. Chandradeep Hada Awarded Senior Fellowship for Cultural Research</h4>
+                            <p data-i18n="article-1-desc">Local media reports on the prestigious fellowship awarded to Dr. Hada by the Ministry of Culture, Government of India, for documenting Rajasthan's traditional oral folk performing arts.</p>
                         </div>
                         <div class="article-item">
-                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> Rajasthan Patrika</span>
-                            <h4>Raj Rangam Theatre Festival Captivates Jaipur's Art Lovers</h4>
-                            <p>A detailed review of the annual theatre festival organized by Actors Theatre@Rajasthan at Jawahar Kala Kendra, showcasing dramatic excellence from nationwide ensembles.</p>
+                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> <span data-i18n="article-2-source">Rajasthan Patrika</span></span>
+                            <h4 data-i18n="article-2-title">Raj Rangam National Theatre Festival Captivates Jaipur Audience</h4>
+                            <p data-i18n="article-2-desc">A detailed review of the annual theatre festival organized by Actors Theatre@Rajasthan at Jawahar Kala Kendra, showcasing dramatic excellence and cultural heritage.</p>
                         </div>
                         <div class="article-item">
-                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> The Times of India</span>
-                            <h4>Vibrant 30-Day Acting and Personality Development Workshop Commences</h4>
-                            <p>Feature article covering the inauguration of ATR's flagship workshop in Jaipur, highlighting the focus on voice culture, Brechtian theatre, and stage performance methods.</p>
+                            <span class="article-source"><i class="fa-solid fa-newspaper"></i> <span data-i18n="article-3-source">The Times of India</span></span>
+                            <h4 data-i18n="article-3-title">30-Day Intensive Theatre Workshop Inaugurated in Jaipur</h4>
+                            <p data-i18n="article-3-desc">Feature article covering the inauguration of ATR's flagship acting workshop on Tonk Road, highlighting voice culture, methods of expression, and personality development.</p>
                         </div>
                     </div>
                 </div>
@@ -484,34 +585,34 @@
         <section id="contact" class="contact section-padding bg-darker">
             <div class="container">
                 <div class="section-header scroll-anim">
-                    <span class="section-subtitle">Connect With Us</span>
-                    <h2 class="section-title">Get In Touch</h2>
+                    <span class="section-subtitle" data-i18n="contact-subtitle">Connect With Us</span>
+                    <h2 class="section-title" data-i18n="contact-title">Get In Touch</h2>
                     <div class="section-bar"></div>
                 </div>
 
                 <div class="contact-grid">
                     <!-- Contact Info -->
                     <div class="contact-info-wrapper scroll-anim">
-                        <h3>Contact Information</h3>
-                        <p class="contact-sub">Have questions about our upcoming 30-day acting workshops, stage productions, or festival passes? Drop us a message.</p>
+                        <h3 data-i18n="contact-info-title">Contact Information</h3>
+                        <p class="contact-sub" data-i18n="contact-info-desc">Have questions about our upcoming 30-day acting workshops, stage productions, or festival passes? Drop us a message.</p>
                         
                         <div class="contact-details-list">
                             <div class="contact-detail-item">
                                 <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                                 <div>
-                                    <h5>Address</h5>
-                                    <p>Siddhi Vinayak, P-3, Kisan Marg, W-2, Madhuban Colony, Tonk Road, Jaipur – 302015, Rajasthan, India</p>
+                                    <h5 data-i18n="contact-addr-title">Address</h5>
+                                    <p data-i18n="contact-addr-val">Siddhi Vinayak, P-3, Kisan Marg, W-2, Madhuban Colony, Tonk Road, Jaipur – 302015, Rajasthan, India</p>
                                 </div>
                             </div>
                             
                             <div class="contact-detail-item">
                                 <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                                 <div>
-                                    <h5>Call / WhatsApp</h5>
+                                    <h5 data-i18n="contact-phone-title">Call / WhatsApp</h5>
                                     <p>
                                         <a href="tel:+917821844466" class="link-highlight">+91 78218 44466</a><br>
                                         <a href="tel:+918209499134" class="link-highlight">+91 82094 99134</a><br>
-                                        <a href="https://wa.me/917821844466" target="_blank" rel="noopener noreferrer" class="link-highlight"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                                        <a href="https://wa.me/917821844466" target="_blank" rel="noopener noreferrer" class="link-highlight"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="contact-phone-wa">Chat on WhatsApp</span></a>
                                     </p>
                                 </div>
                             </div>
@@ -519,7 +620,7 @@
                             <div class="contact-detail-item">
                                 <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                                 <div>
-                                    <h5>Email Address</h5>
+                                    <h5 data-i18n="contact-email-title">Email Address</h5>
                                     <p>info@actorstheatrerajasthan.org</p>
                                 </div>
                             </div>
@@ -527,14 +628,14 @@
                             <div class="contact-detail-item">
                                 <div class="contact-icon"><i class="fa-solid fa-circle-info"></i></div>
                                 <div>
-                                    <h5>Justdial Listing</h5>
-                                    <p><a href="https://jsdl.in/DT-30MY1RYB" target="_blank" rel="noopener noreferrer" class="link-highlight">Justdial Profile <i class="fa-solid fa-up-right-from-square"></i></a></p>
+                                    <h5 data-i18n="contact-jd-title">Justdial Listing</h5>
+                                    <p><a href="https://jsdl.in/DT-30MY1RYB" target="_blank" rel="noopener noreferrer" class="link-highlight"><span data-i18n="contact-jd-val">Justdial Profile</span> <i class="fa-solid fa-up-right-from-square"></i></a></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="social-links-wrapper">
-                            <h5>Follow Our Socials</h5>
+                            <h5 data-i18n="contact-social-title">Follow Our Socials</h5>
                             <div class="social-icons">
                                 <a href="https://www.instagram.com/actorstheatreatrajasthan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                                 <a href="https://www.facebook.com/share/1cY4QcxpNV/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -545,36 +646,38 @@
                     <!-- Contact Form -->
                     <div class="contact-form-wrapper scroll-anim">
                         <div class="glass-card">
-                            <h4>Send an Inquiry</h4>
+                            <h4 data-i18n="form-title">Send an Inquiry</h4>
                             <form id="contactForm" class="custom-form">
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="cName">Your Name</label>
+                                        <label for="cName" data-i18n="form-label-name">Your Name</label>
                                         <input type="text" id="cName" required placeholder="John Doe">
                                     </div>
                                     <div class="form-group">
-                                        <label for="cPhone">Phone Number</label>
+                                        <label for="cPhone" data-i18n="form-label-phone">Phone Number</label>
                                         <input type="tel" id="cPhone" required placeholder="+91 98765 43210">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cEmail">Email Address</label>
+                                    <label for="cEmail" data-i18n="form-label-email">Email Address</label>
                                     <input type="email" id="cEmail" required placeholder="john@example.com">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cInterest">Interest</label>
+                                    <label for="cInterest" data-i18n="form-label-interest">Interest</label>
                                     <select id="cInterest">
-                                        <option value="workshop">30-Day Acting Workshop</option>
-                                        <option value="festival">Raj Rangam Festival Info</option>
-                                        <option value="production">Collaboration / Hiring Plays</option>
-                                        <option value="general">General Inquiry</option>
+                                        <option value="workshop" data-i18n="opt-interest-1">30-Day Acting Workshop</option>
+                                        <option value="festival" data-i18n="opt-interest-2">Raj Rangam Festival Info</option>
+                                        <option value="production" data-i18n="opt-interest-3">Collaboration / Hiring Plays</option>
+                                        <option value="general" data-i18n="opt-interest-4">General Inquiry</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cMessage">Message</label>
+                                    <label for="cMessage" data-i18n="form-label-message">Message</label>
                                     <textarea id="cMessage" rows="4" required placeholder="Type your message here..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-full">Submit Inquiry <i class="fa-solid fa-paper-plane icon-right"></i></button>
+                                <button type="submit" class="btn btn-primary btn-full" id="cSubmitBtn">
+                                    <span data-i18n="btn-submit-inquiry">Submit Inquiry</span> <i class="fa-solid fa-paper-plane icon-right"></i>
+                                </button>
                             </form>
                             <div id="contactFormStatus" class="form-status"></div>
                         </div>
@@ -589,24 +692,24 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <a href="#home" class="logo">
-                    <span class="logo-sub">ACTORS THEATRE</span>
-                    <span class="logo-main">@RAJASTHAN</span>
+                    <span class="logo-sub" data-i18n="logo-sub">ACTORS THEATRE</span>
+                    <span class="logo-main" data-i18n="logo-main">@RAJASTHAN</span>
                 </a>
-                <p>Preserving intangible cultural heritage, training modern actors, and staging award-winning drama across India.</p>
+                <p data-i18n="footer-desc">Preserving intangible cultural heritage, training modern actors, and staging award-winning drama across India.</p>
             </div>
             <div class="footer-links">
-                <h5>Quick Links</h5>
-                <a href="#home">Home</a>
-                <a href="#about">About Dr. Hada</a>
-                <a href="#workshops">Acting Workshops</a>
-                <a href="#productions">Productions</a>
-                <a href="#festival">Raj Rangam Festival</a>
-                <a href="#updates">Latest Updates</a>
-                <a href="#press">Media Mentions</a>
+                <h5 data-i18n="footer-links-title">Quick Links</h5>
+                <a href="#home" data-i18n="nav-home">Home</a>
+                <a href="#about" data-i18n="nav-about">About Dr. Hada</a>
+                <a href="#workshops" data-i18n="nav-workshops">Acting Workshops</a>
+                <a href="#productions" data-i18n="nav-productions">Productions</a>
+                <a href="#festival" data-i18n="nav-festival">Raj Rangam Festival</a>
+                <a href="#updates" data-i18n="nav-updates">Latest Updates</a>
+                <a href="#press" data-i18n="nav-press">Media Mentions</a>
             </div>
             <div class="footer-socials">
-                <h5>Connect</h5>
-                <p>Jaipur, Rajasthan, India</p>
+                <h5 data-i18n="footer-connect-title">Connect</h5>
+                <p data-i18n="footer-location">Jaipur, Rajasthan, India</p>
                 <div class="footer-icons">
                     <a href="https://www.instagram.com/actorstheatreatrajasthan/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.facebook.com/share/1cY4QcxpNV/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
@@ -615,7 +718,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Actors Theatre@Rajasthan. All Rights Reserved. Crafted for Theatre Excellence.</p>
+            <p data-i18n="footer-copyright">&copy; 2026 Actors Theatre@Rajasthan. All Rights Reserved. Crafted for Theatre Excellence.</p>
         </div>
     </footer>
 
@@ -624,35 +727,37 @@
         <div class="modal-content glass-card">
             <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
             <div class="modal-header">
-                <h3>Workshop Registration</h3>
-                <p>Join the upcoming 30-Day Intensive Acting & Personality Development Workshop in Jaipur.</p>
+                <h3 data-i18n="modal-title">Workshop Registration</h3>
+                <p data-i18n="modal-subtitle">Join the upcoming 30-Day Intensive Acting & Personality Development Workshop in Jaipur.</p>
             </div>
             <form id="modalForm" class="custom-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="mName">Full Name</label>
+                        <label for="mName" data-i18n="form-label-name">Full Name</label>
                         <input type="text" id="mName" required placeholder="John Doe">
                     </div>
                     <div class="form-group">
-                        <label for="mPhone">Phone Number</label>
-                        <input type="tel" id="mPhone" required placeholder="+91 98765 43210">
+                        <label for="mPhone" data-i18n="form-label-phone">Phone Number</label>
+                        <input type="tel" id="mPhone" required placeholder="+91 78218 44466">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="mEmail">Email Address</label>
+                        <label for="mEmail" data-i18n="form-label-email">Email Address</label>
                         <input type="email" id="mEmail" required placeholder="john@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="mAge">Age</label>
+                        <label for="mAge" data-i18n="modal-label-age">Age</label>
                         <input type="number" id="mAge" required min="8" max="80" placeholder="21">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="mExperience">Prior Theatre Experience (If any)</label>
+                    <label for="mExperience" data-i18n="modal-label-exp">Prior Theatre Experience (If any)</label>
                     <textarea id="mExperience" rows="2" placeholder="Briefly describe your acting or stage experience, or type 'None'"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">Complete Registration <i class="fa-solid fa-check icon-right"></i></button>
+                <button type="submit" class="btn btn-primary btn-full" id="mSubmitBtn">
+                    <span data-i18n="btn-complete-reg">Complete Registration</span> <i class="fa-solid fa-check icon-right"></i>
+                </button>
             </form>
             <div id="modalFormStatus" class="form-status"></div>
         </div>
@@ -661,8 +766,17 @@
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917821844466" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+        <span class="whatsapp-tooltip" data-i18n="floating-wa-tooltip">Chat on WhatsApp</span>
     </a>
+
+    <!-- Image Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Image Viewer">
+        <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Zoomed view" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption">Media Clipping</div>
+        </div>
+    </div>
 
     <!-- JavaScript code -->
     <script src="script.js"></script>

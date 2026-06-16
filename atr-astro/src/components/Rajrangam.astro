@@ -1,0 +1,341 @@
+---
+---
+
+<section class="rajrangam section" id="rajrangam">
+  <div class="rr-bg">
+    <img 
+      src="/images/705474665_4570882616477964_2135786527177409264_n.jpg" 
+      alt="Packed auditorium at Rajrangam theatre festival" 
+      class="rr-bg-img"
+    />
+    <div class="rr-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="rr-content">
+      <div class="rr-header animate-in">
+        <span class="section-label">Annual Festival</span>
+        <h2 class="rr-title">
+          <span class="hindi-text">राजरंगम्</span>
+          <span class="rr-english">Rajrangam</span>
+        </h2>
+        <p class="rr-tagline">Rajasthan Rang Mahotsav</p>
+        <div class="gold-divider"></div>
+        <p class="rr-description">
+          India's premier state-level theatre festival, organised by Actors Theatre Rajasthan 
+          in association with the Ministry of Culture, Government of India. Rajrangam brings 
+          the finest theatre companies from across the nation to the cultural capital of Jaipur.
+        </p>
+      </div>
+
+      <div class="rr-features animate-in">
+        <div class="rr-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <h4>National Participation</h4>
+            <p>Theatre companies from 10+ states perform on the Jaipur stage</p>
+          </div>
+        </div>
+
+        <div class="rr-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Cultural Discourse</h4>
+            <p>National seminars on art, identity, and the future of Indian theatre</p>
+          </div>
+        </div>
+
+        <div class="rr-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Government Backed</h4>
+            <p>Supported by Ministry of Culture & Sangeet Natak Akademi</p>
+          </div>
+        </div>
+
+        <div class="rr-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Venue: Jaipur</h4>
+            <p>Ravindra Manch & Jawahar Kala Kendra — the cultural heart of Rajasthan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image grid -->
+      <div class="rr-gallery animate-in">
+        <div class="rr-img rr-img-1">
+          <img src="/images/510790664_10061155703998718_7953675398126372983_n.jpg" alt="Rajrangam 7th edition play posters" loading="lazy" />
+          <div class="rr-img-label">Play Lineup — 7th Edition</div>
+        </div>
+        <div class="rr-img rr-img-2">
+          <img src="/images/510981085_10061155840665371_9023389902411716223_n.jpg" alt="National seminar at Rajrangam" loading="lazy" />
+          <div class="rr-img-label">National Cultural Seminar</div>
+        </div>
+        <div class="rr-img rr-img-3">
+          <img src="/images/699097151_26915392404815117_1854046361045557255_n.jpg" alt="Rajrangam promotion" loading="lazy" />
+          <div class="rr-img-label">Festival Promotion & Outreach</div>
+        </div>
+      </div>
+
+      <!-- Editions timeline -->
+      <div class="rr-timeline animate-in">
+        <h3 class="timeline-title">7 Editions. Growing Every Year.</h3>
+        <div class="timeline-track">
+          {[1,2,3,4,5,6,7].map(n => (
+            <div class={`timeline-node ${n === 7 ? 'active' : ''}`}>
+              <div class="node-dot"></div>
+              <span class="node-label">{n}{n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rajrangam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rr-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .rr-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: brightness(0.18) saturate(0.5);
+  }
+
+  .rr-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13,13,13,0.6) 0%, rgba(13,13,13,0.4) 50%, rgba(13,13,13,0.8) 100%);
+  }
+
+  .rr-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .rr-header {
+    max-width: 680px;
+    margin-bottom: 3rem;
+  }
+
+  .rr-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hindi-text {
+    font-family: 'Tiro Devanagari Hindi', 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--gold);
+    line-height: 1.1;
+  }
+
+  .rr-english {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: rgba(250, 246, 239, 0.5);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .rr-tagline {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .rr-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+  }
+
+  /* Features */
+  .rr-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    max-width: 720px;
+  }
+
+  .rr-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .rr-feature h4 {
+    font-size: 0.9rem;
+    color: var(--ivory);
+    margin-bottom: 0.25rem;
+  }
+
+  .rr-feature p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Gallery */
+  .rr-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .rr-img {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .rr-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .rr-img:hover img {
+    transform: scale(1.05);
+  }
+
+  .rr-img-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ivory);
+    background: linear-gradient(to top, rgba(10,10,10,0.85), transparent);
+  }
+
+  /* Timeline */
+  .rr-timeline {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background: var(--border-subtle);
+    z-index: 0;
+  }
+
+  .timeline-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .node-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--section-mid);
+    border: 2px solid var(--border-subtle);
+    transition: var(--transition);
+  }
+
+  .timeline-node.active .node-dot {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 16px rgba(201, 168, 76, 0.4);
+  }
+
+  .node-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .timeline-node.active .node-label {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .rr-features { grid-template-columns: 1fr; }
+    .rr-gallery { grid-template-columns: 1fr; }
+  }
+</style>

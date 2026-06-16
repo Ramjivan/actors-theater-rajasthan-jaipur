@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Mission from '../components/Mission.astro';
+import Productions from '../components/Productions.astro';
+import Rajrangam from '../components/Rajrangam.astro';
+import Workshops from '../components/Workshops.astro';
+import Media from '../components/Media.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Actors Theatre Rajasthan | Theatre, Culture & Social Change — Jaipur NGO"
+  description="Actors Theatre Rajasthan (ATR) is a registered NGO in Jaipur using theatre to drive social awareness, cultural preservation, and community empowerment. Home of Rajrangam — Rajasthan's premier theatre festival."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Mission />
+    <Productions />
+    <Rajrangam />
+    <Workshops />
+    <Media />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -60px 0px',
+    }
+  );
+
+  document.querySelectorAll('.animate-in').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
