@@ -34,20 +34,56 @@ const {
 </html>
 
 <style is:global>
+  /*
+   * COLOUR PALETTE — Saffron & Warm Light
+   * Saffron = courage, heritage, warmth, Rajasthani pride.
+   * Backgrounds are warm ivory/cream, never clinical white.
+   * Text is deep warm-brown (not black) — inviting, readable.
+   * Hero stays dark & dramatic — you enter through the curtain,
+   * then the story opens into warmth and light.
+   * Emotion: Heritage · Warmth · Trust · Cultural Energy
+   */
   :root {
-    --crimson: #B85C00;
-    --crimson-light: #E06B00;
-    --gold: #FF9933;
-    --gold-light: #FFB84D;
-    --ivory: #FFF8F0;
-    --charcoal: #1A1208;
-    --dark-bg: #0E0A04;
-    --section-dark: #120D05;
-    --section-mid: #181009;
-    --text-muted: #8a7a6a;
-    --text-secondary: #b8a898;
-    --border-subtle: rgba(255, 153, 51, 0.15);
-    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Brand */
+    --saffron:       #E8720C;
+    --saffron-deep:  #C45E1A;
+    --saffron-light: #F4921E;
+    --saffron-pale:  #FDEBD0;
+    --amber:         #D4880A;
+
+    /* Backgrounds */
+    --bg-body:  #FFFDF7;
+    --bg-alt:   #FFF8EE;
+    --bg-warm:  #FEF2DC;
+    --bg-card:  #FFFFFF;
+
+    /* Text */
+    --ink:        #2C1800;
+    --ink-body:   #4A3320;
+    --ink-muted:  #8B6E55;
+    --ink-subtle: #BFA98A;
+
+    /* UI */
+    --border:        rgba(232, 114, 12, 0.18);
+    --border-strong: rgba(232, 114, 12, 0.35);
+    --shadow-sm:     0 2px 10px rgba(44, 24, 0, 0.06);
+    --shadow-md:     0 6px 24px rgba(44, 24, 0, 0.10);
+    --shadow-lg:     0 16px 48px rgba(44, 24, 0, 0.14);
+
+    /* Legacy aliases so Hero & Footer (dark sections) still work */
+    --crimson:       #C45E1A;
+    --crimson-light: #E8720C;
+    --gold:          #E8720C;
+    --gold-light:    #F4921E;
+    --ivory:         #FFFDF7;
+    --charcoal:      #2C1A04;
+    --dark-bg:       #1A0F02;
+    --section-dark:  #FFF8EE;
+    --section-mid:   #FEF2DC;
+    --text-muted:    #8B6E55;
+    --text-secondary:#4A3320;
+    --border-subtle: rgba(232, 114, 12, 0.18);
+    --transition:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   *, *::before, *::after {
@@ -56,14 +92,12 @@ const {
     padding: 0;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--ivory);
+    background-color: var(--bg-body);
+    color: var(--ink-body);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -71,35 +105,20 @@ const {
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
+    color: var(--ink);
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+  img { max-width: 100%; height: auto; }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+  a { color: inherit; text-decoration: none; }
 
   /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--dark-bg);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 3px;
-    opacity: 0.7;
-  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg-alt); }
+  ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
 
-  /* Section base styles */
-  .section {
-    padding: 5rem 0;
-  }
+  /* Section base */
+  .section { padding: 5rem 0; }
 
   .container {
     max-width: 1200px;
@@ -109,55 +128,50 @@ const {
 
   .section-label {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--saffron);
     margin-bottom: 1rem;
   }
 
   .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--ivory);
+    color: var(--ink);
     margin-bottom: 1.5rem;
   }
 
   .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
+    font-size: 1.05rem;
+    color: var(--ink-body);
     max-width: 640px;
-    line-height: 1.8;
+    line-height: 1.85;
   }
 
   .gold-divider {
-    width: 60px;
+    width: 56px;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--saffron), var(--saffron-pale));
+    border-radius: 2px;
     margin: 1.5rem 0;
   }
 
   /* Animations */
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes shimmer {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+    50%       { opacity: 0.55; }
   }
 
   .animate-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
   }
 
   .animate-in.visible {
@@ -166,8 +180,6 @@ const {
   }
 
   @media (max-width: 768px) {
-    .section {
-      padding: 3.5rem 0;
-    }
+    .section { padding: 3.5rem 0; }
   }
 </style>

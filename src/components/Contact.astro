@@ -37,7 +37,7 @@
             <div>
               <h4>Call Us</h4>
               <p>+91 94140 XXXXX</p>
-              <p style="font-size:0.8rem; color: var(--text-muted);">Mon–Sat, 10 AM – 6 PM</p>
+              <p class="sub-note">Mon–Sat, 10 AM – 6 PM</p>
             </div>
           </div>
 
@@ -64,7 +64,7 @@
               initiatives across Rajasthan.
             </p>
           </div>
-          <a href="mailto:actorstheatrerajasthan@gmail.com?subject=Donation Inquiry" class="btn-gold">
+          <a href="mailto:actorstheatrerajasthan@gmail.com?subject=Donation Inquiry" class="btn-donate">
             Donate to ATR
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -73,7 +73,6 @@
         </div>
       </div>
 
-      <!-- Contact form -->
       <div class="contact-form-wrap animate-in">
         <form class="contact-form" id="contact-form">
           <h3>Send a Message</h3>
@@ -122,9 +121,7 @@
 </section>
 
 <style>
-  .contact {
-    background: var(--section-mid);
-  }
+  .contact { background: var(--bg-alt); }
 
   .contact-grid {
     display: grid;
@@ -135,34 +132,25 @@
 
   .contact-text {
     font-size: 0.97rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     line-height: 1.9;
     margin-bottom: 2rem;
   }
 
-  .contact-ways {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-  }
+  .contact-ways { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem; }
 
-  .contact-way {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
+  .contact-way { display: flex; gap: 1rem; align-items: flex-start; }
 
   .way-icon {
     width: 42px;
     height: 42px;
-    background: rgba(201, 168, 76, 0.08);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: var(--saffron-pale);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold);
+    color: var(--saffron);
     flex-shrink: 0;
     margin-top: 2px;
   }
@@ -170,94 +158,69 @@
   .contact-way h4 {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--ivory);
+    color: var(--ink);
     margin-bottom: 0.25rem;
     font-family: 'Inter', sans-serif;
   }
 
-  .contact-way p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .contact-way p { font-size: 0.85rem; color: var(--ink-body); line-height: 1.6; }
+  .sub-note { font-size: 0.78rem; color: var(--ink-muted); }
 
   /* Donate CTA */
   .donate-cta {
     padding: 1.75rem;
-    background: linear-gradient(135deg, rgba(139, 26, 26, 0.15), rgba(201, 168, 76, 0.05));
-    border: 1px solid rgba(139, 26, 26, 0.2);
-    border-radius: 4px;
+    background: linear-gradient(135deg, var(--saffron-pale), var(--bg-warm));
+    border: 1px solid var(--border);
+    border-radius: 8px;
   }
 
-  .donate-text h3 {
-    font-size: 1.1rem;
-    color: var(--ivory);
-    margin-bottom: 0.5rem;
-  }
+  .donate-text h3 { font-size: 1.1rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .donate-text p { font-size: 0.85rem; color: var(--ink-body); line-height: 1.7; margin-bottom: 1.25rem; }
 
-  .donate-text p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-  }
-
-  .btn-gold {
+  .btn-donate {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--gold);
-    color: var(--charcoal);
+    background: var(--saffron);
+    color: #FFFFFF;
     padding: 0.75rem 1.75rem;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: var(--transition);
   }
 
-  .btn-gold:hover {
-    background: var(--gold-light);
+  .btn-donate:hover {
+    background: var(--saffron-deep);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 8px 24px rgba(232, 114, 12, 0.3);
   }
 
   /* Form */
-  .contact-form-wrap {
-    position: sticky;
-    top: 6rem;
-  }
+  .contact-form-wrap { position: sticky; top: 6rem; }
 
   .contact-form {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     padding: 2.5rem;
+    box-shadow: var(--shadow-md);
   }
 
-  .contact-form h3 {
-    font-size: 1.3rem;
-    color: var(--ivory);
-    margin-bottom: 0.4rem;
-  }
+  .contact-form h3 { font-size: 1.3rem; color: var(--ink); margin-bottom: 0.4rem; }
 
-  .form-subtitle {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-bottom: 1.75rem;
-  }
+  .form-subtitle { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 1.75rem; }
 
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
+  .form-group { margin-bottom: 1.25rem; }
 
   .form-group label {
     display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     margin-bottom: 0.5rem;
   }
 
@@ -265,38 +228,29 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
+    background: var(--bg-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
     padding: 0.75rem 1rem;
-    color: var(--ivory);
+    color: var(--ink);
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, background 0.3s ease;
     outline: none;
     -webkit-appearance: none;
   }
 
-  .form-group select {
-    cursor: pointer;
-  }
-
   .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: var(--text-muted);
-  }
+  .form-group textarea::placeholder { color: var(--ink-subtle); }
 
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus {
-    border-color: rgba(201, 168, 76, 0.4);
-    background: rgba(201, 168, 76, 0.03);
+    border-color: var(--saffron);
+    background: #FFFFFF;
   }
 
-  .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
 
   .btn-submit {
     width: 100%;
@@ -304,34 +258,29 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: var(--crimson);
-    color: var(--ivory);
+    background: var(--saffron);
+    color: #FFFFFF;
     border: none;
     padding: 0.9rem 2rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.05em;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: var(--transition);
     margin-top: 0.5rem;
   }
 
   .btn-submit:hover {
-    background: var(--crimson-light);
+    background: var(--saffron-deep);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139, 26, 26, 0.35);
+    box-shadow: 0 8px 24px rgba(232, 114, 12, 0.3);
   }
 
   @media (max-width: 900px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .contact-form-wrap {
-      position: static;
-    }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-form-wrap { position: static; }
   }
 </style>
 
@@ -341,7 +290,7 @@
     const btn = this.querySelector('.btn-submit') as HTMLButtonElement;
     const originalText = btn.innerHTML;
     btn.innerHTML = '✓ Message sent! We\'ll be in touch.';
-    btn.style.background = '#1a6b3a';
+    btn.style.background = '#1a7a3a';
     btn.disabled = true;
     setTimeout(() => {
       btn.innerHTML = originalText;

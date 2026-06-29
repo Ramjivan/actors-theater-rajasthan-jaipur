@@ -93,7 +93,7 @@
           </div>
         </div>
 
-        <a href="#contact" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+        <a href="#contact" class="btn-primary">
           Enrol in a Workshop
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -102,7 +102,6 @@
       </div>
     </div>
 
-    <!-- Workshop audience section -->
     <div class="audience-block animate-in">
       <div class="audience-image">
         <img 
@@ -139,7 +138,7 @@
 
 <style>
   .workshops {
-    background: var(--section-mid);
+    background: var(--bg-alt);
   }
 
   .workshops-layout {
@@ -151,11 +150,12 @@
   }
 
   .img-frame {
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 4/3;
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border);
     margin-bottom: 1rem;
+    box-shadow: var(--shadow-md);
   }
 
   .img-frame img {
@@ -165,53 +165,46 @@
     transition: transform 0.6s ease;
   }
 
-  .img-frame:hover img {
-    transform: scale(1.04);
-  }
+  .img-frame:hover img { transform: scale(1.04); }
 
   .img-caption {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--ink-muted);
     padding: 0 0.25rem;
     margin-bottom: 1.5rem;
   }
 
-  .caption-addr {
-    font-style: italic;
-  }
+  .caption-addr { font-style: italic; }
 
   .workshop-badge {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 1.25rem;
-    background: rgba(201, 168, 76, 0.06);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
-    color: var(--gold);
+    background: var(--saffron-pale);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--saffron);
   }
 
-  .workshop-badge div {
-    display: flex;
-    flex-direction: column;
-  }
+  .workshop-badge div { display: flex; flex-direction: column; }
 
   .workshop-badge strong {
     font-size: 0.9rem;
-    color: var(--ivory);
+    color: var(--ink);
   }
 
   .workshop-badge span {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--ink-muted);
   }
 
   .workshops-text {
     font-size: 0.97rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     line-height: 1.9;
     margin-bottom: 2rem;
   }
@@ -220,29 +213,31 @@
   .course-list {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
   .course-item {
     display: flex;
     gap: 1.25rem;
     padding: 1.25rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm);
   }
 
   .course-item:hover {
-    border-color: rgba(201, 168, 76, 0.2);
-    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
   }
 
   .course-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: rgba(201, 168, 76, 0.2);
+    color: rgba(232, 114, 12, 0.18);
     min-width: 32px;
     line-height: 1;
     padding-top: 2px;
@@ -250,13 +245,13 @@
 
   .course-details h4 {
     font-size: 0.95rem;
-    color: var(--ivory);
+    color: var(--ink);
     margin-bottom: 0.4rem;
   }
 
   .course-details p {
     font-size: 0.83rem;
-    color: var(--text-muted);
+    color: var(--ink-muted);
     line-height: 1.6;
     margin-bottom: 0.5rem;
   }
@@ -265,8 +260,29 @@
     display: flex;
     gap: 0.5rem;
     font-size: 0.72rem;
-    color: var(--gold);
-    font-weight: 500;
+    color: var(--saffron);
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--saffron);
+    color: #FFFFFF;
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--saffron-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 114, 12, 0.3);
   }
 
   /* Audience block */
@@ -276,16 +292,17 @@
     gap: 3rem;
     align-items: center;
     padding: 3rem;
-    background: rgba(139, 26, 26, 0.08);
-    border: 1px solid rgba(139, 26, 26, 0.15);
-    border-radius: 6px;
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     overflow: hidden;
   }
 
   .audience-image {
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     aspect-ratio: 16/9;
+    box-shadow: var(--shadow-md);
   }
 
   .audience-image img {
@@ -297,52 +314,37 @@
 
   .audience-content h3 {
     font-size: 1.5rem;
-    color: var(--ivory);
+    color: var(--ink);
     margin-bottom: 1rem;
   }
 
   .audience-content p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     line-height: 1.8;
     margin-bottom: 1.5rem;
   }
 
-  .audience-stats {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
+  .audience-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
 
-  .astat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
+  .astat { display: flex; flex-direction: column; gap: 0.2rem; }
 
   .astat-n {
     font-family: 'Playfair Display', serif;
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--saffron);
   }
 
   .astat-l {
     font-size: 0.72rem;
     letter-spacing: 0.05em;
-    color: var(--text-muted);
+    color: var(--ink-muted);
     text-transform: uppercase;
   }
 
   @media (max-width: 900px) {
-    .workshops-layout {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .audience-block {
-      grid-template-columns: 1fr;
-      padding: 2rem;
-    }
+    .workshops-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .audience-block { grid-template-columns: 1fr; padding: 2rem; }
   }
 </style>

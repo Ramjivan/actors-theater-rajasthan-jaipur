@@ -82,7 +82,6 @@
       </div>
     </div>
 
-    <!-- Impact bar -->
     <div class="impact-bar animate-in">
       <div class="impact-item">
         <span class="impact-num">7</span>
@@ -109,19 +108,17 @@
 
 <style>
   .mission {
-    background: var(--section-mid);
+    background: var(--bg-alt);
     position: relative;
   }
 
   .mission::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0.3;
+    background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+    opacity: 0.25;
   }
 
   .mission-header {
@@ -131,7 +128,7 @@
 
   .mission-header .gold-divider {
     margin: 1.5rem auto;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--saffron), transparent);
     width: 80px;
   }
 
@@ -143,51 +140,48 @@
   .mission-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 4rem;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
   }
 
   .mission-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     padding: 2rem;
     position: relative;
     overflow: hidden;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm);
   }
 
   .mission-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--crimson), var(--gold));
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--saffron), var(--saffron-pale));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
+    border-radius: 8px 8px 0 0;
   }
 
-  .mission-card:hover::before {
-    transform: scaleX(1);
-  }
+  .mission-card:hover::before { transform: scaleX(1); }
 
   .mission-card:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(201, 168, 76, 0.25);
+    border-color: var(--border-strong);
     transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 
   .card-number {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: rgba(201, 168, 76, 0.08);
+    color: rgba(232, 114, 12, 0.07);
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
+    top: 1rem; right: 1.5rem;
     line-height: 1;
     user-select: none;
   }
@@ -195,44 +189,45 @@
   .card-icon {
     width: 50px;
     height: 50px;
-    background: rgba(139, 26, 26, 0.15);
-    border: 1px solid rgba(139, 26, 26, 0.3);
-    border-radius: 4px;
+    background: var(--saffron-pale);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--crimson-light);
+    color: var(--saffron);
     margin-bottom: 1.25rem;
   }
 
   .mission-card h3 {
-    font-size: 1.15rem;
-    color: var(--ivory);
+    font-size: 1.1rem;
+    color: var(--ink);
     margin-bottom: 0.75rem;
   }
 
   .mission-card p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     line-height: 1.8;
     margin-bottom: 1.25rem;
   }
 
   .mission-card p em {
-    color: var(--gold);
+    color: var(--saffron);
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .card-tag {
     display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 0.25rem 0.75rem;
+    color: var(--saffron);
+    background: var(--saffron-pale);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem;
     border-radius: 2px;
   }
 
@@ -241,9 +236,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(135deg, rgba(139, 26, 26, 0.15), rgba(201, 168, 76, 0.05));
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: linear-gradient(135deg, var(--saffron-pale), var(--bg-warm));
+    border: 1px solid var(--border);
+    border-radius: 8px;
     padding: 2.5rem;
     flex-wrap: wrap;
     gap: 2rem;
@@ -263,13 +258,13 @@
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--saffron);
   }
 
   .impact-label {
     font-size: 0.78rem;
     letter-spacing: 0.05em;
-    color: var(--text-secondary);
+    color: var(--ink-muted);
     text-align: center;
     line-height: 1.5;
   }
@@ -277,18 +272,12 @@
   .impact-sep {
     width: 1px;
     height: 50px;
-    background: var(--border-subtle);
+    background: var(--border);
   }
 
   @media (max-width: 768px) {
-    .mission-cards {
-      grid-template-columns: 1fr;
-    }
-    .impact-bar {
-      gap: 1.5rem;
-    }
-    .impact-sep {
-      display: none;
-    }
+    .mission-cards { grid-template-columns: 1fr; }
+    .impact-bar { gap: 1.5rem; }
+    .impact-sep { display: none; }
   }
 </style>

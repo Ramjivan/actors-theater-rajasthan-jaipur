@@ -22,7 +22,7 @@ const productions = [
     title: "Chirangada",
     subtitle: "The Princess Who Chose Herself",
     genre: "Classical Adaptation",
-    description: "Based on Rabindranath Tagore's dance drama, this production reimagines Chirangada's journey through self-discovery, challenging gender roles in a visually stunning classical theatrical style with elaborate costumes and stagecraft.",
+    description: "Based on Rabindranath Tagore's dance drama, this production reimagines Chirangada's journey through self-discovery, challenging gender roles in a visually stunning classical theatrical style.",
     image: "/images/511530852_10060607880720167_8184964389718288958_n.jpg",
     tag: "Classical Theatre",
     highlight: "Rajrangam 7th Edition"
@@ -72,7 +72,6 @@ const productions = [
       ))}
     </div>
 
-    <!-- All plays CTA -->
     <div class="productions-cta animate-in">
       <p>ATR has staged <strong>40+ productions</strong> across Rajasthan and nationally at festivals including Bharat Rang Mahotsav</p>
       <a href="#contact" class="btn-outline">
@@ -87,7 +86,7 @@ const productions = [
 
 <style>
   .productions {
-    background: var(--section-dark);
+    background: var(--bg-body);
   }
 
   .productions-header {
@@ -103,17 +102,18 @@ const productions = [
   }
 
   .production-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     overflow: hidden;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm);
   }
 
   .production-card:hover {
-    border-color: rgba(201, 168, 76, 0.3);
+    border-color: var(--border-strong);
     transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-lg);
   }
 
   .production-card.featured {
@@ -128,9 +128,7 @@ const productions = [
     aspect-ratio: 16/9;
   }
 
-  .production-card.featured .card-image {
-    aspect-ratio: auto;
-  }
+  .production-card.featured .card-image { aspect-ratio: auto; }
 
   .card-image img {
     width: 100%;
@@ -139,42 +137,38 @@ const productions = [
     transition: transform 0.6s ease;
   }
 
-  .production-card:hover .card-image img {
-    transform: scale(1.05);
-  }
+  .production-card:hover .card-image img { transform: scale(1.05); }
 
   .card-image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.7) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(44, 24, 0, 0.55) 0%, transparent 55%);
   }
 
   .card-badges {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 1rem; left: 1rem;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
   }
 
   .badge-genre {
-    background: rgba(13, 13, 13, 0.85);
+    background: rgba(255, 253, 247, 0.92);
     backdrop-filter: blur(8px);
-    color: var(--text-secondary);
+    color: var(--ink);
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.3rem 0.7rem;
     border-radius: 2px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .badge-highlight {
-    background: rgba(139, 26, 26, 0.85);
+    background: var(--saffron);
     backdrop-filter: blur(8px);
-    color: var(--gold-light);
+    color: #FFFFFF;
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -196,40 +190,36 @@ const productions = [
 
   .card-tag-small {
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--saffron);
     margin-bottom: 0.75rem;
   }
 
   .card-title {
     font-size: 1.4rem;
-    color: var(--ivory);
+    color: var(--ink);
     margin-bottom: 0.3rem;
     transition: color 0.3s ease;
   }
 
-  .production-card.featured .card-title {
-    font-size: 2rem;
-  }
+  .production-card.featured .card-title { font-size: 2rem; }
 
-  .production-card:hover .card-title {
-    color: var(--gold);
-  }
+  .production-card:hover .card-title { color: var(--saffron); }
 
   .card-subtitle {
     font-family: 'Playfair Display', serif;
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--text-muted);
+    color: var(--ink-muted);
     font-weight: 400;
     margin-bottom: 1rem;
   }
 
   .card-description {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     line-height: 1.8;
     flex-grow: 1;
   }
@@ -241,56 +231,46 @@ const productions = [
     justify-content: space-between;
     gap: 2rem;
     padding: 2rem 2.5rem;
-    background: rgba(201, 168, 76, 0.05);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: var(--saffron-pale);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     flex-wrap: wrap;
   }
 
   .productions-cta p {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: var(--ink-body);
   }
 
-  .productions-cta p strong {
-    color: var(--ivory);
-  }
+  .productions-cta p strong { color: var(--ink); font-weight: 600; }
 
   .btn-outline {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--gold);
-    border: 1px solid var(--gold);
+    color: var(--saffron);
+    border: 1.5px solid var(--saffron);
     padding: 0.75rem 1.75rem;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: var(--transition);
     white-space: nowrap;
+    background: transparent;
   }
 
   .btn-outline:hover {
-    background: var(--gold);
-    color: var(--charcoal);
+    background: var(--saffron);
+    color: #FFFFFF;
   }
 
   @media (max-width: 900px) {
-    .production-card.featured {
-      grid-column: span 1;
-      display: block;
-    }
-
-    .productions-grid {
-      grid-template-columns: 1fr;
-    }
+    .production-card.featured { grid-column: span 1; display: block; }
+    .productions-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 600px) {
-    .productions-cta {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    .productions-cta { flex-direction: column; align-items: flex-start; }
   }
 </style>

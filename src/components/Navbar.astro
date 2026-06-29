@@ -49,10 +49,12 @@
   }
 
   .navbar.scrolled {
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 253, 247, 0.97);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 0.8rem 0;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 16px rgba(44, 24, 0, 0.08);
   }
 
   .nav-container {
@@ -87,7 +89,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--ivory);
+    color: var(--ink);
     letter-spacing: 0.02em;
   }
 
@@ -109,7 +111,7 @@
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.05em;
-    color: var(--text-secondary);
+    color: var(--ink-body);
     transition: var(--transition);
     position: relative;
   }
@@ -126,7 +128,7 @@
   }
 
   .nav-link:hover {
-    color: var(--ivory);
+    color: var(--saffron);
   }
 
   .nav-link:hover::after {
@@ -134,9 +136,9 @@
   }
 
   .nav-link.nav-cta {
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
+    background: var(--saffron);
+    border: 1px solid var(--saffron);
+    color: #FFFFFF;
     padding: 0.5rem 1.25rem;
     border-radius: 2px;
     font-size: 0.8rem;
@@ -148,8 +150,9 @@
   }
 
   .nav-link.nav-cta:hover {
-    background: var(--gold);
-    color: var(--charcoal);
+    background: var(--saffron-deep);
+    border-color: var(--saffron-deep);
+    color: #FFFFFF;
   }
 
   .hamburger {
@@ -166,7 +169,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--ivory);
+    background: var(--ink);
     transition: var(--transition);
   }
 
@@ -189,7 +192,7 @@
       right: -100%;
       width: min(320px, 85vw);
       height: 100vh;
-      background: rgba(13, 13, 13, 0.98);
+      background: rgba(255, 253, 247, 0.99);
       backdrop-filter: blur(20px);
       flex-direction: column;
       align-items: flex-start;
@@ -197,7 +200,8 @@
       gap: 1.5rem;
       padding: 2rem;
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-left: 1px solid var(--border-subtle);
+      border-left: 1px solid var(--border);
+      box-shadow: -4px 0 24px rgba(44, 24, 0, 0.1);
     }
 
     .nav-links.open {
