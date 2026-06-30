@@ -89,8 +89,15 @@
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--ink);
     letter-spacing: 0.02em;
+    /* Default: light (for dark hero) */
+    color: rgba(255, 253, 247, 0.92);
+    transition: color 0.35s ease;
+  }
+
+  /* When scrolled onto light page — switch to dark */
+  .navbar.scrolled .logo-main {
+    color: var(--ink);
   }
 
   .logo-sub {
@@ -111,9 +118,15 @@
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.05em;
-    color: var(--ink-body);
+    /* Default: light text for dark hero */
+    color: rgba(255, 248, 230, 0.75);
     transition: var(--transition);
     position: relative;
+  }
+
+  /* Scrolled: dark text for light bg */
+  .navbar.scrolled .nav-link:not(.nav-cta) {
+    color: var(--ink-body);
   }
 
   .nav-link::after {
@@ -169,8 +182,14 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--ink);
+    /* Default: light for dark hero */
+    background: rgba(255, 248, 230, 0.85);
     transition: var(--transition);
+  }
+
+  /* Scrolled: dark */
+  .navbar.scrolled .hamburger span {
+    background: var(--ink);
   }
 
   .hamburger.active span:nth-child(1) {
