@@ -1,0 +1,535 @@
+---
+const events = [
+  {
+    year: "2026",
+    title: "City Palace Dhundhadi Play",
+    meta: "18 May – 18 June 2026 • City Palace, Jaipur",
+    category: "production",
+    description: "Conducted a 30-day Theatre Workshop in Sanskritik Virasat Prashikshan Shivir. Directed stage play 'Sanatan Ra Prahari Maharaja Mansingh Ji Pahla' in Dhundhadi language, performed at Sarvato Bhadra, City Palace.",
+    image: "/images/events/traditional_performance_stage.jpeg"
+  },
+  {
+    year: "2026",
+    title: "8th Rajrangam Festival",
+    meta: "04 April – 31 May 2026 • Jawahar Kala Kendra, Jaipur",
+    category: "festival",
+    description: "Organized the national-level 8th Rajasthan Rang Mahotsav, showcasing 3 full-length stage plays (Flirt, Tartuffe, Gopichand Bhartrihari), 2 street plays (Nukkad Natak), a seminar, and a directors' art exhibition.",
+    image: "/images/posters/poster_1.jpeg"
+  },
+  {
+    year: "2026",
+    title: "ISKCON Cultural Camp Play",
+    meta: "18 May – 01 June 2026 • Shri Shri Krishna Balram Mandir, Jaipur",
+    category: "workshop",
+    description: "Directed a 15-day theatre workshop at ISKCON Temple, Jagatpura, culminating in the play 'Gupt Vrindavan Ka Rahasya' staged at Rasikam Auditorium."
+  },
+  {
+    year: "2026",
+    title: "Ma Bharati ki Pukar",
+    meta: "12 June 2026 • SMS Stadium, Jaipur",
+    category: "production",
+    description: "Staged the play 'Ma Bharati ki Pukar' for the State Level Prakritik Kheti Karyashala, organized by Kisan Morcha of BJP Rajasthan.",
+    image: "/images/events/patriotic_performance_stage.jpeg"
+  },
+  {
+    year: "2026",
+    title: "Murlipura School Workshop",
+    meta: "19 March 2026 • Govt. Girls Sr. Sec. School, Murlipura",
+    category: "workshop",
+    description: "Conducted a children's theatre workshop designed to build confidence, vocal expression, and artistic awareness.",
+    image: "/images/events/school_workshop_outdoor_1.jpeg"
+  },
+  {
+    year: "2026",
+    title: "Ruparampura School Workshop",
+    meta: "24 January 2026 • Ruparampura Govt. School, Jaipur",
+    category: "workshop",
+    description: "Organized and directed an acting and storytelling workshop for rural children to build connection and creative expression.",
+    image: "/images/events/school_workshop_outdoor_2.jpeg"
+  },
+  {
+    year: "2025",
+    title: "Kalpurush (Krantikari Veer Savarkar)",
+    meta: "02 December 2025 • Ravindra Manch, Jaipur",
+    category: "production",
+    description: "Performed the historical play 'Kalpurush-Krantikari Veer Savarkar' at the Mini Theatre, Ravindra Manch, directed by Dr. Chandradeep Hada."
+  },
+  {
+    year: "2025",
+    title: "2nd Lok Natya Prayogotsav",
+    meta: "26 June 2025 • Jawahar Kala Kendra, Jaipur",
+    category: "festival",
+    description: "Staged 'Raja Bharthari' and 'Raja Mordhvaj' based on Turrakalangi and Kuchamani Khyal styles. Sanctioned by Sangeet Natak Akademi, New Delhi.",
+    image: "/images/posters/poster_3.jpeg"
+  },
+  {
+    year: "2025",
+    title: "Akhand Bharat Street Campaign",
+    meta: "20 June 2025 • Various Locations, Jaipur",
+    category: "campaign",
+    description: "Staged 4 shows of street play 'Akhand Bharat-Sapna Nahin Sankalp' across Jaipur to promote national integration, in association with Rudra Foundation."
+  },
+  {
+    year: "2025",
+    title: "SNA Youth Hostel Workshop",
+    meta: "27 May – 26 June 2025 • Youth Hostel, Jaipur",
+    category: "workshop",
+    description: "Conducted a 30-day professional theatre workshop sponsored and approved by Sangeet Natak Akademi, New Delhi.",
+    image: "/images/events/rehearsal_workshop.jpeg"
+  },
+  {
+    year: "2025",
+    title: "Acharya Bhikshu Stage Play",
+    meta: "07 September 2025 • Anuvibha Kendra, Jaipur",
+    category: "production",
+    description: "Directed stage play 'Acharya Bhikshu (Janma se Diksha)' for Terapanth Mahila Mandal, depicting the spiritual journey of the Acharya."
+  },
+  {
+    year: "2025",
+    title: "NSD Vishva Jan Rang Mahotsav",
+    meta: "2025 • New Delhi / Jaipur",
+    category: "production",
+    description: "Staged 'Pancham Ved' for the prestigious Vishva Jan Rang Mahotsav organized by the National School of Drama, New Delhi."
+  },
+  {
+    year: "2025",
+    title: "7th Rajrangam Festival",
+    meta: "02 – 06 January 2025 • Jawahar Kala Kendra, Jaipur",
+    category: "festival",
+    description: "Staged 5 stage plays, 1 seminar, and a 5-day exhibition. sanctioned by the Ministry of Culture, Govt. of India.",
+    image: "/images/posters/poster_7.jpeg"
+  },
+  {
+    year: "2024",
+    title: "Agnipath at Rang Swadhinta",
+    meta: "13 August 2024 • SNA Showcase, Jaipur",
+    category: "production",
+    description: "Staged play 'Agnipath' on the occasion of the 78th Independence Day in SNA's Rang Swadhinta Jashna. Written by Lt. Mahendra Jain.",
+    image: "/images/play-agnipath.png"
+  },
+  {
+    year: "2024",
+    title: "Bangkok International Workshop & Play",
+    meta: "19 – 21 January 2024 • Bangkok, Thailand",
+    category: "workshop",
+    description: "Traveled internationally to conduct a 3-day workshop with the Thai-Indian Theatre Club and staged 'Ram Lala Ghar Aaye' at the Marriott, Bangkok."
+  },
+  {
+    year: "2024",
+    title: "Baral Kranti Play",
+    meta: "13 April 2024 • Rajasthan International Centre, Jaipur",
+    category: "production",
+    description: "Staged the historical narrative 'Baral Kranti' for the release of Dr. Nimisha Gaur's book at the Rajasthan International Centre (RIC)."
+  },
+  {
+    year: "2024",
+    title: "1st Lok Natya Prayogotsav",
+    meta: "14 March 2024 • Darshak College, Jaipur",
+    category: "festival",
+    description: "Staged traditional folk plays 'Shiv Mahima' and 'Bheli Bat' on an open stage. Sanctioned by Sangeet Natak Akademi, New Delhi."
+  },
+  {
+    year: "2024",
+    title: "25th Bharat Rang Mahotsav (NSD)",
+    meta: "21 February 2024 • Jaipur",
+    category: "campaign",
+    description: "Performed street play 'Lo Aai Vapas Sone ki Chidiya' as Director and Lead Actor for the silver jubilee celebration of NSD's Bharat Rang Mahotsav."
+  },
+  {
+    year: "2024",
+    title: "Vanikaran Environmental Campaign",
+    meta: "28 November – 08 December 2024 • Jaipur",
+    category: "campaign",
+    description: "Performed 50 street play shows in schools, colleges, and public spots on forest conservation, in partnership with Vandematram Sanstha."
+  },
+  {
+    year: "2023",
+    title: "Kar Himmat Campaign",
+    meta: "18 January – 06 February 2023 • 9 Rajasthan Districts",
+    category: "campaign",
+    description: "Co-ordinated and performed 540 street play shows across 9 districts to promote youth empowerment and health, in partnership with Rajasthan Patrika.",
+    image: "/images/posters/poster_20.jpeg"
+  },
+  {
+    year: "2023",
+    title: "Election Voter Awareness Campaign",
+    meta: "2023 Election • 200 Assembly Constituencies",
+    category: "campaign",
+    description: "Staged voter awareness street plays, puppets, and magic shows. ATR teams staged 60 shows in Sanganer, Adarsh Nagar, and Hawa Mahal areas."
+  },
+  {
+    year: "2023",
+    title: "Meri Maa Stage Production",
+    meta: "23 July 2023 • Ravindra Manch, Jaipur",
+    category: "production",
+    description: "Staged 'Meri Maa' in the 1st Lok Natya Prayogotsav. Staged before SNA Chairman Dr. Sandhya Purecha, adapted by Jairoop Jeevan.",
+    image: "/images/play-meri-maa.png"
+  },
+  {
+    year: "2023",
+    title: "ISKCON Children camps",
+    meta: "15 May – 25 June 2023 • ISKCON Temple, Jaipur",
+    category: "workshop",
+    description: "Directed two intensive 21-day children's acting camps at ISKCON Temple, Jagatpura, culminating in stages of the play 'Prakatya'."
+  },
+  {
+    year: "2023",
+    title: "Veer Savarkar 90-Day Camp",
+    meta: "05 April – 13 June 2023 • Birla Auditorium, Jaipur",
+    category: "workshop",
+    description: "Conducted a 90-day play workshop sanctioned by Ministry of Culture, Govt. of India, culminating in play 'Kalpurush' at Birla Auditorium.",
+    image: "/images/events/masked_theatre_performance.jpeg"
+  }
+];
+---
+
+<section class="timeline-section section" id="timeline">
+  <div class="container">
+    <div class="timeline-header animate-in">
+      <span class="section-label">Timeline of Impact</span>
+      <h2 class="section-title">Decades of Action,<br />Years of Repertoire</h2>
+      <div class="gold-divider"></div>
+      <p class="section-subtitle">
+        Explore our active archive of stage productions, traditional folk festivals, 
+        educational academy workshops, and social awareness campaigns across India and beyond.
+      </p>
+    </div>
+
+    <!-- Filters -->
+    <div class="timeline-filters animate-in">
+      <button class="filter-btn active" data-filter="all">All Activities</button>
+      <button class="filter-btn" data-filter="production">Stage Plays</button>
+      <button class="filter-btn" data-filter="festival">Festivals & Events</button>
+      <button class="filter-btn" data-filter="workshop">Workshops & Academy</button>
+      <button class="filter-btn" data-filter="campaign">Social Campaigns</button>
+    </div>
+
+    <!-- Timeline Grid -->
+    <div class="timeline-grid animate-in">
+      <div class="timeline-track-line"></div>
+      
+      {events.map((event) => (
+        <div class="timeline-card" data-category={event.category}>
+          <div class="timeline-badge-node">
+            <span class="badge-year">{event.year}</span>
+          </div>
+          
+          <div class="card-inner">
+            {event.image && (
+              <div class="card-img-holder">
+                <img src={event.image} alt={event.title} loading="lazy" />
+              </div>
+            )}
+            <div class="card-content">
+              <span class={`cat-tag tag-${event.category}`}>{event.category}</span>
+              <h3>{event.title}</h3>
+              <div class="event-meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>{event.meta}</span>
+              </div>
+              <p>{event.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="report-cta animate-in">
+      <p>Want a complete report of our activities from 2021 to 2026?</p>
+      <a href="/documents/Activities_Report_2021_2026.pdf" target="_blank" class="btn-download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Activities Report (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    background: var(--bg-body);
+    position: relative;
+  }
+
+  .timeline-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline-header .gold-divider {
+    margin: 1.5rem auto;
+    background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+    width: 80px;
+  }
+
+  .timeline-header .section-subtitle {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Filters */
+  .timeline-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 4rem;
+  }
+
+  .filter-btn {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--ink-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.6rem 1.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--saffron);
+    border-color: var(--saffron);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(232, 114, 12, 0.2);
+  }
+
+  /* Grid Layout */
+  .timeline-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline-track-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    width: 1px;
+    background: var(--border-strong);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .timeline-card {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .timeline-card.hidden {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    border: none;
+  }
+
+  /* Badge node */
+  .timeline-badge-node {
+    width: 56px;
+    height: 56px;
+    background: var(--bg-warm);
+    border: 2px solid var(--saffron);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--saffron);
+  }
+
+  /* Card content */
+  .card-inner {
+    flex-grow: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .timeline-card:hover .card-inner {
+    border-color: var(--border-strong);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-img-holder {
+    aspect-ratio: 16/7;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-img-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .cat-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .tag-production { background: #FDEBD0; color: #E8720C; border: 1px solid rgba(232,114,12,0.15); }
+  .tag-festival { background: #E8F8F5; color: #117A65; border: 1px solid rgba(17,122,101,0.15); }
+  .tag-workshop { background: #EBF5FB; color: #2980B9; border: 1px solid rgba(41,128,185,0.15); }
+  .tag-campaign { background: #F4ECF7; color: #8E44AD; border: 1px solid rgba(142,68,173,0.15); }
+
+  .card-content h3 {
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+
+  .event-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .event-meta svg {
+    color: var(--saffron);
+  }
+
+  .card-content p {
+    font-size: 0.85rem;
+    color: var(--ink-body);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .report-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--saffron-pale);
+    border: 1px dashed var(--border-strong);
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .report-cta p {
+    font-size: 0.95rem;
+    color: var(--ink-body);
+    font-weight: 500;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--saffron);
+    color: #FFFFFF;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+
+  .btn-download:hover {
+    background: var(--saffron-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232, 114, 12, 0.2);
+  }
+
+  @media (min-width: 650px) {
+    .card-inner {
+      grid-template-columns: 1fr;
+    }
+    
+    /* If card has image, we show it nicely */
+    .timeline-card:has(.card-img-holder) .card-inner {
+      grid-template-columns: 35% 1fr;
+    }
+
+    .timeline-card:has(.card-img-holder) .card-img-holder {
+      aspect-ratio: auto;
+      height: 100%;
+      border-bottom: none;
+      border-right: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .timeline-track-line { left: 20px; }
+    .timeline-badge-node { width: 40px; height: 40px; }
+    .badge-year { font-size: 0.75rem; }
+    .timeline-card { gap: 1rem; }
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.timeline-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active to current
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -1,24 +1,148 @@
 ---
+const actionPhotos = [
+  {
+    src: "/images/events/traditional_performance_stage.jpeg",
+    title: "Gopichand Bhartrihari",
+    caption: "Dilip Bhatt's traditional Rajasthani Tamasha musical play on stage."
+  },
+  {
+    src: "/images/events/patriotic_performance_stage.jpeg",
+    title: "Patriotic Play Performance",
+    caption: "A stirring scene from our patriotic drama honouring freedom fighters."
+  },
+  {
+    src: "/images/events/rehearsal_workshop.jpeg",
+    title: "SNA Youth Workshop Rehearsal",
+    caption: "Students participating in physical training at the Youth Hostel, Jaipur."
+  },
+  {
+    src: "/images/events/school_workshop_outdoor_1.jpeg",
+    title: "Murlipura School Workshop",
+    caption: "Dr. Chandradeep Hada directing acting workshop for school children."
+  },
+  {
+    src: "/images/events/school_workshop_outdoor_2.jpeg",
+    title: "Ruparampura School Workshop",
+    caption: "Teaching acting and folk storytelling to children in Govt. School, Ruparampura."
+  },
+  {
+    src: "/images/events/rajrangam_musical_performance.jpeg",
+    title: "7th Rajrangam Showcase",
+    caption: "Live musical play presentation at Jawahar Kala Kendra."
+  },
+  {
+    src: "/images/events/masked_theatre_performance.jpeg",
+    title: "Mask Theatre Performance",
+    caption: "Veer Savarkar play workshop showcase showing masked ensembles."
+  }
+];
+
+const eventPosters = [
+  {
+    src: "/images/posters/poster_1.jpeg",
+    title: "8th Rajrangam National Festival",
+    caption: "Official program schedule poster for the 8th Rajrangam, JKK Jaipur."
+  },
+  {
+    src: "/images/posters/poster_2.jpeg",
+    title: "8th Rajrangam Brochure",
+    caption: "Festival details and showcase information flyer, Jawahar Kala Kendra."
+  },
+  {
+    src: "/images/posters/poster_3.jpeg",
+    title: "2nd Lok Natya Prayogotsav",
+    caption: "Sangeet Natak Akademi supported Turrakalangi & Kuchamani Khyal festival."
+  },
+  {
+    src: "/images/posters/poster_7.jpeg",
+    title: "7th Rajrangam Poster",
+    caption: "Schedule of contemporary plays at JKK from 2nd to 6th January 2025."
+  },
+  {
+    src: "/images/posters/poster_10.jpeg",
+    title: "1st Lok Natya Prayogotsav",
+    caption: "Posters of the folk showcase including Shiv Mahima and Bheli Bat."
+  },
+  {
+    src: "/images/posters/poster_15.jpeg",
+    title: "Vigyan Natak Utsav Poster",
+    caption: "Exhibition and play posters organized by Science & Technology Department."
+  }
+];
 ---
 
 <section class="media section" id="media">
   <div class="container">
     <div class="media-header animate-in">
-      <span class="section-label">Press & Recognition</span>
-      <h2 class="section-title">When the Stage<br />Makes the Headlines</h2>
+      <span class="section-label">Gallery & Recognition</span>
+      <h2 class="section-title">When the Stage<br />Tells the Story</h2>
       <div class="gold-divider"></div>
       <p class="section-subtitle">
-        Our work has earned recognition from national media, government bodies, 
-        and cultural institutions. Theatre that matters gets noticed.
+        A glimpse of our theatrical productions, national recognition, and past campaigns. 
+        Click any photo or poster to expand it.
       </p>
     </div>
 
-    <div class="media-layout">
-      <div class="media-clipping animate-in">
+    <!-- Gallery tabs -->
+    <div class="gallery-tabs animate-in">
+      <button class="tab-btn active" data-tab="photos">Performance Photos</button>
+      <button class="tab-btn" data-tab="posters">Event Posters</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid animate-in" id="gallery-container">
+      <!-- Photos Tab -->
+      <div class="gallery-pane active" id="pane-photos">
+        <div class="masonry-grid">
+          {actionPhotos.map((photo) => (
+            <div class="gallery-item" data-src={photo.src} data-title={photo.title} data-caption={photo.caption}>
+              <img src={photo.src} alt={photo.title} loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <polyline points="15 3 21 3 21 9"/>
+                    <polyline points="9 21 3 21 3 15"/>
+                    <line x1="21" y1="3" x2="14" y2="10"/>
+                    <line x1="3" y1="21" x2="10" y2="14"/>
+                  </svg>
+                </span>
+                <h4>{photo.title}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Posters Tab -->
+      <div class="gallery-pane" id="pane-posters">
+        <div class="masonry-grid">
+          {eventPosters.map((poster) => (
+            <div class="gallery-item" data-src={poster.src} data-title={poster.title} data-caption={poster.caption}>
+              <img src={poster.src} alt={poster.title} loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <polyline points="15 3 21 3 21 9"/>
+                    <polyline points="9 21 3 21 3 15"/>
+                    <line x1="21" y1="3" x2="14" y2="10"/>
+                    <line x1="3" y1="21" x2="10" y2="14"/>
+                  </svg>
+                </span>
+                <h4>{poster.title}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards and Social Info Split -->
+    <div class="media-layout animate-in">
+      <div class="media-clipping">
         <div class="clipping-frame">
           <img 
-            src="/images/actors-academy-of-rajasthan-tonk-road-jaipur-a4phb.jpg" 
-            alt="Morning Jaipur newspaper: Girl Child's Plight sways Rang Mahotsav" 
+            src="/images/media-clipping.png" 
+            alt="Newspaper clipping from Rajasthan Patrika praising ATR workshops" 
             loading="lazy"
           />
         </div>
@@ -30,13 +154,13 @@
             </svg>
           </div>
           <div>
-            <strong>Morning Jaipur</strong>
-            <span>"Girl Child's Plight sways Rang Mahotsav"</span>
+            <strong>Rajasthan Patrika & Bhaskar</strong>
+            <span>"Socially relevant theatre bridging tradition and community action"</span>
           </div>
         </div>
       </div>
 
-      <div class="recognitions animate-in">
+      <div class="recognitions">
         <h3 class="recog-title">Awards & Recognition</h3>
 
         <div class="recog-list">
@@ -48,9 +172,9 @@
               </svg>
             </div>
             <div class="recog-content">
-              <h4>Ministry of Culture Grant</h4>
-              <p>Ministry of Culture, Government of India — for organising Rajrangam, the State Theatre Festival</p>
-              <span class="recog-year">Recurring Annual Recognition</span>
+              <h4>Ministry of Culture Grants</h4>
+              <p>Supported by Ministry of Culture, Govt. of India — for organizing annual Rajrangam Festivals.</p>
+              <span class="recog-year">Annual Support</span>
             </div>
           </div>
 
@@ -61,9 +185,9 @@
               </svg>
             </div>
             <div class="recog-content">
-              <h4>National Media Coverage</h4>
-              <p>Featured in Dainik Bhaskar, Rajasthan Patrika, and Morning Jaipur for socially impactful productions</p>
-              <span class="recog-year">Multiple Years</span>
+              <h4>Junior Research Fellowship</h4>
+              <p>Awarded to Creative Director Dr. Chandradeep Hada for theatre scholarship by MoC.</p>
+              <span class="recog-year">Research Recognition</span>
             </div>
           </div>
 
@@ -74,29 +198,16 @@
               </svg>
             </div>
             <div class="recog-content">
-              <h4>Sangeet Natak Akademi Collaboration</h4>
-              <p>Ongoing artistic and production partnership with India's national academy for music, dance and drama</p>
-              <span class="recog-year">Ongoing</span>
-            </div>
-          </div>
-
-          <div class="recog-item">
-            <div class="recog-icon amber">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </div>
-            <div class="recog-content">
-              <h4>Participation — Bharat Rang Mahotsav</h4>
-              <p>ATR productions selected for India's largest national theatre festival, organised by National School of Drama</p>
-              <span class="recog-year">Multiple Editions</span>
+              <h4>Sangeet Natak Akademi Sanctions</h4>
+              <p>Recognized for folk preservation in Turrakalangi, Khyal and Tamasha styles.</p>
+              <span class="recog-year">Ongoing Partnerships</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Social follow block -->
     <div class="social-block animate-in">
       <h3>Follow Our Journey</h3>
       <p>Stay updated on upcoming productions, workshops, and festival announcements.</p>
@@ -122,6 +233,18 @@
       </div>
     </div>
   </div>
+
+  <!-- Lightbox Modal -->
+  <div id="media-lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <div class="lightbox-wrapper">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -129,12 +252,117 @@
 
   .media-header { margin-bottom: 3.5rem; }
 
+  /* Tabs styling */
+  .gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .tab-btn:hover {
+    color: var(--saffron);
+  }
+
+  .tab-btn.active {
+    color: var(--saffron);
+    border-bottom-color: var(--saffron);
+  }
+
+  /* Grid Panes */
+  .gallery-pane {
+    display: none;
+  }
+
+  .gallery-pane.active {
+    display: block;
+  }
+
+  /* Masonry Grid */
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 5rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(44, 24, 0, 0.85) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .gallery-overlay h4 {
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+  }
+
+  .zoom-icon {
+    align-self: flex-start;
+    color: #FFFFFF;
+    opacity: 0.8;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+
+  /* Awards & Recognition layout */
   .media-layout {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 4rem;
     align-items: start;
     margin-bottom: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
   }
 
   .clipping-frame {
@@ -279,5 +507,139 @@
   }
   .social-btn.youtube:hover { background: rgba(255, 0, 0, 0.12); transform: translateY(-2px); }
 
-  @media (max-width: 900px) { .media-layout { grid-template-columns: 1fr; } }
+  /* Lightbox Styles */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 24, 0, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-wrapper {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .lightbox-wrapper img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: #FFFDF7;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+  }
+
+  .lightbox-close:hover {
+    color: var(--saffron);
+  }
+
+  .lightbox-caption {
+    text-align: center;
+    color: #FFFDF7;
+    max-width: 600px;
+  }
+
+  .lightbox-caption h3 {
+    font-size: 1.25rem;
+    color: var(--saffron-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .lightbox-caption p {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .media-layout { grid-template-columns: 1fr; gap: 3rem; }
+  }
 </style>
+
+<script>
+  // Tabs switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.gallery-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const tabId = btn.getAttribute('data-tab');
+      document.getElementById(`pane-${tabId}`)?.classList.add('active');
+    });
+  });
+
+  // Lightbox functionality
+  const lightbox = document.getElementById('media-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const closeBtn = document.querySelector('.lightbox-close');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src');
+      const title = item.getAttribute('data-title');
+      const caption = item.getAttribute('data-caption');
+
+      if (src && lightboxImg) {
+        lightboxImg.src = src;
+        if (lightboxTitle) lightboxTitle.textContent = title || '';
+        if (lightboxDesc) lightboxDesc.textContent = caption || '';
+        lightbox?.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent scroll
+      }
+    });
+  });
+
+  // Close lightbox
+  const closeLightbox = () => {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+    if (lightboxImg) lightboxImg.src = '';
+  };
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Escape key to close
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+</script>
