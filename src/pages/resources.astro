@@ -42,7 +42,7 @@ const resources = [
 
   <main class="resources-page">
     <div class="container">
-      <div class="resources-hero animate-in">
+      <div class="resources-hero">
         <a href="/" class="back-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
             <line x1="19" y1="12" x2="5" y2="12"/>
@@ -61,7 +61,7 @@ const resources = [
       </div>
 
       <!-- Resource Grid -->
-      <div class="resources-grid animate-in">
+      <div class="resources-grid">
         {resources.map((resource) => (
           <div class="resource-card">
             <div class="card-glow" style={`background: radial-gradient(circle at 10% 10%, ${resource.accent}12, transparent 50%);`}></div>
