@@ -289,16 +289,40 @@
 <script>
   document.getElementById('contact-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = this.querySelector('.btn-submit') as HTMLButtonElement;
+    const form = this as HTMLFormElement;
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const subjectSelect = document.getElementById('subject') as HTMLSelectElement;
+    const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+    // Structure WhatsApp message text
+    const waMessage = `*New Message from ATR Website*\n` +
+                      `-------------------------------\n` +
+                      `👤 *Name:* ${name}\n` +
+                      `✉️ *Email:* ${email}\n` +
+                      `📌 *Subject:* ${subjectText}\n` +
+                      `💬 *Message:* ${message}`;
+
+    // WhatsApp API URL (ATR Phone number: +91 78218 44466)
+    const phoneNumber = "917821844466";
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
+
+    const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
     const originalText = btn.innerHTML;
-    btn.innerHTML = '✓ Message sent! We\'ll be in touch.';
-    btn.style.background = '#1a7a3a';
+    
+    btn.innerHTML = '✓ Opening WhatsApp...';
+    btn.style.background = '#25D366'; // WhatsApp brand green
     btn.disabled = true;
+
+    // Open WhatsApp URL in a new tab
+    window.open(waUrl, '_blank');
+
     setTimeout(() => {
       btn.innerHTML = originalText;
       btn.style.background = '';
       btn.disabled = false;
-      (this as HTMLFormElement).reset();
-    }, 4000);
+      form.reset();
+    }, 3000);
   });
 </script>
