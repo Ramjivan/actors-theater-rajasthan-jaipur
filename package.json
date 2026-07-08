@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "start": "serve dist -p ${PORT:-4321} -s"
+    "start": "serve dist -p ${PORT:-4321}"
   },
   "dependencies": {
     "astro": "^6.4.7",
