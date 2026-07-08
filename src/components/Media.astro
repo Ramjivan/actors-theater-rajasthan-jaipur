@@ -138,40 +138,6 @@ const eventPosters = [
 
     <!-- Awards and Social Info Split -->
     <div class="media-layout animate-in">
-      <a href="/press/" class="media-clipping-link" title="Open Press clippings gallery">
-        <div class="media-clipping">
-          <div class="clipping-frame">
-            <img 
-              src="/images/media-clipping.png" 
-              alt="Newspaper clipping from Rajasthan Patrika praising ATR workshops" 
-              loading="lazy"
-            />
-            <div class="clipping-hover-overlay">
-              <span class="hover-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </span>
-              <span>Open Press Archive</span>
-            </div>
-          </div>
-          <div class="clipping-caption">
-            <div class="press-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
-                <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-                <path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Rajasthan Patrika & Bhaskar</strong>
-              <span>"Click to view 80+ official newspaper reviews and mentions"</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
       <div class="recognitions">
         <h3 class="recog-title">Awards & Recognition</h3>
 
@@ -368,11 +334,9 @@ const eventPosters = [
 
   /* Awards & Recognition layout */
   .media-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
-    margin-bottom: 4rem;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
   }
