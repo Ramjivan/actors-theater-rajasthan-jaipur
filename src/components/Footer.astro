@@ -45,11 +45,11 @@
         <div class="footer-links-col">
           <h4>The Organisation</h4>
           <ul>
-            <li><a href="/#about">About ATR</a></li>
-            <li><a href="/#mission">Our Mission</a></li>
-            <li><a href="/#productions">Productions</a></li>
-            <li><a href="/#rajrangam">Rajrangam Festival</a></li>
-            <li><a href="/#workshops">Workshops & Academy</a></li>
+            <li><a href="#about">About ATR</a></li>
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#productions">Productions</a></li>
+            <li><a href="#rajrangam">Rajrangam Festival</a></li>
+            <li><a href="#workshops">Workshops & Academy</a></li>
             <li><a href="/resources/">Resource Library</a></li>
           </ul>
         </div>
@@ -57,12 +57,12 @@
         <div class="footer-links-col">
           <h4>Get Involved</h4>
           <ul>
-            <li><a href="/#contact">Attend a Performance</a></li>
-            <li><a href="/#workshops">Join the Academy</a></li>
-            <li><a href="/#contact">Collaborate with Us</a></li>
-            <li><a href="/#contact">Donate & Support</a></li>
-            <li><a href="/#contact">Invite Us to Perform</a></li>
-            <li><a href="/#contact">Contact Support</a></li>
+            <li><a href="#contact">Attend a Performance</a></li>
+            <li><a href="#workshops">Join the Academy</a></li>
+            <li><a href="#contact">Collaborate with Us</a></li>
+            <li><a href="#contact">Donate & Support</a></li>
+            <li><a href="#contact">Invite Us to Perform</a></li>
+            <li><a href="#contact">Contact Support</a></li>
           </ul>
         </div>
 
@@ -270,3 +270,16 @@
     }
   }
 </style>
+
+<script>
+  // Dynamic path rewriting for footer links on subpages
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  if (!isHomepage) {
+    document.querySelectorAll('.footer a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        link.setAttribute('href', '/' + href);
+      }
+    });
+  }
+</script>

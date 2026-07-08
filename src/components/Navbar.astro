@@ -20,14 +20,14 @@
     </a>
 
     <nav class="nav-links" id="nav-links">
-      <a href="/#about" class="nav-link">About</a>
-      <a href="/#mission" class="nav-link">Mission</a>
-      <a href="/#productions" class="nav-link">Productions</a>
-      <a href="/#rajrangam" class="nav-link">Rajrangam</a>
-      <a href="/#workshops" class="nav-link">Workshops</a>
-      <a href="/#media" class="nav-link">Media</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#mission" class="nav-link">Mission</a>
+      <a href="#productions" class="nav-link">Productions</a>
+      <a href="#rajrangam" class="nav-link">Rajrangam</a>
+      <a href="#workshops" class="nav-link">Workshops</a>
+      <a href="#media" class="nav-link">Media</a>
       <a href="/resources/" class="nav-link">Resources</a>
-      <a href="/#contact" class="nav-link nav-cta">Get Involved</a>
+      <a href="#contact" class="nav-link nav-cta">Get Involved</a>
     </nav>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -252,6 +252,17 @@
   window.addEventListener('scroll', checkScroll);
   // Run on initial load to ensure subpages render scrolled navbar immediately
   checkScroll();
+
+  // Dynamic path rewriting for subpages
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  if (!isHomepage) {
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        link.setAttribute('href', '/' + href);
+      }
+    });
+  }
 
   hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('active');
