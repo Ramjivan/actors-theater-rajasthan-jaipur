@@ -5,9 +5,12 @@ import Footer from '../components/Footer.astro';
 import fs from 'fs';
 import path from 'path';
 
-// Read clippings from public directory at build time
-const publicDir = path.join(process.cwd(), 'public');
-const clippingsDir = path.join(publicDir, 'images', 'clippings');
+import { fileURLToPath } from 'url';
+
+// Read clippings from public directory at build time relative to this file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clippingsDir = path.resolve(__dirname, '../../public/images/clippings');
 const files = fs.existsSync(clippingsDir) ? fs.readdirSync(clippingsDir) : [];
 
 const clippings = files
