@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import fs from 'fs';
+import path from 'path';
+
+// Read clippings from public directory at build time
+const publicDir = path.join(process.cwd(), 'public');
+const clippingsDir = path.join(publicDir, 'images', 'clippings');
+const files = fs.existsSync(clippingsDir) ? fs.readdirSync(clippingsDir) : [];
+
+const clippings = files
+  .filter(file => file.startsWith('clipping_') && /\.(png|jpe?g)$/i.test(file))
+  .sort((a, b) => {
+    const numA = parseInt(a.match(/\d+/)?.[0] || '0');
+    const numB = parseInt(b.match(/\d+/)?.[0] || '0');
+    return numA - numB;
+  })
+  .map(file => `/images/clippings/${file}`);
+---
+
+<Layout 
+  title="Media Mentions & Press Clippings | Actors Theatre Rajasthan" 
+  description="Browse our archive of media mentions, newspaper clippings, and press reviews documenting decades of cultural contribution and social change."
+>
+  <Navbar />
+  
+  <main class="press-page">
+    <div class="container">
+      <div class="press-hero animate-in">
+        <a href="/" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          <span>Back to Home</span>
+        </a>
+        
+        <span class="section-label">Press Archives</span>
+        <h1 class="press-title">Media Mentions & Press Reviews</h1>
+        <div class="gold-divider"></div>
+        <p class="press-subtitle">
+          Over 80+ documented newspaper reports, reviews, and mentions from national publications like 
+          <em>Rajasthan Patrika</em>, <em>Dainik Bhaskar</em>, <em>The Hindu</em>, and others, spanning 2021 to 2026.
+        </p>
+      </div>
+
+      <!-- Grid of press clippings -->
+      <div class="press-grid-wrapper animate-in">
+        <div class="press-grid" id="press-grid">
+          {clippings.map((src, index) => (
+            <div 
+              class="press-item" 
+              data-src={src} 
+              data-index={index}
+            >
+              <div class="clipping-card">
+                <img src={src} alt={`Newspaper Clipping ${index + 1}`} loading="lazy" />
+                <div class="clipping-overlay">
+                  <span class="zoom-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      <line x1="11" y1="8" x2="11" y2="14"/>
+                      <line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
+                  </span>
+                  <span>View Full Scan</span>
+                </div>
+              </div>
+              <div class="clipping-number">Press Mention #{index + 1}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-cta" id="load-more-container">
+          <button id="btn-load-more" class="btn-primary">
+            <span>Load More Press Mentions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="press-lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-nav prev" aria-label="Previous image">&#10094;</button>
+    <button class="lightbox-nav next" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-wrapper">
+      <img id="lightbox-img" src="" alt="Expanded clipping" />
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .press-page {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    background: var(--bg-body);
+  }
+
+  .press-hero {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--saffron);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--saffron-deep);
+    transform: translateX(-4px);
+  }
+
+  .press-title {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: var(--ink);
+    line-height: 1.1;
+    margin-top: 0.5rem;
+  }
+
+  .press-hero .gold-divider {
+    margin: 1.5rem 0;
+  }
+
+  .press-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-body);
+    line-height: 1.85;
+  }
+
+  /* Grid Layout */
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .press-item {
+    display: none; /* Controlled via script */
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .press-item.visible {
+    display: flex;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  .clipping-card {
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    background: #FFFFFF;
+  }
+
+  .clipping-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+  }
+
+  .clipping-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 24, 0, 0.82);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .zoom-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(232, 114, 12, 0.3);
+  }
+
+  .clipping-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .clipping-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .clipping-card:hover .clipping-overlay {
+    opacity: 1;
+  }
+
+  .clipping-number {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: center;
+  }
+
+  /* Load More CTA */
+  .load-more-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 12, 1, 0.96);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-wrapper {
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .lightbox-wrapper img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.12);
+    background: #FFFFFF;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: #FFFDF7;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+    z-index: 2010;
+  }
+
+  .lightbox-close:hover {
+    color: var(--saffron);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 2010;
+  }
+
+  .lightbox-nav:hover {
+    background: var(--saffron);
+    border-color: var(--saffron);
+  }
+
+  .lightbox-nav.prev { left: 2rem; }
+  .lightbox-nav.next { right: 2rem; }
+
+  .lightbox-caption {
+    text-align: center;
+    color: #FFFDF7;
+  }
+
+  .lightbox-caption h3 {
+    font-size: 1.1rem;
+    color: var(--saffron-light);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-nav { display: none; }
+    .press-page { padding-top: 6.5rem; }
+  }
+</style>
+
+<script>
+  // Pagination / Load More
+  const items = document.querySelectorAll('.press-item');
+  const loadMoreBtn = document.getElementById('btn-load-more');
+  const loadMoreContainer = document.getElementById('load-more-container');
+  
+  const ITEMS_PER_PAGE = 12;
+  let visibleCount = 0;
+
+  function showNextPage() {
+    let countToShow = 0;
+    
+    for (let i = visibleCount; i < items.length; i++) {
+      if (countToShow < ITEMS_PER_PAGE) {
+        items[i].classList.add('visible');
+        countToShow++;
+      } else {
+        break;
+      }
+    }
+    
+    visibleCount += countToShow;
+    
+    // Hide button if all elements are visible
+    if (visibleCount >= items.length && loadMoreContainer) {
+      loadMoreContainer.style.display = 'none';
+    }
+  }
+
+  loadMoreBtn?.addEventListener('click', showNextPage);
+
+  // Initial load of page 1
+  showNextPage();
+
+  // Lightbox
+  const lightbox = document.getElementById('press-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const closeBtn = document.querySelector('.lightbox-close');
+  const prevBtn = document.querySelector('.lightbox-nav.prev');
+  const nextBtn = document.querySelector('.lightbox-nav.next');
+  
+  let currentIndex = 0;
+
+  function openLightbox(index: number) {
+    const item = items[index];
+    if (!item) return;
+
+    const src = item.getAttribute('data-src');
+    if (src && lightboxImg) {
+      currentIndex = index;
+      lightboxImg.src = src;
+      if (lightboxTitle) {
+        lightboxTitle.textContent = `Press Archive Scans — Clipping #${index + 1}`;
+      }
+      lightbox?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+    if (lightboxImg) lightboxImg.src = '';
+  }
+
+  items.forEach((item, idx) => {
+    const card = item.querySelector('.clipping-card');
+    card?.addEventListener('click', () => openLightbox(idx));
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  prevBtn?.addEventListener('click', () => {
+    let prevIndex = currentIndex - 1;
+    if (prevIndex < 0) prevIndex = items.length - 1;
+    openLightbox(prevIndex);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= items.length) nextIndex = 0;
+    openLightbox(nextIndex);
+  });
+
+  // Close when clicking background
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      let prevIndex = currentIndex - 1;
+      if (prevIndex < 0) prevIndex = items.length - 1;
+      openLightbox(prevIndex);
+    } else if (e.key === 'ArrowRight') {
+      let nextIndex = currentIndex + 1;
+      if (nextIndex >= items.length) nextIndex = 0;
+      openLightbox(nextIndex);
+    }
+  });
+</script>
