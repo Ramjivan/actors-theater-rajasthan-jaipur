@@ -163,7 +163,7 @@ const events = [
     meta: "23 July 2023 • Ravindra Manch, Jaipur",
     category: "production",
     description: "Staged 'Meri Maa' in the 1st Lok Natya Prayogotsav. Staged before SNA Chairman Dr. Sandhya Purecha, adapted by Jairoop Jeevan.",
-    image: "/images/play-meri-maa.png"
+    image: "/images/play-meri-maa.jpeg"
   },
   {
     year: "2023",
@@ -237,6 +237,16 @@ const events = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Show More Button -->
+    <div class="timeline-more-cta animate-in">
+      <button id="show-more-btn" class="btn-outline">
+        <span>Show More Activities</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
     </div>
     
     <div class="report-cta animate-in">
@@ -445,6 +455,36 @@ const events = [
   }
 
   /* CTA */
+  .timeline-more-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .timeline-more-cta button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    background: transparent;
+    color: var(--saffron);
+    border: 1.5px solid var(--saffron);
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+
+  .timeline-more-cta button:hover {
+    background: var(--saffron);
+    color: #FFFFFF;
+  }
+
+  .timeline-more-cta button svg {
+    transition: transform 0.3s ease;
+  }
+
   .report-cta {
     display: flex;
     flex-direction: column;
@@ -512,24 +552,71 @@ const events = [
 <script>
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.timeline-card');
+  const showMoreBtn = document.getElementById('show-more-btn');
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active from all
-      filterBtns.forEach(b => b.classList.remove('active'));
-      // Add active to current
-      btn.classList.add('active');
+  let currentFilter = 'all';
+  let isExpanded = false;
 
-      const filterValue = btn.getAttribute('data-filter');
+  function updateTimeline() {
+    let visibleCount = 0;
+    let totalMatching = 0;
 
-      cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue) {
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const matchesFilter = (currentFilter === 'all' || category === currentFilter);
+
+      if (matchesFilter) {
+        totalMatching++;
+        if (isExpanded || visibleCount < 3) {
           card.classList.remove('hidden');
+          visibleCount++;
         } else {
           card.classList.add('hidden');
         }
-      });
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Update button visibility & text
+    if (showMoreBtn) {
+      if (totalMatching > 3) {
+        showMoreBtn.style.display = 'inline-flex';
+        const buttonSpan = showMoreBtn.querySelector('span');
+        const buttonSvg = showMoreBtn.querySelector('svg');
+        if (buttonSpan) {
+          buttonSpan.textContent = isExpanded ? 'Show Less' : 'Show More Activities';
+        }
+        if (buttonSvg) {
+          buttonSvg.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+      } else {
+        showMoreBtn.style.display = 'none';
+      }
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter') || 'all';
+      // Reset expansion on filter switch
+      isExpanded = false;
+      updateTimeline();
     });
   });
+
+  showMoreBtn?.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    updateTimeline();
+    
+    // Smooth scroll back to timeline section top when collapsing
+    if (!isExpanded) {
+      document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // Initial load
+  updateTimeline();
 </script>
