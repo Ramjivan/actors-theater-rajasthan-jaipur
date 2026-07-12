@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# Actors Theatre Rajasthan (ATR) — Official Website
 
-```sh
-npm create astro@latest -- --template minimal
+Official web application for **Actors Theatre Rajasthan (ATR)** — a registered NGO committed to cultural awareness, social transformation, and theatre arts across Rajasthan.
+
+---
+
+## 🚀 Tech Stack & Features
+
+- **Framework:** [Astro 7](https://astro.build/) (Static Site Generation + Serverless API Functions)
+- **Deployment & Hosting:** [Cloudflare Pages](https://pages.cloudflare.com/) (`@astrojs/cloudflare` adapter)
+- **Automatic Photo Discovery:** Gallery (`/gallery`) and Press (`/press`) pages use `import.meta.glob` to automatically pick up and render images dropped into `public/images/gallery/` and `public/images/media/`.
+- **Admin Photo Uploader:** Secure portal at `/admin` backed by Cloudflare Function `/api/admin/upload` allowing non-technical staff to upload images directly to the GitHub repository.
+
+---
+
+## 🛠️ Local Development
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start local development server
+npm run dev
+
+# 3. Build for production preview
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🔐 Admin Photo Uploader Setup (Cloudflare Pages)
 
-Inside of your Astro project, you'll see the following folders and files:
+To enable authenticated photo uploads via `/admin`, configure the following under **Cloudflare Pages Dashboard → Settings → Environment Variables**:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+| Variable | Description | Example |
+| :--- | :--- | :--- |
+| `ADMIN_EMAIL` | Admin login email | `actorsraj@gmail.com` |
+| `ADMIN_PASSWORD` | Secure login password | `YourSecurePassword2026!` |
+| `GITHUB_REPO` | GitHub repository (`owner/repo`) | `Ramjivan/actors-theater-rajasthan-jaipur` |
+| `GITHUB_BRANCH` | Target branch for commits | `main` |
+| `GITHUB_TOKEN` | Fine-grained GitHub PAT with Write access | `github_pat_11...` |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `.env.example` for detailed steps on generating `GITHUB_TOKEN`.
