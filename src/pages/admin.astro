@@ -1,0 +1,492 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Admin Photo Uploader | Actors Theatre Rajasthan" 
+  description="Secure administrative portal for uploading new photos to the ATR website gallery and press archives."
+  noindex={true}
+>
+  <Navbar />
+
+  <main class="admin-page">
+    <div class="container">
+      <div class="admin-header">
+        <span class="section-label">Admin Portal</span>
+        <h1 class="admin-title">Photo Uploader & Content Manager</h1>
+        <div class="gold-divider"></div>
+        <p class="admin-subtitle">
+          Securely upload new event photographs or press clippings directly to the website.
+          Uploaded images automatically commit to the secure repository and publish live to the site in ~45 seconds.
+        </p>
+      </div>
+
+      <div class="admin-card">
+        <form id="admin-upload-form" class="upload-form">
+          <!-- Credentials Section -->
+          <div class="form-section">
+            <h3 class="section-heading">1. Admin Authentication</h3>
+            <div class="input-grid">
+              <div class="form-group">
+                <label for="admin-email">Admin Email <span class="req">*</span></label>
+                <input 
+                  type="email" 
+                  id="admin-email" 
+                  name="email" 
+                  required 
+                  placeholder="actorsraj@gmail.com"
+                  autocomplete="username"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="admin-password">Admin Password <span class="req">*</span></label>
+                <input 
+                  type="password" 
+                  id="admin-password" 
+                  name="password" 
+                  required 
+                  placeholder="Enter your admin password"
+                  autocomplete="current-password"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Target Folder Section -->
+          <div class="form-section">
+            <h3 class="section-heading">2. Select Website Section</h3>
+            <div class="radio-cards">
+              <label class="radio-card active">
+                <input type="radio" name="folder" value="gallery" checked />
+                <div class="rc-content">
+                  <span class="rc-title">Photo Gallery</span>
+                  <span class="rc-desc">Saves to public/images/gallery/ and appears on /gallery</span>
+                </div>
+              </label>
+
+              <label class="radio-card">
+                <input type="radio" name="folder" value="press" />
+                <div class="rc-content">
+                  <span class="rc-title">Press & Media Mention</span>
+                  <span class="rc-desc">Saves to public/images/media/ and appears on /press</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- File Drop Section -->
+          <div class="form-section">
+            <h3 class="section-heading">3. Choose Photo File</h3>
+            <div class="drop-zone" id="drop-zone">
+              <input type="file" id="file-input" name="file" accept="image/jpeg,image/png,image/webp" required class="sr-only" />
+              <div class="dz-prompt" id="dz-prompt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="44" height="44">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <p class="dz-text">Click to select an image or drag & drop photo here</p>
+                <span class="dz-hint">Supported formats: JPG, PNG, WEBP (Max 15 MB)</span>
+              </div>
+
+              <!-- Preview container -->
+              <div class="dz-preview" id="dz-preview" style="display: none;">
+                <img id="preview-img" src="" alt="Selected image preview" />
+                <div class="preview-info">
+                  <p id="preview-filename" class="pf-name"></p>
+                  <button type="button" id="btn-remove-file" class="btn-remove-file">Change Photo</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Action -->
+          <div class="form-actions">
+            <button type="submit" id="btn-submit" class="btn-primary upload-btn">
+              <span>Upload Photo to Website</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Feedback UI -->
+        <div id="upload-feedback" class="upload-feedback" style="display: none;"></div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .admin-page {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    background: var(--bg-body);
+  }
+
+  .admin-header {
+    max-width: 720px;
+    margin-bottom: 3rem;
+  }
+
+  .admin-title {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: var(--ink);
+    line-height: 1.15;
+    margin-top: 0.5rem;
+  }
+
+  .admin-header .gold-divider {
+    margin: 1.25rem 0;
+  }
+
+  .admin-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-body);
+    line-height: 1.8;
+  }
+
+  .admin-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    padding: 2.5rem;
+    max-width: 800px;
+  }
+
+  .form-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--saffron-deep);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .req {
+    color: #DC2626;
+  }
+
+  .form-group input {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    font-size: 0.95rem;
+    background: var(--bg-body);
+    transition: var(--transition);
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 3px rgba(232, 114, 12, 0.12);
+  }
+
+  .radio-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .radio-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--bg-body);
+  }
+
+  .radio-card:hover {
+    border-color: var(--saffron);
+  }
+
+  .radio-card input[type="radio"] {
+    margin-top: 0.25rem;
+    margin-right: 0.85rem;
+    accent-color: var(--saffron);
+  }
+
+  .rc-title {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .rc-desc {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-body);
+    line-height: 1.4;
+  }
+
+  /* Drop Zone */
+  .drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background: var(--bg-body);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--saffron);
+    background: #FFFBF5;
+  }
+
+  .dz-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink-body);
+  }
+
+  .dz-prompt svg {
+    color: var(--saffron);
+  }
+
+  .dz-text {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  .dz-hint {
+    font-size: 0.82rem;
+    color: #64748B;
+  }
+
+  .dz-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dz-preview img {
+    max-height: 240px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .preview-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pf-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+
+  .btn-remove-file {
+    background: none;
+    border: none;
+    color: #DC2626;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .upload-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+
+  .upload-feedback {
+    margin-top: 2rem;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .admin-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const form       = document.getElementById('admin-upload-form') as HTMLFormElement | null;
+  const dropZone   = document.getElementById('drop-zone') as HTMLDivElement | null;
+  const fileInput  = document.getElementById('file-input') as HTMLInputElement | null;
+  const dzPrompt   = document.getElementById('dz-prompt') as HTMLDivElement | null;
+  const dzPreview  = document.getElementById('dz-preview') as HTMLDivElement | null;
+  const previewImg = document.getElementById('preview-img') as HTMLImageElement | null;
+  const previewFilename = document.getElementById('preview-filename') as HTMLParagraphElement | null;
+  const removeBtn  = document.getElementById('btn-remove-file') as HTMLButtonElement | null;
+  const submitBtn  = document.getElementById('btn-submit') as HTMLButtonElement | null;
+  const feedback   = document.getElementById('upload-feedback') as HTMLDivElement | null;
+
+  // Clicking drop zone triggers hidden file input
+  dropZone?.addEventListener('click', (e) => {
+    if (e.target !== removeBtn) {
+      fileInput?.click();
+    }
+  });
+
+  // Drag over effects
+  dropZone?.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+  });
+
+  dropZone?.addEventListener('dragleave', () => {
+    dropZone.classList.remove('dragover');
+  });
+
+  dropZone?.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer?.files && e.dataTransfer.files[0] && fileInput) {
+      const dt = new DataTransfer();
+      dt.items.add(e.dataTransfer.files[0]);
+      fileInput.files = dt.files;
+      handleFileSelected(fileInput.files[0]);
+    }
+  });
+
+  fileInput?.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files[0]) {
+      handleFileSelected(fileInput.files[0]);
+    }
+  });
+
+  function handleFileSelected(file: File) {
+    if (!dzPrompt || !dzPreview || !previewImg || !previewFilename) return;
+    
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (e.target?.result && previewImg) {
+        previewImg.src = e.target.result as string;
+        previewFilename.textContent = file.name;
+        dzPrompt.style.display = 'none';
+        dzPreview.style.display = 'flex';
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  removeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (fileInput) fileInput.value = '';
+    if (dzPrompt && dzPreview) {
+      dzPrompt.style.display = 'flex';
+      dzPreview.style.display = 'none';
+    }
+  });
+
+  function showFeedbackMessage(html: string, type: 'success' | 'error') {
+    if (!feedback) return;
+    feedback.innerHTML = html;
+    feedback.style.display = 'block';
+    feedback.style.border = type === 'success' ? '1.5px solid #16A34A' : '1.5px solid #DC2626';
+    feedback.style.background = type === 'success' ? '#F0FDF4' : '#FEF2F2';
+    feedback.style.color = type === 'success' ? '#166534' : '#991B1B';
+  }
+
+  form?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!submitBtn) return;
+
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span>Uploading to GitHub…</span>';
+    submitBtn.disabled = true;
+    if (feedback) feedback.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: new FormData(this)
+      });
+
+      const json = await res.json() as {
+        success?: boolean;
+        error?: string;
+        filename?: string;
+        publicUrl?: string;
+        commitUrl?: string;
+      };
+
+      if (res.ok && json.success) {
+        submitBtn.innerHTML = '✓ Upload Successful!';
+        showFeedbackMessage(`
+          <div style="font-weight:700; margin-bottom:0.4rem;">🎉 Photo Uploaded Successfully!</div>
+          <div>File Saved: <code style="background:rgba(0,0,0,0.06); padding:0.15rem 0.4rem; border-radius:4px;">${json.filename}</code></div>
+          <div style="margin-top:0.4rem;">
+            Cloudflare Pages has detected your new photo and is automatically rebuilding the site.
+            Your photo will be visible live on the website in ~45 seconds.
+          </div>
+          ${json.commitUrl ? `<div style="margin-top:0.5rem;"><a href="${json.commitUrl}" target="_blank" rel="noopener" style="text-decoration:underline; font-weight:600; color:#166534;">→ View Git Commit on GitHub</a></div>` : ''}
+        `, 'success');
+
+        form.reset();
+        if (dzPrompt && dzPreview) {
+          dzPrompt.style.display = 'flex';
+          dzPreview.style.display = 'none';
+        }
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 5000);
+      } else {
+        throw new Error(json.error || 'Server upload error');
+      }
+    } catch (err: unknown) {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      const errMsg = err instanceof Error ? err.message : 'Upload failed';
+      showFeedbackMessage(`
+        <div style="font-weight:700; margin-bottom:0.3rem;">⚠️ Upload Failed</div>
+        <div>${errMsg}</div>
+      `, 'error');
+    }
+  });
+</script>

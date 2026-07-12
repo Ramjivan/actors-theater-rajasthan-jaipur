@@ -24,7 +24,7 @@
             </div>
             <div>
               <h4>Visit Us</h4>
-              <p>Actors Academy of Rajasthan<br />Tonk Road, Jaipur, Rajasthan – 302015</p>
+              <p>P-3 Kisan Marg, W-2, Madhuban Colony<br />Tonk Road, Jaipur – 302015, Rajasthan</p>
             </div>
           </div>
 
@@ -288,42 +288,96 @@
 </style>
 
 <script>
-  document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const btn  = form?.querySelector('.btn-submit') as HTMLButtonElement | null;
+
+  // Inline feedback elements injected once below the button
+  let feedbackEl: HTMLParagraphElement | null = null;
+  function getFeedback(): HTMLParagraphElement {
+    if (!feedbackEl) {
+      feedbackEl = document.createElement('p');
+      feedbackEl.style.cssText =
+        'margin-top:0.75rem;font-size:0.88rem;font-weight:600;text-align:center;border-radius:6px;padding:0.6rem 1rem;';
+      btn?.insertAdjacentElement('afterend', feedbackEl);
+    }
+    return feedbackEl;
+  }
+
+  function showFeedback(message: string, type: 'success' | 'error') {
+    const el = getFeedback();
+    el.textContent = message;
+    el.style.color      = type === 'success' ? '#166534' : '#9B1C1C';
+    el.style.background = type === 'success' ? '#DCFCE7'  : '#FEE2E2';
+    el.style.display    = 'block';
+    if (type === 'success') {
+      setTimeout(() => { el.style.display = 'none'; }, 6000);
+    }
+  }
+
+  form?.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const form = this as HTMLFormElement;
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const subjectSelect = document.getElementById('subject') as HTMLSelectElement;
-    const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+    if (!btn) return;
 
-    // Structure WhatsApp message text
-    const waMessage = `*New Message from ATR Website*\n` +
-                      `-------------------------------\n` +
-                      `👤 *Name:* ${name}\n` +
-                      `✉️ *Email:* ${email}\n` +
-                      `📌 *Subject:* ${subjectText}\n` +
-                      `💬 *Message:* ${message}`;
+    // ── Button loading state ──────────────────────────────────────────────
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML  = '<span>Sending…</span>';
+    btn.disabled   = true;
+    btn.style.opacity = '0.75';
+    if (feedbackEl) feedbackEl.style.display = 'none';
 
-    // WhatsApp API URL (ATR Phone number: +91 78218 44466)
-    const phoneNumber = "917821844466";
-    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(this)
+      });
 
-    const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
-    const originalText = btn.innerHTML;
-    
-    btn.innerHTML = '✓ Opening WhatsApp...';
-    btn.style.background = '#25D366'; // WhatsApp brand green
-    btn.disabled = true;
+      const json = await res.json() as { success?: boolean; error?: string };
 
-    // Open WhatsApp URL in a new tab
-    window.open(waUrl, '_blank');
+      if (res.ok && json.success) {
+        // ── Success ──────────────────────────────────────────────────────
+        btn.innerHTML       = '✓ Message Sent!';
+        btn.style.background = '#16A34A';
+        btn.style.opacity    = '1';
+        showFeedback('Thank you! We will respond within 2–3 business days.', 'success');
+        this.reset();
 
-    setTimeout(() => {
-      btn.innerHTML = originalText;
+        setTimeout(() => {
+          btn.innerHTML        = originalHTML;
+          btn.style.background = '';
+          btn.disabled         = false;
+        }, 4000);
+
+      } else {
+        // ── Server-side validation / send error ──────────────────────────
+        throw new Error(json.error || 'Server error');
+      }
+
+    } catch (err: unknown) {
+      // ── Network / unexpected error — fall back to WhatsApp ───────────
+      btn.innerHTML        = originalHTML;
       btn.style.background = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
+      btn.style.opacity    = '1';
+      btn.disabled         = false;
+
+      const errMsg = err instanceof Error ? err.message : 'Unknown error';
+      showFeedback(
+        `Could not send (${errMsg}). Try WhatsApp instead — button below.`,
+        'error'
+      );
+
+      // Inject a WhatsApp fallback link if not already present
+      if (!document.getElementById('wa-fallback-link')) {
+        const waLink = document.createElement('a');
+        waLink.id        = 'wa-fallback-link';
+        waLink.href      = 'https://wa.me/917821844466';
+        waLink.target    = '_blank';
+        waLink.rel       = 'noopener';
+        waLink.textContent = '→ Message us on WhatsApp';
+        waLink.style.cssText =
+          'display:block;margin-top:0.5rem;text-align:center;font-size:0.85rem;' +
+          'font-weight:600;color:#16A34A;text-decoration:underline;';
+        getFeedback().insertAdjacentElement('afterend', waLink);
+      }
+    }
   });
 </script>

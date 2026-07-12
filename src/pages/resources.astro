@@ -7,7 +7,12 @@ const resources = [
   {
     title: "Actors THR Activities Last 3 Years 2021 to 2026",
     filename: "Activities_Report_2021_2026.pdf",
-    path: "/documents/Activities_Report_2021_2026.pdf",
+    // IMPORTANT: Cloudflare Pages has a 25 MB asset limit — this file is 79 MB.
+    // Host it on Google Drive and replace the ID below with the real file ID.
+    // To get the ID: in Drive, right-click file → "Get link" → copy the part after /d/ and before /view
+    // Example link format: https://drive.google.com/file/d/FILE_ID_HERE/view
+    path: "https://drive.google.com/file/d/REPLACE_WITH_ACTIVITIES_REPORT_DRIVE_ID/view",
+    openInNew: true,
     size: "78.8 MB",
     type: "PDF Document",
     description: "Our complete official activities report detailing stage performances, street play campaigns, collaborations with the Sangeet Natak Akademi, and youth theatre workshops across Rajasthan from 2021 to 2026.",
@@ -16,7 +21,9 @@ const resources = [
   {
     title: "Rangmanch Smarika 2026",
     filename: "Rangmanch_Smarika_2026.pdf",
-    path: "/documents/Rangmanch_Smarika_2026.pdf",
+    // IMPORTANT: Same as above — host on Google Drive, replace ID below.
+    path: "https://drive.google.com/file/d/REPLACE_WITH_SMARIKA_DRIVE_ID/view",
+    openInNew: true,
     size: "69.2 MB",
     type: "PDF Document",
     description: "The 2026 commemorative souvenir booklet containing messages from state and national cultural heads, essays on traditional folk drama forms, signature repertoire descriptions, and archive highlights.",
@@ -25,7 +32,9 @@ const resources = [
   {
     title: "Kalpurush Play Brochure",
     filename: "Kalpurush_Play_Brochure.pdf",
+    // This file is 4.1 MB — under the 25 MB limit, can stay in /documents/
     path: "/documents/Kalpurush_Play_Brochure.pdf",
+    openInNew: false,
     size: "4.1 MB",
     type: "PDF Brochure",
     description: "Official play brochure and cast sheet for 'Kalpurush' (Krantikari Veer Savarkar), including script synopsis, production design notes, research references, and the full list of cast and crew members.",
@@ -94,7 +103,9 @@ const resources = [
             
             <a 
               href={resource.path} 
-              download={resource.filename} 
+              target={resource.openInNew ? "_blank" : undefined}
+              rel={resource.openInNew ? "noopener" : undefined}
+              download={resource.openInNew ? undefined : resource.filename}
               class="download-btn"
               style={`border-color: ${resource.accent}; color: ${resource.accent};`}
             >
@@ -103,7 +114,7 @@ const resources = [
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
-              <span>Download Publication</span>
+              <span>{resource.openInNew ? "Open in Google Drive" : "Download Publication"}</span>
             </a>
           </div>
         ))}

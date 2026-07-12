@@ -2,21 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Automatically discover all photos in public/images/gallery/ at build time
+const galleryMatches = import.meta.glob('/public/images/gallery/*.{jpeg,jpg,png,webp}');
+const autoGalleryImages = Object.keys(galleryMatches)
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+  .map(path => path.replace('/public', ''));
 
-const galleryDir = path.resolve(__dirname, '../../public/images/gallery');
-const files = fs.existsSync(galleryDir) ? fs.readdirSync(galleryDir) : [];
-
-const galleryImages = files
-  .filter(file => /\.(png|jpe?g|webp)$/i.test(file))
-  .map(file => `/images/gallery/${file}`);
-
-// Fallback if directory is empty (add default performance images)
+// Supplementary event photos
 const fallbackImages = [
   "/images/events/traditional_performance_stage.jpeg",
   "/images/events/patriotic_performance_stage.jpeg",
@@ -27,7 +20,7 @@ const fallbackImages = [
   "/images/events/masked_theatre_performance.jpeg"
 ];
 
-const allImages = [...galleryImages, ...fallbackImages];
+const allImages = [...autoGalleryImages, ...fallbackImages];
 ---
 
 <Layout 

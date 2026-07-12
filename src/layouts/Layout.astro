@@ -2,11 +2,13 @@
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Actors Theatre Rajasthan | Theatre, Culture & Social Change",
   description = "Actors Theatre Rajasthan (ATR) is a registered NGO committed to cultural awareness, social transformation, and the promotion of theatre arts across Rajasthan through productions, workshops, and festivals.",
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://actorstheatrerajasthan.org');
@@ -19,6 +21,7 @@ const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https:/
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->

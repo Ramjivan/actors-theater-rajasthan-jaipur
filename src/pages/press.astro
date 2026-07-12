@@ -2,35 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import fs from 'fs';
-import path from 'path';
 
-import { fileURLToPath } from 'url';
+// Automatically discover all media and clippings photos at build time
+const mediaMatches = import.meta.glob('/public/images/media/*.{jpeg,jpg,png,webp}');
+const mediaList = Object.keys(mediaMatches)
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+  .map(path => path.replace('/public', ''));
 
-// Read clippings and media mentions from public directory at build time
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const clippingMatches = import.meta.glob('/public/images/clippings/*.{jpeg,jpg,png,webp}');
+const clippingsList = Object.keys(clippingMatches)
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+  .map(path => path.replace('/public', ''));
 
-const clippingsDir = path.resolve(__dirname, '../../public/images/clippings');
-const mediaDir = path.resolve(__dirname, '../../public/images/media');
-
-const clippingFiles = fs.existsSync(clippingsDir) ? fs.readdirSync(clippingsDir) : [];
-const mediaFiles = fs.existsSync(mediaDir) ? fs.readdirSync(mediaDir) : [];
-
-const clippingsList = clippingFiles
-  .filter(file => file.startsWith('clipping_') && /\.(png|jpe?g)$/i.test(file))
-  .sort((a, b) => {
-    const numA = parseInt(a.match(/\d+/)?.[0] || '0');
-    const numB = parseInt(b.match(/\d+/)?.[0] || '0');
-    return numA - numB;
-  })
-  .map(file => `/images/clippings/${file}`);
-
-const mediaList = mediaFiles
-  .filter(file => /\.(png|jpe?g)$/i.test(file))
-  .map(file => `/images/media/${file}`);
-
-// Combine new media mentions first, then classic clippings
+// Media mentions shown first, then classic archive clippings
 const clippings = [...mediaList, ...clippingsList];
 ---
 
