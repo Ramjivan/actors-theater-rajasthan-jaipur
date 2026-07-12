@@ -17,7 +17,7 @@
       <a href="#productions" class="nav-link">Productions</a>
       <a href="#rajrangam" class="nav-link">Rajrangam</a>
       <a href="#workshops" class="nav-link">Workshops</a>
-      <a href="/press/" class="nav-link">Media Mentions</a>
+      <a href="/press/" class="nav-link">Media</a>
       <a href="/gallery/" class="nav-link">Gallery</a>
       <a href="/activities/" class="nav-link">Activities</a>
       <a href="/resources/" class="nav-link">Resources</a>
@@ -107,7 +107,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(0.6rem, 1vw, 1.75rem);
   }
 
   .nav-link {
@@ -198,7 +198,7 @@
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .hamburger { display: flex; }
 
     .nav-links {
