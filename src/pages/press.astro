@@ -83,7 +83,6 @@ const clippings = [...mediaList, ...clippingsList];
                   <span>View Full Scan</span>
                 </div>
               </div>
-              <div class="clipping-number">Press Mention #{index + 1}</div>
             </div>
           ))}
         </div>
@@ -108,9 +107,6 @@ const clippings = [...mediaList, ...clippingsList];
     <button class="lightbox-nav next" aria-label="Next image">&#10095;</button>
     <div class="lightbox-wrapper">
       <img id="lightbox-img" src="" alt="Expanded clipping" />
-      <div class="lightbox-caption">
-        <h3 id="lightbox-title"></h3>
-      </div>
     </div>
   </div>
 
@@ -399,7 +395,6 @@ const clippings = [...mediaList, ...clippingsList];
   // Lightbox
   const lightbox = document.getElementById('press-lightbox');
   const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-  const lightboxTitle = document.getElementById('lightbox-title');
   const closeBtn = document.querySelector('.lightbox-close');
   const prevBtn = document.querySelector('.lightbox-nav.prev');
   const nextBtn = document.querySelector('.lightbox-nav.next');
@@ -414,9 +409,6 @@ const clippings = [...mediaList, ...clippingsList];
     if (src && lightboxImg) {
       currentIndex = index;
       lightboxImg.src = src;
-      if (lightboxTitle) {
-        lightboxTitle.textContent = `Press Archive Scans — Clipping #${index + 1}`;
-      }
       lightbox?.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
