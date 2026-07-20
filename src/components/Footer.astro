@@ -94,6 +94,10 @@
         © {new Date().getFullYear()} Actors Theater at Rajasthan. All rights reserved. 
         Registered Non-Governmental Organisation.
       </p>
+      <p class="footer-legal policy-links">
+        <a href="/privacy-policy/">Privacy Policy</a> &nbsp;|&nbsp; 
+        <a href="/anti-discrimination-policy/">Anti-Discrimination Policy</a>
+      </p>
       <p class="footer-craft">
         Built with dedication to the arts.
       </p>
@@ -254,6 +258,16 @@
   .footer-craft {
     font-size: 0.78rem;
     color: rgba(255, 248, 230, 0.45);
+  }
+
+  .policy-links a {
+    color: rgba(255, 248, 230, 0.45);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .policy-links a:hover {
+    color: var(--primary);
   }
 
   @media (max-width: 1024px) {

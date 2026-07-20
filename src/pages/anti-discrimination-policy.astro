@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Anti-Discrimination Policy | Actors Theatre Rajasthan" 
+  description="Anti-Discrimination Policy for Actors Theatre Rajasthan (ATR)."
+>
+  <Navbar />
+  
+  <main class="page-container">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Anti-Discrimination Policy</h1>
+        <div class="gold-divider"></div>
+      </div>
+      
+      <div class="policy-content">
+        <p><strong>Effective Date:</strong> January 1, 2024</p>
+
+        <h2>1. Commitment to Equality</h2>
+        <p>Actors Theatre Rajasthan (ATR) is deeply committed to fostering an inclusive, welcoming, and equitable environment for all individuals. We believe that the transformative power of theatre is magnified when diverse voices, experiences, and backgrounds are respected and celebrated.</p>
+
+        <h2>2. Non-Discrimination Statement</h2>
+        <p>ATR strictly prohibits and does not tolerate discrimination, harassment, or bullying of any kind. We do not discriminate on the basis of:</p>
+        <ul>
+          <li>Race, ethnicity, color, or national origin</li>
+          <li>Religion, creed, or belief system</li>
+          <li>Gender, gender identity, or gender expression</li>
+          <li>Sexual orientation</li>
+          <li>Age</li>
+          <li>Physical or mental disability</li>
+          <li>Marital status or familial status</li>
+          <li>Socioeconomic status</li>
+          <li>Any other status protected by applicable local, state, or national laws</li>
+        </ul>
+
+        <h2>3. Scope of Policy</h2>
+        <p>This policy applies to all aspects of our organization's operations, including but not limited to:</p>
+        <ul>
+          <li>Casting and artistic selection</li>
+          <li>Employment, hiring, and volunteer recruitment</li>
+          <li>Workshop and academy admissions</li>
+          <li>Selection of vendors and collaborative partners</li>
+          <li>Provision of services and audience access</li>
+        </ul>
+
+        <h2>4. Reporting and Accountability</h2>
+        <p>Any individual who believes they have been subjected to discrimination or harassment at any ATR event, workshop, or workplace is encouraged to report the incident immediately. ATR is committed to investigating all such complaints promptly, confidentially, and impartially. Retaliation against any individual who reports discrimination in good faith is strictly prohibited.</p>
+
+        <h2>5. Contact Us</h2>
+        <p>To report an incident or if you have questions regarding this policy, please contact our leadership team at:</p>
+        <p><strong>Email:</strong> contact@actorstheatrerajasthan.org</p>
+        <p><strong>Address:</strong> P-3 Kisan Marg, W-2, Madhuban Colony, Tonk Road, Jaipur – 302015, Rajasthan</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: var(--nav-height);
+    padding-bottom: 5rem;
+    min-height: calc(100vh - 400px);
+    background-color: var(--white);
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .policy-content {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  .policy-content h2 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .policy-content p {
+    margin-bottom: 1rem;
+  }
+
+  .policy-content ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .policy-content li {
+    margin-bottom: 0.5rem;
+  }
+</style>
