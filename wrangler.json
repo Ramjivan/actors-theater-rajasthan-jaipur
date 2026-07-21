@@ -1,0 +1,33 @@
+{
+  "name": "atr-astro",
+  "compatibility_date": "2026-04-15",
+  "main": "./dist/server/entry.mjs",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist/client"
+  },
+  "routes": [
+    {
+      "pattern": "actorstheatrerajasthan.org",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.actorstheatrerajasthan.org",
+      "custom_domain": true
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SESSION"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.js", "**/*.mjs"]
+    }
+  ]
+}
