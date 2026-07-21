@@ -14,13 +14,15 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <!-- Header / Hero -->
       <div class="donate-hero">
-        <a href="/" class="back-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <line x1="19" y1="12" x2="5" y2="12"/>
-            <polyline points="12 19 5 12 12 5"/>
-          </svg>
-          <span>Back to Home</span>
-        </a>
+        <div class="back-link-box">
+          <a href="/" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
         
         <span class="section-label">Support & Donations</span>
         <h1 class="donate-title">Support Actors Theatre Rajasthan</h1>
@@ -189,6 +191,10 @@ import Footer from '../components/Footer.astro';
     min-height: 100vh;
   }
 
+  .back-link-box {
+    margin-bottom: 1.25rem;
+  }
+
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -197,7 +203,6 @@ import Footer from '../components/Footer.astro';
     font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
-    margin-bottom: 1.5rem;
     transition: var(--transition);
   }
 
