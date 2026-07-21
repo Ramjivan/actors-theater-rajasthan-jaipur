@@ -10,69 +10,125 @@ import Footer from '../components/Footer.astro';
 >
   <Navbar />
   
-  <main class="page-main">
-    <section class="donate-header">
+  <main class="donate-page">
+    <!-- Hero Header -->
+    <section class="donate-hero">
+      <div class="donate-hero-glow"></div>
       <div class="container">
-        <h1 class="page-title animate-in">Support the Arts</h1>
-        <p class="page-subtitle animate-in" style="animation-delay: 0.1s">
-          Your contributions help us sustain theatrical excellence, train the next generation of artists, and bring transformative stories to our community.
+        <div class="hero-badge animate-in">
+          <span class="badge-dot"></span>
+          80G & 12A Tax Exempted NGO
+        </div>
+        <h1 class="page-title animate-in">Empower Theatre.<br/>Preserve Heritage.</h1>
+        <p class="page-subtitle animate-in">
+          Your support fuels free community theatre, youth skill workshops, and traditional art preservation across Rajasthan. Every contribution makes a lasting social impact.
         </p>
       </div>
     </section>
 
-    <section class="donate-content">
+    <!-- Impact Cards Section -->
+    <section class="impact-section container">
+      <div class="section-header text-center">
+        <span class="section-label">Your Impact</span>
+        <h2 class="section-title">Where Your Contribution Goes</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-icon">🎭</div>
+          <h3>Free Social Plays</h3>
+          <p>Funding street & stage plays addressing social issues like education, equality, and environmental protection across villages and cities.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">🎓</div>
+          <h3>Youth Workshops</h3>
+          <p>Providing free 30-day theatre training, voice culture, and acting workshops to aspiring young artists from underrepresented backgrounds.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">🎪</div>
+          <h3>Folk Art Festivals</h3>
+          <p>Organizing Rajrangam and Lok Natya festivals to sustain Rajasthan's traditional folk art forms like Turrakalangi and Khyal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Donation Details Section -->
+    <section class="donate-details-section">
       <div class="container">
         <div class="donate-grid">
           
-          <div class="donate-info-card animate-in" style="animation-delay: 0.2s">
-            <div class="tax-badge">Tax Exempt</div>
-            <h2>Tax Benefits</h2>
-            <p>
-              Actors Theatre Rajasthan is a registered non-governmental organisation. 
-              <strong>All donations made to our organisation are eligible for tax exemption under sections 12A and 80G of the Income Tax Act.</strong>
+          <!-- Tax Benefits Card -->
+          <div class="donate-card tax-card animate-in">
+            <div class="card-badge">50% Tax Exemption</div>
+            <h2 class="card-title">Tax Exemption Benefits</h2>
+            <p class="card-text">
+              Actors Theatre Rajasthan is a registered non-profit organisation under the Societies Registration Act.
             </p>
-            <div class="tax-icons">
-              <span class="tax-tag">12A Registered</span>
-              <span class="tax-tag">80G Certified</span>
+            <div class="tax-box">
+              <div class="tax-item">
+                <span class="tax-name">Section 80G</span>
+                <span class="tax-desc">50% Tax Deduction on your donation amount for Indian Income Tax payers.</span>
+              </div>
+              <div class="tax-item">
+                <span class="tax-name">Section 12A</span>
+                <span class="tax-desc">Registered Tax-Exempt Non-Profit Organisation.</span>
+              </div>
+            </div>
+            <div class="reg-tags">
+              <span class="tag">NGO Darpan: RJ/2010/0031456</span>
+              <span class="tag">FCRA Reg: 125560336</span>
             </div>
           </div>
 
-          <div class="donate-info-card animate-in" style="animation-delay: 0.3s">
-            <h2>Bank Transfer Details</h2>
-            <p>You can directly transfer your contribution to our official bank account via NEFT, RTGS, IMPS, or UPI.</p>
+          <!-- Bank Details Card -->
+          <div class="donate-card bank-card animate-in">
+            <h2 class="card-title">Direct Bank Transfer</h2>
+            <p class="card-text">Make your contribution directly via NEFT, RTGS, IMPS, or UPI using the official bank details below:</p>
             
-            <div class="bank-details-box">
+            <div class="bank-table">
               <div class="bank-row">
-                <span class="bank-label">Account Name:</span>
-                <span class="bank-value">ACTORS THEATRE @ RAJASTHAN FCRA</span>
+                <span class="label">Account Name</span>
+                <span class="val highlight">ACTORS THEATRE @ RAJASTHAN FCRA</span>
               </div>
               <div class="bank-row">
-                <span class="bank-label">Bank Name:</span>
-                <span class="bank-value">Axis Bank Ltd</span>
+                <span class="label">Bank Name</span>
+                <span class="val">Axis Bank Ltd</span>
               </div>
               <div class="bank-row">
-                <span class="bank-label">Account Number:</span>
-                <span class="bank-value">920010051233347</span>
+                <span class="label">Account Number</span>
+                <div class="val-copy">
+                  <span class="val mono" id="acc-num">920010051233347</span>
+                  <button class="copy-btn" onclick="copyToClipboard('920010051233347', this)" title="Copy Account Number">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy
+                  </button>
+                </div>
               </div>
               <div class="bank-row">
-                <span class="bank-label">IFSC Code:</span>
-                <span class="bank-value">UTIB0004332</span>
+                <span class="label">IFSC Code</span>
+                <div class="val-copy">
+                  <span class="val mono" id="ifsc-code">UTIB0004332</span>
+                  <button class="copy-btn" onclick="copyToClipboard('UTIB0004332', this)" title="Copy IFSC Code">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy
+                  </button>
+                </div>
               </div>
               <div class="bank-row">
-                <span class="bank-label">SWIFT Code:</span>
-                <span class="bank-value">AXISINBBXXX</span>
+                <span class="label">SWIFT Code (Intl)</span>
+                <span class="val mono">AXISINBBXXX</span>
               </div>
               <div class="bank-row">
-                <span class="bank-label">Branch:</span>
-                <span class="bank-value">Barkat Nagar, Jaipur</span>
+                <span class="label">Branch</span>
+                <span class="val">Barkat Nagar, Jaipur (302015)</span>
               </div>
             </div>
           </div>
 
-          <div class="donate-info-card full-width animate-in" style="animation-delay: 0.4s">
-            <div class="receipt-section">
-              <div class="receipt-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- WhatsApp Slip Card -->
+          <div class="donate-card full-width receipt-card animate-in">
+            <div class="receipt-inner">
+              <div class="receipt-icon-box">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                   <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -80,13 +136,18 @@ import Footer from '../components/Footer.astro';
                   <polyline points="10 9 9 9 8 9"></polyline>
                 </svg>
               </div>
-              <div class="receipt-content">
-                <h2>Get Your Donation Receipt</h2>
+              <div class="receipt-text">
+                <h2>Request Your 80G Tax Receipt</h2>
                 <p>
-                  To receive your official 80G tax exemption receipt, please send us a screenshot/slip of your successful transaction on WhatsApp along with your Full Name, PAN Card Number, and Address.
+                  After making your transfer, please send a screenshot of the transaction along with your <strong>Full Name</strong>, <strong>PAN Card Number</strong>, and <strong>Postal Address</strong> on WhatsApp so we can issue your official 80G receipt.
                 </p>
-                <a href="https://wa.me/917821844466?text=Hello,%20I%20have%20made%20a%20donation.%20Here%20is%20my%20transaction%20slip." class="btn btn-whatsapp" target="_blank" rel="noopener">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a 
+                  href="https://wa.me/917821844466?text=Hello%20ATR%20Team%2C%20I%20have%20made%20a%20donation.%20Here%20is%20my%20transaction%20slip%20and%20PAN%20details%20for%2080G%20receipt." 
+                  class="btn-whatsapp" 
+                  target="_blank" 
+                  rel="noopener"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                   </svg>
                   Send Slip on WhatsApp
@@ -99,49 +160,154 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
   </main>
+
+  <Footer />
 </Layout>
 
+<script is:inline>
+  function copyToClipboard(text, btnElement) {
+    navigator.clipboard.writeText(text).then(function() {
+      const originalHTML = btnElement.innerHTML;
+      btnElement.innerHTML = `✓ Copied!`;
+      btnElement.style.background = '#25D366';
+      btnElement.style.color = '#ffffff';
+      setTimeout(function() {
+        btnElement.innerHTML = originalHTML;
+        btnElement.style.background = '';
+        btnElement.style.color = '';
+      }, 2500);
+    });
+  }
+</script>
+
 <style>
-  .page-main {
-    padding-top: 100px;
+  .donate-page {
+    background: #140c03;
+    color: #FFFDF7;
     min-height: 100vh;
-    background: var(--bg-color);
+    padding-top: 90px;
   }
 
-  .donate-header {
+  .donate-hero {
+    position: relative;
+    padding: 5rem 0 3rem;
     text-align: center;
-    padding: 6rem 0 3rem;
+    overflow: hidden;
+  }
+
+  .donate-hero-glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232, 114, 12, 0.18) 0%, rgba(20, 12, 3, 0) 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(232, 114, 12, 0.12);
+    border: 1px solid rgba(232, 114, 12, 0.3);
+    color: var(--saffron-light, #F4921E);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #25D366;
   }
 
   .page-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: var(--ivory);
-    margin-bottom: 1rem;
-    position: relative;
-    display: inline-block;
-  }
-
-  .page-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: #FFFDF7;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
   }
 
   .page-subtitle {
     font-size: 1.1rem;
-    color: rgba(255, 248, 230, 0.7);
-    max-width: 600px;
-    margin: 1.5rem auto 0;
+    color: rgba(255, 253, 247, 0.75);
+    max-width: 650px;
+    margin: 0 auto;
     line-height: 1.8;
   }
 
-  .donate-content {
+  /* Impact Section */
+  .impact-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .text-center { text-align: center; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron-light, #F4921E);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #FFFDF7;
+    margin-bottom: 2.5rem;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  .impact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .impact-card:hover {
+    border-color: rgba(232, 114, 12, 0.4);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .impact-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .impact-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--saffron-light, #F4921E);
+    margin-bottom: 0.75rem;
+  }
+
+  .impact-card p {
+    font-size: 0.92rem;
+    color: rgba(255, 253, 247, 0.7);
+    line-height: 1.7;
+  }
+
+  /* Donate Details Section */
+  .donate-details-section {
     padding-bottom: 6rem;
   }
 
@@ -149,85 +315,112 @@ import Footer from '../components/Footer.astro';
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    max-width: 900px;
+    max-width: 1050px;
     margin: 0 auto;
   }
 
-  .donate-info-card {
-    background: var(--surface-light);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+  .donate-card {
+    background: #1d1206;
+    border: 1px solid rgba(232, 114, 12, 0.25);
+    border-radius: 16px;
     padding: 2.5rem;
     position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 
-  .donate-info-card.full-width {
+  .donate-card.full-width {
     grid-column: 1 / -1;
   }
 
-  .tax-badge {
+  .card-badge {
     position: absolute;
-    top: -12px;
+    top: -14px;
     right: 24px;
-    background: var(--gold);
-    color: var(--charcoal);
+    background: linear-gradient(135deg, var(--saffron-light, #F4921E), #C45E1A);
+    color: #FFFDF7;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 0.35rem 1rem;
+    padding: 0.4rem 1.1rem;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 4px 15px rgba(232, 114, 12, 0.35);
   }
 
-  .donate-info-card h2 {
+  .card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--saffron-light);
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    color: #FFFDF7;
+    margin-bottom: 0.75rem;
   }
 
-  .donate-info-card p {
+  .card-text {
     font-size: 0.95rem;
-    color: rgba(255, 248, 230, 0.8);
+    color: rgba(255, 253, 247, 0.75);
     line-height: 1.7;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
-  .donate-info-card p strong {
-    color: var(--ivory);
-  }
-
-  .tax-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .tax-tag {
-    background: rgba(201, 168, 76, 0.1);
-    color: var(--gold);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-  }
-
-  .bank-details-box {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 1.5rem;
+  .tax-box {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .tax-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--saffron-light, #F4921E);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tax-name {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--saffron-light, #F4921E);
+    margin-bottom: 0.2rem;
+  }
+
+  .tax-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 253, 247, 0.7);
+    line-height: 1.5;
+  }
+
+  .reg-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 253, 247, 0.8);
+    font-size: 0.78rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-family: monospace;
+  }
+
+  /* Bank Table */
+  .bank-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
   }
 
   .bank-row {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding-bottom: 0.75rem;
   }
 
@@ -236,88 +429,118 @@ import Footer from '../components/Footer.astro';
     padding-bottom: 0;
   }
 
-  .bank-label {
-    color: rgba(255, 248, 230, 0.5);
-    font-size: 0.9rem;
+  .label {
+    color: rgba(255, 253, 247, 0.55);
+    font-size: 0.88rem;
   }
 
-  .bank-value {
-    color: var(--ivory);
+  .val {
+    color: #FFFDF7;
     font-weight: 500;
-    font-family: 'Inter', monospace;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     text-align: right;
   }
 
-  .receipt-section {
+  .val.highlight {
+    color: var(--saffron-light, #F4921E);
+    font-weight: 700;
+  }
+
+  .val.mono {
+    font-family: 'Inter', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .val-copy {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(232, 114, 12, 0.2);
+    border: 1px solid rgba(232, 114, 12, 0.4);
+    color: var(--saffron-light, #F4921E);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .copy-btn:hover {
+    background: var(--saffron-light, #F4921E);
+    color: #140c03;
+  }
+
+  /* Receipt Card */
+  .receipt-card {
+    background: linear-gradient(135deg, #1b261b 0%, #151f15 100%);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+  }
+
+  .receipt-inner {
     display: flex;
     gap: 2rem;
     align-items: center;
   }
 
-  .receipt-icon {
-    width: 80px;
-    height: 80px;
-    background: rgba(201, 168, 76, 0.1);
+  .receipt-icon-box {
+    width: 76px;
+    height: 76px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold);
+    color: #25D366;
     flex-shrink: 0;
   }
 
-  .receipt-content h2 {
+  .receipt-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #FFFDF7;
     margin-bottom: 0.5rem;
   }
 
-  .receipt-content p {
+  .receipt-text p {
+    font-size: 0.95rem;
+    color: rgba(255, 253, 247, 0.8);
+    line-height: 1.7;
     margin-bottom: 1.25rem;
   }
 
   .btn-whatsapp {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     background: #25D366;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 500;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
   }
 
   .btn-whatsapp:hover {
     background: #1da851;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   }
 
-  /* Animations */
-  .animate-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .donate-grid {
-      grid-template-columns: 1fr;
-    }
-    .receipt-section {
-      flex-direction: column;
-      text-align: center;
-      gap: 1.5rem;
-    }
-    .page-title {
-      font-size: 2.5rem;
-    }
+  @media (max-width: 900px) {
+    .impact-grid { grid-template-columns: 1fr; }
+    .donate-grid { grid-template-columns: 1fr; }
+    .receipt-inner { flex-direction: column; text-align: center; }
+    .val-copy { flex-direction: column; align-items: flex-end; gap: 0.3rem; }
   }
 </style>
