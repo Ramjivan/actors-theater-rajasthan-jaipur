@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Executive Committee | Actors Theatre Rajasthan" 
+  description="Meet the Executive Committee of Actors Theatre Rajasthan (ATR)."
+>
+  <Navbar />
+  
+  <main class="page-container">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Executive Committee</h1>
+        <div class="gold-divider"></div>
+        <p class="page-subtitle">The dedicated leadership team guiding Actors Theatre Rajasthan.</p>
+      </div>
+      
+      <div class="committee-grid">
+        <div class="committee-member">
+          <h4>Chandradeep Hada</h4>
+          <p>PRESIDENT</p>
+        </div>
+        <div class="committee-member">
+          <h4>Dilip Singh</h4>
+          <p>VICE PRESIDENT</p>
+        </div>
+        <div class="committee-member">
+          <h4>Devendra Singh Shekhawat</h4>
+          <p>SECRETARY</p>
+        </div>
+        <div class="committee-member">
+          <h4>Prakash Chand Saini</h4>
+          <p>DEPUTY SECRETARY</p>
+        </div>
+        <div class="committee-member">
+          <h4>Sanjay Vyas</h4>
+          <p>TREASURER</p>
+        </div>
+        <div class="committee-member">
+          <h4>Amardeep Sakarwal</h4>
+          <p>MEMBER</p>
+        </div>
+        <div class="committee-member">
+          <h4>Bhushan Sharma</h4>
+          <p>MEMBER</p>
+        </div>
+        <div class="committee-member">
+          <h4>Suruchi Sharma</h4>
+          <p>MEMBER</p>
+        </div>
+        <div class="committee-member">
+          <h4>Vaid Prakash Dhar</h4>
+          <p>MEMBER</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: var(--nav-height);
+    padding-bottom: 5rem;
+    min-height: calc(100vh - 400px);
+    background-color: var(--white);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .committee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .committee-member h4 {
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .committee-member p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    font-weight: 600;
+  }
+</style>
