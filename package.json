@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node -e \"const fs=require('fs'); if(fs.existsSync('dist/client')){fs.cpSync('dist/client','dist',{recursive:true})}\"",
+    "tina-dev": "tinacms dev -c \"astro dev\"",
+    "tina-build": "tinacms build && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "start": "serve dist -p ${PORT:-4321}"

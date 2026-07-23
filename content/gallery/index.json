@@ -19,6 +19,34 @@
     {
       "image": "/images/gallery/gallery_photo_5.jpeg",
       "caption": "Gallery Photo"
+    },
+    {
+      "image": "/images/events/traditional_performance_stage.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/patriotic_performance_stage.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/rehearsal_workshop.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/school_workshop_outdoor_1.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/school_workshop_outdoor_2.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/rajrangam_musical_performance.jpeg",
+      "caption": "Event Photo"
+    },
+    {
+      "image": "/images/events/masked_theatre_performance.jpeg",
+      "caption": "Event Photo"
     }
   ]
 }
