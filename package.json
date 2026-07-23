@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node -e \"const fs=require('fs'); if(fs.existsSync('dist/client')){fs.cpSync('dist/client','dist',{recursive:true})}\"",
+    "build": "astro build",
     "tina-dev": "tinacms dev -c \"astro dev\"",
     "tina-build": "tinacms build && astro build",
     "preview": "astro preview",
