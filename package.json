@@ -14,9 +14,16 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.2",
+    "@astrojs/react": "^6.0.1",
     "@astrojs/sitemap": "^3.7.3",
+    "@tinacms/cli": "^2.5.6",
     "astro": "^7.0.7",
-    "serve": "^14.2.4"
+    "next-auth": "^4.24.15",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "serve": "^14.2.4",
+    "tinacms": "^3.11.0",
+    "tinacms-authjs": "^24.0.2"
   },
   "devDependencies": {
     "@emnapi/core": "^1.11.2",

@@ -2,20 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import pressData from '../../content/press/index.json';
 
-// Automatically discover all media and clippings photos at build time
-const mediaMatches = import.meta.glob('/public/images/media/*.{jpeg,jpg,png,webp}');
-const mediaList = Object.keys(mediaMatches)
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-  .map(path => path.replace('/public', ''));
-
-const clippingMatches = import.meta.glob('/public/images/clippings/*.{jpeg,jpg,png,webp}');
-const clippingsList = Object.keys(clippingMatches)
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-  .map(path => path.replace('/public', ''));
-
-// Media mentions shown first, then classic archive clippings
-const clippings = [...mediaList, ...clippingsList];
+const clippings = pressData.clippings.map((p: any) => p.image);
 ---
 
 <Layout 

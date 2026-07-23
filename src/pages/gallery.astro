@@ -2,25 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import galleryData from '../../content/gallery/index.json';
 
-// Automatically discover all photos in public/images/gallery/ at build time
-const galleryMatches = import.meta.glob('/public/images/gallery/*.{jpeg,jpg,png,webp}');
-const autoGalleryImages = Object.keys(galleryMatches)
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-  .map(path => path.replace('/public', ''));
-
-// Supplementary event photos
-const fallbackImages = [
-  "/images/events/traditional_performance_stage.jpeg",
-  "/images/events/patriotic_performance_stage.jpeg",
-  "/images/events/rehearsal_workshop.jpeg",
-  "/images/events/school_workshop_outdoor_1.jpeg",
-  "/images/events/school_workshop_outdoor_2.jpeg",
-  "/images/events/rajrangam_musical_performance.jpeg",
-  "/images/events/masked_theatre_performance.jpeg"
-];
-
-const allImages = [...autoGalleryImages, ...fallbackImages];
+const allImages = galleryData.photos.map((p: any) => p.image);
 ---
 
 <Layout 
