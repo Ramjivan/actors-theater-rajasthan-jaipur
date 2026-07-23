@@ -1,30 +1,21 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
 import { UsernamePasswordAuthJSProvider } from "tinacms-authjs/dist/tinacms";
-
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
-
-const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
-
-export default defineConfig({
+var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
+var isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
+var config_default = defineConfig({
   branch,
-  
   // Setup the custom AuthJS provider
-  authProvider: isLocal ? undefined : new UsernamePasswordAuthJSProvider(),
-  
+  authProvider: isLocal ? void 0 : new UsernamePasswordAuthJSProvider(),
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "images",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -38,14 +29,14 @@ export default defineConfig({
             type: "image",
             name: "image",
             label: "Image",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "caption",
-            label: "Caption",
-          },
-        ],
+            label: "Caption"
+          }
+        ]
       },
       {
         name: "press",
@@ -57,25 +48,28 @@ export default defineConfig({
             type: "image",
             name: "image",
             label: "Press Image",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "title",
-            label: "Title",
+            label: "Title"
           },
           {
             type: "datetime",
             name: "date",
-            label: "Date",
+            label: "Date"
           },
           {
             type: "string",
             name: "link",
-            label: "External Link",
-          },
-        ],
-      },
-    ],
-  },
+            label: "External Link"
+          }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};
