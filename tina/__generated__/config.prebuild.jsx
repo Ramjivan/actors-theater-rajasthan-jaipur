@@ -5,6 +5,8 @@ var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || p
 var isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 var config_default = defineConfig({
   branch,
+  clientId: process.env.TINA_CLIENT_ID || "dummy-client-id",
+  token: process.env.TINA_TOKEN || "dummy-token",
   // Setup the custom AuthJS provider
   authProvider: isLocal ? void 0 : new UsernamePasswordAuthJSProvider(),
   build: {

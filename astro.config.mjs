@@ -10,7 +10,7 @@ export default defineConfig({
   // which makes it run as a Cloudflare Pages Function (serverless).
   adapter: cloudflare({
     platformProxy: {
-      enabled: true  // enables local dev simulation of CF bindings
+      enabled: false  // disabled in production to prevent wrangler.json validation errors during build
     }
   }),
   site: 'https://actorstheatrerajasthan.org',

@@ -12,9 +12,12 @@ const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 export default defineConfig({
   branch,
+  clientId: process.env.TINA_CLIENT_ID || "dummy-client-id",
+  token: process.env.TINA_TOKEN || "dummy-token",
   
   // Setup the custom AuthJS provider
   authProvider: isLocal ? undefined : new UsernamePasswordAuthJSProvider(),
+  contentApiUrlOverride: "/api/tina/gql",
   
   build: {
     outputFolder: "admin",
