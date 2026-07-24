@@ -1,4 +1,4 @@
-import { defineConfig, LocalAuthProvider } from "tinacms";
+import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -11,10 +11,6 @@ export default defineConfig({
   branch,
   clientId: process.env.TINA_CLIENT_ID || "dummy-client-id",
   token: process.env.TINA_TOKEN || "dummy-token",
-  
-  // Authentication is handled at the network level by Astro Middleware
-  authProvider: new LocalAuthProvider(),
-  contentApiUrlOverride: "/api/tina/gql",
   
   build: {
     outputFolder: "admin",

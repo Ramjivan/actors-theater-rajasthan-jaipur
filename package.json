@@ -19,17 +19,13 @@
     "@astrojs/react": "^6.0.1",
     "@astrojs/sitemap": "^3.7.3",
     "@tinacms/cli": "^2.5.6",
-    "@tinacms/datalayer": "^2.0.29",
     "@tinacms/graphql": "^2.4.9",
-    "@upstash/redis": "^1.38.0",
     "astro": "^7.0.7",
     "fs-extra": "^11.4.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "serve": "^14.2.4",
-    "tinacms": "^3.11.0",
-    "tinacms-gitprovider-github": "^4.1.16",
-    "upstash-redis-level": "^1.1.1"
+    "tinacms": "^3.11.0"
   },
   "devDependencies": {
     "@emnapi/core": "^1.11.2",
