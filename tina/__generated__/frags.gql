@@ -1,13 +1,19 @@
 fragment GalleryParts on Gallery {
   __typename
-  image
-  caption
+  photos {
+    __typename
+    image
+    caption
+  }
 }
 
 fragment PressParts on Press {
   __typename
-  image
-  title
-  date
-  link
+  clippings {
+    __typename
+    image
+    title
+    date
+    link
+  }
 }

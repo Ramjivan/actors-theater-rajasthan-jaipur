@@ -183,10 +183,15 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = Gallery | Press | Folder;
 
-export type Gallery = Node & Document & {
-  __typename?: 'Gallery';
+export type GalleryPhotos = {
+  __typename?: 'GalleryPhotos';
   image: Scalars['String']['output'];
   caption?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery = Node & Document & {
+  __typename?: 'Gallery';
+  photos?: Maybe<Array<Maybe<GalleryPhotos>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -206,9 +211,13 @@ export type StringFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type GalleryFilter = {
+export type GalleryPhotosFilter = {
   image?: InputMaybe<ImageFilter>;
   caption?: InputMaybe<StringFilter>;
+};
+
+export type GalleryFilter = {
+  photos?: InputMaybe<GalleryPhotosFilter>;
 };
 
 export type GalleryConnectionEdges = {
@@ -224,12 +233,17 @@ export type GalleryConnection = Connection & {
   edges?: Maybe<Array<Maybe<GalleryConnectionEdges>>>;
 };
 
-export type Press = Node & Document & {
-  __typename?: 'Press';
+export type PressClippings = {
+  __typename?: 'PressClippings';
   image: Scalars['String']['output'];
   title?: Maybe<Scalars['String']['output']>;
   date?: Maybe<Scalars['String']['output']>;
   link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Press = Node & Document & {
+  __typename?: 'Press';
+  clippings?: Maybe<Array<Maybe<PressClippings>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -243,11 +257,15 @@ export type DatetimeFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PressFilter = {
+export type PressClippingsFilter = {
   image?: InputMaybe<ImageFilter>;
   title?: InputMaybe<StringFilter>;
   date?: InputMaybe<DatetimeFilter>;
   link?: InputMaybe<StringFilter>;
+};
+
+export type PressFilter = {
+  clippings?: InputMaybe<PressClippingsFilter>;
 };
 
 export type PressConnectionEdges = {
@@ -344,28 +362,36 @@ export type DocumentMutation = {
   press?: InputMaybe<PressMutation>;
 };
 
-export type GalleryMutation = {
+export type GalleryPhotosMutation = {
   image?: InputMaybe<Scalars['String']['input']>;
   caption?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type PressMutation = {
+export type GalleryMutation = {
+  photos?: InputMaybe<Array<InputMaybe<GalleryPhotosMutation>>>;
+};
+
+export type PressClippingsMutation = {
   image?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
   link?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type GalleryPartsFragment = { __typename: 'Gallery', image: string, caption?: string | null };
+export type PressMutation = {
+  clippings?: InputMaybe<Array<InputMaybe<PressClippingsMutation>>>;
+};
 
-export type PressPartsFragment = { __typename: 'Press', image: string, title?: string | null, date?: string | null, link?: string | null };
+export type GalleryPartsFragment = { __typename: 'Gallery', photos?: Array<{ __typename: 'GalleryPhotos', image: string, caption?: string | null } | null> | null };
+
+export type PressPartsFragment = { __typename: 'Press', clippings?: Array<{ __typename: 'PressClippings', image: string, title?: string | null, date?: string | null, link?: string | null } | null> | null };
 
 export type GalleryQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type GalleryQuery = { __typename?: 'Query', gallery: { __typename: 'Gallery', id: string, image: string, caption?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type GalleryQuery = { __typename?: 'Query', gallery: { __typename: 'Gallery', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, photos?: Array<{ __typename: 'GalleryPhotos', image: string, caption?: string | null } | null> | null } };
 
 export type GalleryConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -377,14 +403,14 @@ export type GalleryConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GalleryConnectionQuery = { __typename?: 'Query', galleryConnection: { __typename?: 'GalleryConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GalleryConnectionEdges', cursor: string, node?: { __typename: 'Gallery', id: string, image: string, caption?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type GalleryConnectionQuery = { __typename?: 'Query', galleryConnection: { __typename?: 'GalleryConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GalleryConnectionEdges', cursor: string, node?: { __typename: 'Gallery', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, photos?: Array<{ __typename: 'GalleryPhotos', image: string, caption?: string | null } | null> | null } | null } | null> | null } };
 
 export type PressQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PressQuery = { __typename?: 'Query', press: { __typename: 'Press', id: string, image: string, title?: string | null, date?: string | null, link?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PressQuery = { __typename?: 'Query', press: { __typename: 'Press', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, clippings?: Array<{ __typename: 'PressClippings', image: string, title?: string | null, date?: string | null, link?: string | null } | null> | null } };
 
 export type PressConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -396,22 +422,28 @@ export type PressConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PressConnectionQuery = { __typename?: 'Query', pressConnection: { __typename?: 'PressConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PressConnectionEdges', cursor: string, node?: { __typename: 'Press', id: string, image: string, title?: string | null, date?: string | null, link?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PressConnectionQuery = { __typename?: 'Query', pressConnection: { __typename?: 'PressConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PressConnectionEdges', cursor: string, node?: { __typename: 'Press', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, clippings?: Array<{ __typename: 'PressClippings', image: string, title?: string | null, date?: string | null, link?: string | null } | null> | null } | null } | null> | null } };
 
 export const GalleryPartsFragmentDoc = gql`
     fragment GalleryParts on Gallery {
   __typename
-  image
-  caption
+  photos {
+    __typename
+    image
+    caption
+  }
 }
     `;
 export const PressPartsFragmentDoc = gql`
     fragment PressParts on Press {
   __typename
-  image
-  title
-  date
-  link
+  clippings {
+    __typename
+    image
+    title
+    date
+    link
+  }
 }
     `;
 export const GalleryDocument = gql`

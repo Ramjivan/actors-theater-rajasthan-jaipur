@@ -8,17 +8,23 @@ export function gql(strings, ...args) {
 export const GalleryPartsFragmentDoc = gql`
     fragment GalleryParts on Gallery {
   __typename
-  image
-  caption
+  photos {
+    __typename
+    image
+    caption
+  }
 }
     `;
 export const PressPartsFragmentDoc = gql`
     fragment PressParts on Press {
   __typename
-  image
-  title
-  date
-  link
+  clippings {
+    __typename
+    image
+    title
+    date
+    link
+  }
 }
     `;
 export const GalleryDocument = gql`

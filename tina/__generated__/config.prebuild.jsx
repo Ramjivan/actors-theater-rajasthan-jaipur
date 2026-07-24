@@ -24,15 +24,26 @@ var config_default = defineConfig({
         format: "json",
         fields: [
           {
-            type: "image",
-            name: "image",
-            label: "Image",
-            required: true
-          },
-          {
-            type: "string",
-            name: "caption",
-            label: "Caption"
+            type: "object",
+            list: true,
+            name: "photos",
+            label: "Photos",
+            ui: {
+              itemProps: (item) => ({ label: item?.caption || "New Photo" })
+            },
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Image",
+                required: true
+              },
+              {
+                type: "string",
+                name: "caption",
+                label: "Caption"
+              }
+            ]
           }
         ]
       },
@@ -43,25 +54,36 @@ var config_default = defineConfig({
         format: "json",
         fields: [
           {
-            type: "image",
-            name: "image",
-            label: "Press Image",
-            required: true
-          },
-          {
-            type: "string",
-            name: "title",
-            label: "Title"
-          },
-          {
-            type: "datetime",
-            name: "date",
-            label: "Date"
-          },
-          {
-            type: "string",
-            name: "link",
-            label: "External Link"
+            type: "object",
+            list: true,
+            name: "clippings",
+            label: "Press Clippings",
+            ui: {
+              itemProps: (item) => ({ label: item?.title || "New Press Mention" })
+            },
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Press Image",
+                required: true
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Title"
+              },
+              {
+                type: "datetime",
+                name: "date",
+                label: "Date"
+              },
+              {
+                type: "string",
+                name: "link",
+                label: "External Link"
+              }
+            ]
           }
         ]
       }
