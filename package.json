@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "cross-env NODE_OPTIONS=--max_old_space_size=2048 tinacms build --skip-cloud-checks && astro build",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=3072 tinacms build --skip-cloud-checks && astro build",
     "tina-dev": "tinacms dev -c \"astro dev\"",
-    "tina-build": "cross-env NODE_OPTIONS=--max_old_space_size=2048 tinacms build --skip-cloud-checks && astro build",
+    "tina-build": "cross-env NODE_OPTIONS=--max_old_space_size=3072 tinacms build --skip-cloud-checks && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "start": "serve dist -p ${PORT:-4321}"
