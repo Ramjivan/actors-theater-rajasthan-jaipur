@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node -e \"const fs=require('fs'); if(fs.existsSync('wrangler.json')) fs.renameSync('wrangler.json','wrangler.tmp')\" && tinacms build --skip-cloud-checks && astro build && node -e \"const fs=require('fs'); if(fs.existsSync('wrangler.tmp')) fs.renameSync('wrangler.tmp','wrangler.json')\"",
+    "build": "tinacms build --skip-cloud-checks && astro build",
     "tina-dev": "tinacms dev -c \"astro dev\"",
     "tina-build": "tinacms build --skip-cloud-checks && astro build",
     "preview": "astro preview",

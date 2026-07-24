@@ -1,11 +1,6 @@
 {
   "name": "atr-astro",
   "compatibility_date": "2026-04-15",
-  "main": "./dist/server/entry.mjs",
-  "assets": {
-    "binding": "ASSETS",
-    "directory": "./dist/client"
-  },
   "routes": [
     {
       "pattern": "actorstheatrerajasthan.org",
@@ -23,11 +18,5 @@
   ],
   "images": {
     "binding": "IMAGES"
-  },
-  "rules": [
-    {
-      "type": "ESModule",
-      "globs": ["**/*.js", "**/*.mjs"]
-    }
-  ]
+  }
 }
