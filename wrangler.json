@@ -1,16 +1,6 @@
 {
   "name": "atr-astro",
   "compatibility_date": "2026-04-15",
-  "routes": [
-    {
-      "pattern": "actorstheatrerajasthan.org",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.actorstheatrerajasthan.org",
-      "custom_domain": true
-    }
-  ],
   "kv_namespaces": [
     {
       "binding": "SESSION"
