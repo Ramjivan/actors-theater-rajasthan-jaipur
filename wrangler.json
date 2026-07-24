@@ -18,5 +18,6 @@
   ],
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  "compatibility_flags": ["nodejs_compat"]
 }

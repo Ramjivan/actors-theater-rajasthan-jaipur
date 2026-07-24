@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "tinacms build --skip-cloud-checks && astro build",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=2048 tinacms build --skip-cloud-checks && astro build",
     "tina-dev": "tinacms dev -c \"astro dev\"",
-    "tina-build": "tinacms build --skip-cloud-checks && astro build",
+    "tina-build": "cross-env NODE_OPTIONS=--max_old_space_size=2048 tinacms build --skip-cloud-checks && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "start": "serve dist -p ${PORT:-4321}"
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@emnapi/core": "^1.11.2",
     "@emnapi/runtime": "^1.11.2",
+    "cross-env": "^10.1.0",
     "wrangler": "^4.110.0"
   }
 }
