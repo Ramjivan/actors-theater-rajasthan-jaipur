@@ -1,5 +1,4 @@
-import { defineConfig } from "tinacms";
-import { UsernamePasswordAuthJSProvider } from "tinacms-authjs/dist/tinacms";
+import { defineConfig, LocalAuthProvider } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -8,15 +7,13 @@ const branch =
   process.env.HEAD ||
   "main";
 
-const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
-
 export default defineConfig({
   branch,
   clientId: process.env.TINA_CLIENT_ID || "dummy-client-id",
   token: process.env.TINA_TOKEN || "dummy-token",
   
-  // Setup the custom AuthJS provider
-  authProvider: isLocal ? undefined : new UsernamePasswordAuthJSProvider(),
+  // Authentication is handled at the network level by Astro Middleware
+  authProvider: new LocalAuthProvider(),
   contentApiUrlOverride: "/api/tina/gql",
   
   build: {
