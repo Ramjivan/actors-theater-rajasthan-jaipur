@@ -1,13 +1,10 @@
 // tina/config.ts
-import { defineConfig, LocalAuthProvider } from "tinacms";
+import { defineConfig } from "tinacms";
 var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
   branch,
-  clientId: process.env.TINA_CLIENT_ID || "dummy-client-id",
-  token: process.env.TINA_TOKEN || "dummy-token",
-  // Authentication is handled at the network level by Astro Middleware
-  authProvider: new LocalAuthProvider(),
-  contentApiUrlOverride: "/api/tina/gql",
+  clientId: "3e17efae-853c-41cb-a290-96dd578f6274",
+  token: "dedb487492c91990228cd0e248a3f657c1bae09a",
   build: {
     outputFolder: "admin",
     publicFolder: "public"
