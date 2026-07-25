@@ -1084,7 +1084,7 @@ content:
             type: string
           - name: path
             label: Path
-            type: string
+            type: file
           - name: openInNew
             label: OpenInNew
             type: boolean
