@@ -8,6 +8,9 @@ export default defineConfig({
   // All pages are static (CDN) by default in Astro 7.
   // src/pages/api/contact.ts has `export const prerender = false`
   // which makes it run as a Cloudflare Pages Function (serverless).
+  redirects: {
+    '/admin': 'https://pagescms.org'
+  },
   output: "server",
   adapter: cloudflare({
     imageService: 'cloudflare',
