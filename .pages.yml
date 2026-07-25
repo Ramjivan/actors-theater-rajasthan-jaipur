@@ -93,10 +93,8 @@ content:
     fields:
       - name: slides
         label: Slides
-        type: list
-        fields:
-          - type: string
-            name: item
+        type: image
+        list: true
       - name: badge
         label: Badge
         type: string
@@ -914,10 +912,8 @@ content:
             type: string
           - name: images
             label: Images
-            type: list
-            fields:
-              - type: string
-                name: item
+            type: image
+            list: true
   - name: anti-discrimination-policy
     label: Anti-discrimination-policy
     type: file
