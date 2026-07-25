@@ -8,8 +8,8 @@ Official web application for **Actors Theatre Rajasthan (ATR)** — a registered
 
 - **Framework:** [Astro 7](https://astro.build/) (Static Site Generation + Serverless API Functions)
 - **Deployment & Hosting:** [Cloudflare Pages](https://pages.cloudflare.com/) (`@astrojs/cloudflare` adapter)
-- **Automatic Photo Discovery:** Gallery (`/gallery`) and Press (`/press`) pages use `import.meta.glob` to automatically pick up and render images dropped into `public/images/gallery/` and `public/images/media/`.
-- **Admin Photo Uploader:** Secure portal at `/admin` backed by Cloudflare Function `/api/admin/upload` allowing non-technical staff to upload images directly to the GitHub repository.
+- **Content Management:** Fully integrated with [Pages CMS](https://pagescms.org/), providing a user-friendly GUI to edit text, upload images, and manage collections (Activities, Productions, Media, etc.).
+- **Data Architecture:** Content is stored as decoupled JSON in `content/` and `src/content/pages/` mapped via `.pages.yml`.
 
 ---
 
@@ -28,16 +28,10 @@ npm run build
 
 ---
 
-## 🔐 Admin Photo Uploader Setup (Cloudflare Pages)
+## 📝 Content Management (Pages CMS)
 
-To enable authenticated photo uploads via `/admin`, configure the following under **Cloudflare Pages Dashboard → Settings → Environment Variables**:
+This website uses **Pages CMS** for all content updates.
 
-| Variable | Description | Example |
-| :--- | :--- | :--- |
-| `ADMIN_EMAIL` | Admin login email | `actorsraj@gmail.com` |
-| `ADMIN_PASSWORD` | Secure login password | `YourSecurePassword2026!` |
-| `GITHUB_REPO` | GitHub repository (`owner/repo`) | `Ramjivan/actors-theater-rajasthan-jaipur` |
-| `GITHUB_BRANCH` | Target branch for commits | `main` |
-| `GITHUB_TOKEN` | Fine-grained GitHub PAT with Write access | `github_pat_11...` |
-
-See `.env.example` for detailed steps on generating `GITHUB_TOKEN`.
+1. **Accessing the CMS:** Navigate to `yoursite.com/admin` (which redirects to Pages CMS) or go directly to [Pages CMS](https://pagescms.org/).
+2. **Login:** Log in with the GitHub account that has access to this repository.
+3. **Usage:** You can edit Homepage content, add new Photo Gallery images, create Theatre Productions, and update policies. Changes made in Pages CMS are automatically committed to the repository and deployed by Cloudflare Pages.
