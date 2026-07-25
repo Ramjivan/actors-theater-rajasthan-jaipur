@@ -35,14 +35,14 @@ const activities = data.activities;
 
       <!-- Linear Document-Style Layout -->
       <div class="activities-list">
-        {activities.map((act) => (
+        {[...activities].reverse().map((act) => (
           <div class="activity-entry">
-            <div class="activity-num">{act.num.padStart(2, '0')}</div>
+            <div class="activity-bullet"></div>
             <div class="activity-content">
               <p class="activity-text">{act.text}</p>
-              {act.images.length > 0 && (
+              {act.images && act.images.length > 0 && (
                 <div class="activity-photo-row">
-                  {act.images.map((img) => (
+                  {act.images.map((img: string) => (
                     <div class="activity-photo-wrapper">
                       <img src={img} alt="Activity documentation" class="gallery-trigger" loading="lazy" />
                     </div>
@@ -137,15 +137,14 @@ const activities = data.activities;
     padding-bottom: 0;
   }
 
-  .activity-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--saffron);
-    line-height: 0.9;
-    opacity: 0.85;
-    min-width: 70px;
-    text-align: right;
+  .activity-bullet {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--saffron);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(255, 153, 51, 0.2);
   }
 
   .activity-content {
@@ -272,10 +271,8 @@ const activities = data.activities;
       padding-bottom: 3rem;
     }
     
-    .activity-num {
-      text-align: left;
-      min-width: auto;
-      font-size: 2.2rem;
+    .activity-bullet {
+      margin-left: 0.5rem;
     }
 
     .activity-photo-wrapper {

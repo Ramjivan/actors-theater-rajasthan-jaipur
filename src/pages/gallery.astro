@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import galleryData from '../../content/gallery/index.json';
 
-const allImages = galleryData.photos.map((p: any) => p.image);
+const photos = galleryData.photos;
 ---
 
 <Layout 
@@ -34,14 +34,15 @@ const allImages = galleryData.photos.map((p: any) => p.image);
 
       <!-- Gallery Grid -->
       <div class="gallery-grid" id="gallery-grid">
-        {allImages.map((src, index) => (
+        {photos.map((photo, index) => (
           <div 
             class="gallery-item animate-in" 
-            data-src={src} 
+            data-src={photo.image} 
             data-index={index}
+            data-caption={photo.caption}
           >
             <div class="image-card">
-              <img src={src} alt={`Gallery Image ${index + 1}`} loading="lazy" />
+              <img src={photo.image} alt={photo.caption || `Gallery Image ${index + 1}`} loading="lazy" />
               <div class="image-overlay">
                 <span class="zoom-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
@@ -54,7 +55,7 @@ const allImages = galleryData.photos.map((p: any) => p.image);
                 <span>Zoom Photo</span>
               </div>
             </div>
-            <div class="image-caption">Theatre Production Image #{index + 1}</div>
+            <div class="image-caption">{photo.caption}</div>
           </div>
         ))}
       </div>
@@ -321,11 +322,12 @@ const allImages = galleryData.photos.map((p: any) => p.image);
     if (!item) return;
 
     const src = item.getAttribute('data-src');
+    const caption = item.getAttribute('data-caption');
     if (src && lightboxImg) {
       currentIndex = index;
       lightboxImg.src = src;
       if (lightboxTitle) {
-        lightboxTitle.textContent = `Production & Performance Image #${index + 1}`;
+        lightboxTitle.textContent = caption || `Production & Performance Image #${index + 1}`;
       }
       lightbox?.classList.add('active');
       document.body.style.overflow = 'hidden';

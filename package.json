@@ -25,6 +25,7 @@
   "devDependencies": {
     "@emnapi/core": "^1.11.2",
     "@emnapi/runtime": "^1.11.2",
-    "wrangler": "^4.110.0"
+    "wrangler": "^4.110.0",
+    "yaml": "^2.9.0"
   }
 }

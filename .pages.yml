@@ -909,9 +909,6 @@ content:
         type: object
         list: true
         fields:
-          - name: num
-            label: Num
-            type: string
           - name: text
             label: Text
             type: string
