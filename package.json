@@ -7,9 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "cross-env NODE_OPTIONS=--max_old_space_size=3072 tinacms build --skip-cloud-checks && astro build",
-    "tina-dev": "tinacms dev -c \"astro dev\"",
-    "tina-build": "cross-env NODE_OPTIONS=--max_old_space_size=3072 tinacms build --skip-cloud-checks && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "start": "serve dist -p ${PORT:-4321}"
@@ -18,19 +16,15 @@
     "@astrojs/cloudflare": "^14.1.2",
     "@astrojs/react": "^6.0.1",
     "@astrojs/sitemap": "^3.7.3",
-    "@tinacms/cli": "^2.5.6",
-    "@tinacms/graphql": "^2.4.9",
     "astro": "^7.0.7",
     "fs-extra": "^11.4.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "serve": "^14.2.4",
-    "tinacms": "^3.11.0"
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@emnapi/core": "^1.11.2",
     "@emnapi/runtime": "^1.11.2",
-    "cross-env": "^10.1.0",
     "wrangler": "^4.110.0"
   }
 }
