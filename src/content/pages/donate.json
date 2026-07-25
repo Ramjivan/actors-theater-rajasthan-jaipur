@@ -1,0 +1,40 @@
+{
+  "bankAccounts": [
+    {
+      "accountName": "ACTORS THEATRE @ RAJASTHAN",
+      "bankName": "Axis Bank Ltd",
+      "accountNumber": "920010033025212",
+      "ifscCode": "UTIB0001852",
+      "swiftCode": "AXISINBBXXX",
+      "branch": "Tonk Road, Jaipur (302015)"
+    }
+  ],
+  "taxBenefits": {
+    "badges": [
+      "Section 80G Certified",
+      "Section 12A Registered"
+    ],
+    "description": "All contributions made to <strong>Actors Theatre Rajasthan</strong> are eligible for a <strong>50% Tax Exemption</strong> under Section 80G of the Indian Income Tax Act.",
+    "registrations": [
+      {
+        "label": "NGO Darpan ID",
+        "value": "RJ/2010/0031456"
+      },
+      {
+        "label": "FCRA Reg. No.",
+        "value": "125560336"
+      },
+      {
+        "label": "Organisation Status",
+        "value": "Registered Non-Governmental Society"
+      }
+    ]
+  },
+  "receiptRequest": {
+    "badge": "80G Receipt",
+    "title": "How to Receive Your Tax Exemption Receipt",
+    "description": "After making your transfer, please send a screenshot/slip of your payment along with your <strong>Full Name</strong>, <strong>PAN Card Number</strong>, and <strong>Address</strong> to our team on WhatsApp. We will issue and send your official 80G tax receipt.",
+    "whatsappUrl": "https://wa.me/917821844466?text=Hello%20ATR%20Team%2C%20I%20have%20made%20a%20donation.%20Here%20is%20my%20transaction%20slip%20and%20PAN%20details%20for%2080G%20receipt.",
+    "buttonText": "Send Payment Slip on WhatsApp"
+  }
+}

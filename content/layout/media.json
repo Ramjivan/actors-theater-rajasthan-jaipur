@@ -1,0 +1,124 @@
+{
+  "header": {
+    "label": "Gallery & Recognition",
+    "title": "When the Stage<br />Tells the Story",
+    "subtitle": "A glimpse of our theatrical productions, national recognition, and past campaigns. Click any photo or poster to expand it."
+  },
+  "tabs": {
+    "photos": "Performance Photos",
+    "posters": "Event Posters"
+  },
+  "actionPhotos": [
+    {
+      "src": "/images/events/traditional_performance_stage.jpeg",
+      "title": "Gopichand Bhartrihari",
+      "caption": "Dilip Bhatt's traditional Rajasthani Tamasha musical play on stage."
+    },
+    {
+      "src": "/images/events/patriotic_performance_stage.jpeg",
+      "title": "Patriotic Play Performance",
+      "caption": "A stirring scene from our patriotic drama honouring freedom fighters."
+    },
+    {
+      "src": "/images/events/rehearsal_workshop.jpeg",
+      "title": "SNA Youth Workshop Rehearsal",
+      "caption": "Students participating in physical training at the Youth Hostel, Jaipur."
+    },
+    {
+      "src": "/images/events/school_workshop_outdoor_1.jpeg",
+      "title": "Murlipura School Workshop",
+      "caption": "Dr. Chandradeep Hada directing acting workshop for school children."
+    },
+    {
+      "src": "/images/events/school_workshop_outdoor_2.jpeg",
+      "title": "Ruparampura School Workshop",
+      "caption": "Teaching acting and folk storytelling to children in Govt. School, Ruparampura."
+    },
+    {
+      "src": "/images/events/rajrangam_musical_performance.jpeg",
+      "title": "7th Rajrangam Showcase",
+      "caption": "Live musical play presentation at Jawahar Kala Kendra."
+    },
+    {
+      "src": "/images/events/masked_theatre_performance.jpeg",
+      "title": "Mask Theatre Performance",
+      "caption": "Veer Savarkar play workshop showcase showing masked ensembles."
+    }
+  ],
+  "eventPosters": [
+    {
+      "src": "/images/posters/poster_1.jpeg",
+      "title": "8th Rajrangam National Festival",
+      "caption": "Official program schedule poster for the 8th Rajrangam, JKK Jaipur."
+    },
+    {
+      "src": "/images/posters/poster_2.jpeg",
+      "title": "8th Rajrangam Brochure",
+      "caption": "Festival details and showcase information flyer, Jawahar Kala Kendra."
+    },
+    {
+      "src": "/images/posters/poster_3.jpeg",
+      "title": "2nd Lok Natya Prayogotsav",
+      "caption": "Sangeet Natak Akademi supported Turrakalangi & Kuchamani Khyal festival."
+    },
+    {
+      "src": "/images/posters/poster_7.jpeg",
+      "title": "7th Rajrangam Poster",
+      "caption": "Schedule of contemporary plays at JKK from 2nd to 6th January 2025."
+    },
+    {
+      "src": "/images/posters/poster_10.jpeg",
+      "title": "1st Lok Natya Prayogotsav",
+      "caption": "Posters of the folk showcase including Shiv Mahima and Bheli Bat."
+    },
+    {
+      "src": "/images/posters/poster_15.jpeg",
+      "title": "Vigyan Natak Utsav Poster",
+      "caption": "Exhibition and play posters organized by Science & Technology Department."
+    }
+  ],
+  "recognitions": {
+    "title": "Awards & Recognition",
+    "list": [
+      {
+        "type": "saffron",
+        "title": "Ministry of Culture Grants",
+        "text": "Supported by Ministry of Culture, Govt. of India — for organizing annual Rajrangam Festivals.",
+        "year": "Annual Support"
+      },
+      {
+        "type": "amber",
+        "title": "Junior Research Fellowship",
+        "text": "Awarded to Creative Director Dr. Chandradeep Hada for theatre scholarship by MoC.",
+        "year": "Research Recognition"
+      },
+      {
+        "type": "saffron",
+        "title": "Sangeet Natak Akademi Sanctions",
+        "text": "Recognized for folk preservation in Turrakalangi, Khyal and Tamasha styles.",
+        "year": "Ongoing Partnerships"
+      }
+    ]
+  },
+  "socialBlock": {
+    "title": "Follow Our Journey",
+    "text": "Stay updated on upcoming productions, workshops, and festival announcements.",
+    "links": [
+      {
+        "platform": "facebook",
+        "href": "https://www.facebook.com/actorsrajasthan",
+        "handle": "actorsrajasthan"
+      },
+      {
+        "platform": "instagram",
+        "href": "https://www.instagram.com/actorstheatreatrajasthan",
+        "handle": "actorstheatreatrajasthan"
+      },
+      {
+        "platform": "youtube",
+        "href": "https://www.youtube.com/@ActorsTheatreRajasthan",
+        "handle": "YouTube Channel"
+      }
+    ]
+  }
+}

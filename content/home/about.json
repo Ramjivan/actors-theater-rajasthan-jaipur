@@ -1,0 +1,40 @@
+{
+  "label": "Who We Are",
+  "title": "A Cultural NGO<br />Rooted in Rajasthan",
+  "paragraphs": [
+    "Established to promote the creative arts, <strong>Actors Theatre Rajasthan (ATR)</strong> has been active for several decades in the fields of theatre, radio, and television. Registered in <strong>1994–95</strong> under the <em>Rajasthan Societies Registration Act, 1958 (Rajasthan Act No. 28 of 1958)</em>, ATR is dedicated to the evolution and upliftment of new dimensions in the art form.",
+    "To foster a professional and educational environment for the arts, the organization consistently conducts seminars, exhibitions, youth theatre festivals, and workshops. ATR collaborates closely with the <strong>Ministry of Culture (Government of India)</strong>, the <strong>Sangeet Natak Akademi (New Delhi)</strong>, and the <strong>Department of Art, Literature, Culture, and Archaeology (Government of Rajasthan)</strong>.",
+    "Having remained active and dedicated for decades, we are committed to continuous pursuit of theatrical excellence, fostering innovation, and developing new dimensions in both modern and traditional Rajasthani theatre, contributing to the state's cultural landscape."
+  ],
+  "pillars": [
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"/><path d=\"M2 17l10 5 10-5M2 12l10 5 10-5\"/></svg>",
+      "title": "Cultural Preservation",
+      "description": "Keeping Rajasthani folk traditions alive through contemporary theatre"
+    },
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 8v4l3 3\"/></svg>",
+      "title": "Social Advocacy",
+      "description": "Using the stage to raise awareness on gender, rights, and human dignity"
+    },
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+      "title": "Community Building",
+      "description": "Training the next generation of theatre artists across Rajasthan"
+    }
+  ],
+  "images": {
+    "main": {
+      "src": "/images/706930821_4570883119811247_2882408597650510381_n.jpg",
+      "alt": "Rajrangam festival — Gopichand musical performance on stage"
+    },
+    "secondary": {
+      "src": "/images/510981085_10061155840665371_9023389902411716223_n.jpg",
+      "alt": "Rajrangam national seminar on art, culture and identity"
+    },
+    "accent": {
+      "num": "7th",
+      "label": "Rajrangam<br/>Festival"
+    }
+  }
+}

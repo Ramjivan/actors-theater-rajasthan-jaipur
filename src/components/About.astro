@@ -1,61 +1,28 @@
 ---
+import data from '../../content/home/about.json';
 ---
 
 <section class="about section" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-content animate-in">
-        <span class="section-label">Who We Are</span>
-        <h2 class="section-title">A Cultural NGO<br />Rooted in Rajasthan</h2>
+        <span class="section-label">{data.label}</span>
+        <h2 class="section-title" set:html={data.title}></h2>
         <div class="gold-divider"></div>
-        <p class="about-text">
-          Established to promote the creative arts, <strong>Actors Theatre Rajasthan (ATR)</strong> has been active for several decades in the fields of theatre, radio, and television. Registered in <strong>1994–95</strong> under the <em>Rajasthan Societies Registration Act, 1958 (Rajasthan Act No. 28 of 1958)</em>, ATR is dedicated to the evolution and upliftment of new dimensions in the art form.
-        </p>
-        <p class="about-text">
-          To foster a professional and educational environment for the arts, the organization consistently conducts seminars, exhibitions, youth theatre festivals, and workshops. ATR collaborates closely with the <strong>Ministry of Culture (Government of India)</strong>, the <strong>Sangeet Natak Akademi (New Delhi)</strong>, and the <strong>Department of Art, Literature, Culture, and Archaeology (Government of Rajasthan)</strong>.
-        </p>
-        <p class="about-text">
-          Having remained active and dedicated for decades, we are committed to continuous pursuit of theatrical excellence, fostering innovation, and developing new dimensions in both modern and traditional Rajasthani theatre, contributing to the state's cultural landscape.
-        </p>
+        {data.paragraphs.map(p => (
+          <p class="about-text" set:html={p}></p>
+        ))}
 
         <div class="about-pillars">
-          <div class="pillar">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
+          {data.pillars.map(pillar => (
+            <div class="pillar">
+              <div class="pillar-icon" set:html={pillar.iconHtml}></div>
+              <div>
+                <h4>{pillar.title}</h4>
+                <p>{pillar.description}</p>
+              </div>
             </div>
-            <div>
-              <h4>Cultural Preservation</h4>
-              <p>Keeping Rajasthani folk traditions alive through contemporary theatre</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 8v4l3 3"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Social Advocacy</h4>
-              <p>Using the stage to raise awareness on gender, rights, and human dignity</p>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div>
-              <h4>Community Building</h4>
-              <p>Training the next generation of theatre artists across Rajasthan</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -63,21 +30,21 @@
         <div class="image-stack">
           <div class="img-main">
             <img 
-              src="/images/706930821_4570883119811247_2882408597650510381_n.jpg" 
-              alt="Rajrangam festival — Gopichand musical performance on stage" 
+              src={data.images.main.src} 
+              alt={data.images.main.alt} 
               loading="lazy"
             />
           </div>
           <div class="img-secondary">
             <img 
-              src="/images/510981085_10061155840665371_9023389902411716223_n.jpg" 
-              alt="Rajrangam national seminar on art, culture and identity" 
+              src={data.images.secondary.src} 
+              alt={data.images.secondary.alt} 
               loading="lazy"
             />
           </div>
           <div class="img-accent">
-            <span class="accent-num">7th</span>
-            <span class="accent-label">Rajrangam<br/>Festival</span>
+            <span class="accent-num">{data.images.accent.num}</span>
+            <span class="accent-label" set:html={data.images.accent.label}></span>
           </div>
         </div>
       </div>

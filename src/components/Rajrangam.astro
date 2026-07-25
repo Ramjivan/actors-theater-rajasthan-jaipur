@@ -1,11 +1,12 @@
 ---
+import data from '../../content/home/rajrangam.json';
 ---
 
 <section class="rajrangam section" id="rajrangam">
   <div class="rr-bg">
     <img 
-      src="/images/705474665_4570882616477964_2135786527177409264_n.jpg" 
-      alt="Packed auditorium at Rajrangam theatre festival" 
+      src={data.bgImage} 
+      alt={data.bgAlt} 
       class="rr-bg-img"
     />
     <div class="rr-overlay"></div>
@@ -14,95 +15,44 @@
   <div class="container">
     <div class="rr-content">
       <div class="rr-header animate-in">
-        <span class="section-label">Annual Festival</span>
+        <span class="section-label">{data.label}</span>
         <h2 class="rr-title">
-          <span class="hindi-text">राजरंगम्</span>
-          <span class="rr-english">Rajrangam</span>
+          <span class="hindi-text">{data.titleHindi}</span>
+          <span class="rr-english">{data.titleEnglish}</span>
         </h2>
-        <p class="rr-tagline">Rajasthan Rang Mahotsav</p>
+        <p class="rr-tagline">{data.tagline}</p>
         <div class="gold-divider"></div>
-        <p class="rr-description">
-          Rajasthan's premier national-level theatre festival, successfully organized on 8 occasions by Actors Theatre Rajasthan 
-          in association with the Ministry of Culture, Government of India. The recent <strong>8th Rajrangam (14–15 May 2026)</strong> at Jawahar Kala Kendra (JKK), Jaipur, featured flagship plays (<em>Flirt</em>, Molière's <em>Tartuffe</em>, and the folk musical <em>Gopichand Bhartrihari</em>) alongside a national seminar and art exhibitions.
-        </p>
+        <p class="rr-description" set:html={data.description}></p>
       </div>
 
       <div class="rr-features animate-in">
-        <div class="rr-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+        {data.features.map(feature => (
+          <div class="rr-feature">
+            <div class="feature-icon" set:html={feature.iconHtml}></div>
+            <div>
+              <h4>{feature.title}</h4>
+              <p>{feature.description}</p>
+            </div>
           </div>
-          <div>
-            <h4>National Theatre Platform</h4>
-            <p>Staging cutting-edge modern drama and traditional folk styles side-by-side</p>
-          </div>
-        </div>
-
-        <div class="rr-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <div>
-            <h4>Annual National Seminar</h4>
-            <p>Interactions like 'Talk with a Theatre Artist' (Shri Chinmay Das) and research panels</p>
-          </div>
-        </div>
-
-        <div class="rr-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            </svg>
-          </div>
-          <div>
-            <h4>Government & Institutional Support</h4>
-            <p>Collaboratively presented with JKK, Sangeet Natak Akademi and Ministry of Culture</p>
-          </div>
-        </div>
-
-        <div class="rr-feature">
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <h4>Vibrant Venues</h4>
-            <p>Staged across Rangayan, Krishnayan, and open foyers at Jawahar Kala Kendra, Jaipur</p>
-          </div>
-        </div>
+        ))}
       </div>
 
       <!-- Image grid -->
       <div class="rr-gallery animate-in">
-        <div class="rr-img rr-img-1">
-          <img src="/images/posters/poster_1.jpeg" alt="Rajrangam 8th edition schedule poster" loading="lazy" />
-          <div class="rr-img-label">Official Schedule — 8th Edition</div>
-        </div>
-        <div class="rr-img rr-img-2">
-          <img src="/images/events/rajrangam_musical_performance.jpeg" alt="Gopichand musical performance on stage" loading="lazy" />
-          <div class="rr-img-label">Gopichand Bhartrihari — Tamasha</div>
-        </div>
-        <div class="rr-img rr-img-3">
-          <img src="/images/posters/poster_2.jpeg" alt="Rajrangam 8th edition brochure poster" loading="lazy" />
-          <div class="rr-img-label">Directors Exhibition & Outreach</div>
-        </div>
+        {data.gallery.map((item, index) => (
+          <div class={`rr-img rr-img-${index + 1}`}>
+            <img src={item.img} alt={item.alt} loading="lazy" />
+            <div class="rr-img-label">{item.label}</div>
+          </div>
+        ))}
       </div>
 
       <!-- Editions timeline -->
       <div class="rr-timeline animate-in">
-        <h3 class="timeline-title">8 Editions. Growing Every Year.</h3>
+        <h3 class="timeline-title">{data.timeline.title}</h3>
         <div class="timeline-track">
-          {[1,2,3,4,5,6,7,8].map(n => (
-            <div class={`timeline-node ${n === 8 ? 'active' : ''}`}>
+          {Array.from({length: data.timeline.editions}, (_, i) => i + 1).map(n => (
+            <div class={`timeline-node ${n === data.timeline.editions ? 'active' : ''}`}>
               <div class="node-dot"></div>
               <span class="node-label">{n}{n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'}</span>
             </div>

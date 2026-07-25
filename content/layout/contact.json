@@ -1,0 +1,63 @@
+{
+  "header": {
+    "label": "Get in Touch",
+    "title": "Join the Movement.<br />Support the Arts.",
+    "text": "Whether you want to attend a performance, enrol in a workshop, invite ATR to your institution, support us as a donor, or collaborate as an artist — we'd love to hear from you."
+  },
+  "ways": {
+    "visit": {
+      "heading": "Visit Us",
+      "address": "P-3 Kisan Marg, W-2, Madhuban Colony<br />Tonk Road, Jaipur – 302015, Rajasthan"
+    },
+    "call": {
+      "heading": "Call Us",
+      "phone": "+91 78218 44466",
+      "note": "Mon–Sat, 10 AM – 6 PM"
+    },
+    "email": {
+      "heading": "Email Us",
+      "emails": [
+        "contact@actorstheatreatrajasthan.org",
+        "actorsraj@gmail.com"
+      ]
+    }
+  },
+  "donate": {
+    "title": "Support as a Donor",
+    "text": "As a registered NGO, your donations to Actors Theatre Rajasthan support free community performances, scholarship programmes, and cultural preservation initiatives across Rajasthan.",
+    "buttonLabel": "Donate to ATR",
+    "buttonHref": "/donate/"
+  },
+  "form": {
+    "title": "Send a Message",
+    "subtitle": "We respond to all messages within 2–3 business days.",
+    "fields": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Full Name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "you@example.com"
+      },
+      "subject": {
+        "label": "I'm interested in…",
+        "options": [
+          { "value": "", "label": "Select a topic" },
+          { "value": "attend", "label": "Attending a Performance" },
+          { "value": "workshop", "label": "Joining a Workshop" },
+          { "value": "invite", "label": "Inviting ATR to Perform" },
+          { "value": "collaborate", "label": "Artist Collaboration" },
+          { "value": "donate", "label": "Making a Donation" },
+          { "value": "media", "label": "Media / Press" },
+          { "value": "other", "label": "Other" }
+        ]
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us more…"
+      }
+    },
+    "submitLabel": "Send Message"
+  }
+}

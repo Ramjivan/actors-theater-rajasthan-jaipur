@@ -1,0 +1,68 @@
+{
+  "header": {
+    "label": "Our Productions",
+    "title": "Stories That<br />Demand to Be Told",
+    "subtitle": "From intimate black-box performances to grand proscenium stagings — each production carries a message, each character carries a truth."
+  },
+  "cta": {
+    "text": "ATR has staged <strong>40+ productions</strong> across Rajasthan and nationally at festivals including Bharat Rang Mahotsav",
+    "button": "Invite Us to Perform",
+    "link": "#contact"
+  },
+  "items": [
+    {
+      "title": "Kalpurush",
+      "subtitle": "Krantikari Veer Savarkar",
+      "genre": "Patriotic Drama",
+      "description": "An epic biographical play depicting the life and struggle of revolutionary Vinayak Damodar Savarkar. Produced through a 90-day intensive workshop and staged at Birla Auditorium, Jawahar Kala Kendra & Ravindra Manch. Directed by and starring Dr. Chandradeep Hada.",
+      "image": "/images/events/play-kalpurush.jpeg",
+      "tag": "Historical",
+      "highlight": "Ministry of Culture Project"
+    },
+    {
+      "title": "Meri Maa",
+      "subtitle": "Lok Sanskriti aur Rajasthan Darshan",
+      "genre": "Folk & Musical Drama",
+      "description": "Adapted by Jairoop Jeevan and directed by Dr. Chandradeep Hada, this production explores the rich folk culture and traditions of Rajasthan. Performed on 23rd July 2023 at Ravindra Manch, Jaipur, with SNA Chairman Dr. Sandhya Purecha in attendance as Chief Guest.",
+      "image": "/images/play-meri-maa.jpeg",
+      "tag": "Traditional Folk",
+      "highlight": "Sangeet Natak Akademi"
+    },
+    {
+      "title": "Agnipath",
+      "subtitle": "Path of Fire",
+      "genre": "Patriotic Drama",
+      "description": "Staged for Sangeet Natak Akademi's national 'Rang Swadhinta Jashna' on India's 78th Independence Day. Written by Lt. Mahendra Jain and directed by Dr. Chandradeep Hada, this play honours the unsung heroes of India's freedom struggle.",
+      "image": "/images/play-agnipath.jpeg",
+      "tag": "Patriotic Play",
+      "highlight": "National Showcase"
+    },
+    {
+      "title": "Sanatan Ra Prahari",
+      "subtitle": "Maharaja Mansingh Ji Pahla",
+      "genre": "Regional Heritage Drama",
+      "description": "Performed in the traditional Dhundhadi language on the open stage of Sarvato Bhadra at City Palace, Jaipur. Staged on the culmination of a 30-day Sanskritik Virasat workshop, directed by Dr. Chandradeep Hada.",
+      "image": "/images/santan.jpeg",
+      "tag": "Regional Heritage",
+      "highlight": "City Palace Collaboration"
+    },
+    {
+      "title": "Ham Natak Kyo Karte Hain",
+      "subtitle": "Why We Perform",
+      "genre": "Experimental Drama",
+      "description": "An introspective performance examining the role of theatre in society, asking why we create, perform, and watch drama. Directed by Dr. Chandradeep Hada and staged at Ravindra Manch, Jaipur.",
+      "image": "/images/events/play-ham-natak-kyo-karte-hain.jpeg",
+      "tag": "Experimental",
+      "highlight": "Reflective Theatre"
+    },
+    {
+      "title": "Kisi Aur Ka Sapna",
+      "subtitle": "Someone Else's Dream",
+      "genre": "Social Realism Drama",
+      "description": "A touching narrative focusing on personal aspirations, societal expectations, and individual choices in modern India. Staged at Ravindra Manch, Jaipur, after a 30-day intensive workshop.",
+      "image": "/images/events/play-kisi-or-ka-sapana.jpeg",
+      "tag": "Social Realism",
+      "highlight": "Community Project"
+    }
+  ]
+}

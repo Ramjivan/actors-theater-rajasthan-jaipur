@@ -1,0 +1,52 @@
+{
+  "bgImage": "/images/705474665_4570882616477964_2135786527177409264_n.jpg",
+  "bgAlt": "Packed auditorium at Rajrangam theatre festival",
+  "label": "Annual Festival",
+  "titleHindi": "राजरंगम्",
+  "titleEnglish": "Rajrangam",
+  "tagline": "Rajasthan Rang Mahotsav",
+  "description": "Rajasthan's premier national-level theatre festival, successfully organized on 8 occasions by Actors Theatre Rajasthan in association with the Ministry of Culture, Government of India. The recent <strong>8th Rajrangam (14–15 May 2026)</strong> at Jawahar Kala Kendra (JKK), Jaipur, featured flagship plays (<em>Flirt</em>, Molière's <em>Tartuffe</em>, and the folk musical <em>Gopichand Bhartrihari</em>) alongside a national seminar and art exhibitions.",
+  "features": [
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+      "title": "National Theatre Platform",
+      "description": "Staging cutting-edge modern drama and traditional folk styles side-by-side"
+    },
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg>",
+      "title": "Annual National Seminar",
+      "description": "Interactions like 'Talk with a Theatre Artist' (Shri Chinmay Das) and research panels"
+    },
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/></svg>",
+      "title": "Government & Institutional Support",
+      "description": "Collaboratively presented with JKK, Sangeet Natak Akademi and Ministry of Culture"
+    },
+    {
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"22\" height=\"22\"><path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>",
+      "title": "Vibrant Venues",
+      "description": "Staged across Rangayan, Krishnayan, and open foyers at Jawahar Kala Kendra, Jaipur"
+    }
+  ],
+  "gallery": [
+    {
+      "img": "/images/posters/poster_1.jpeg",
+      "alt": "Rajrangam 8th edition schedule poster",
+      "label": "Official Schedule — 8th Edition"
+    },
+    {
+      "img": "/images/events/rajrangam_musical_performance.jpeg",
+      "alt": "Gopichand musical performance on stage",
+      "label": "Gopichand Bhartrihari — Tamasha"
+    },
+    {
+      "img": "/images/posters/poster_2.jpeg",
+      "alt": "Rajrangam 8th edition brochure poster",
+      "label": "Directors Exhibition & Outreach"
+    }
+  ],
+  "timeline": {
+    "title": "8 Editions. Growing Every Year.",
+    "editions": 8
+  }
+}

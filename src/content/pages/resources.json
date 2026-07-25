@@ -1,0 +1,34 @@
+{
+  "resources": [
+    {
+      "title": "Actors THR Activities Last 3 Years 2021 to 2026",
+      "filename": "Activities_Report_2021_2026.pdf",
+      "path": "https://drive.google.com/file/d/REPLACE_WITH_ACTIVITIES_REPORT_DRIVE_ID/view",
+      "openInNew": true,
+      "size": "78.8 MB",
+      "type": "PDF Document",
+      "description": "Our complete official activities report detailing stage performances, street play campaigns, collaborations with the Sangeet Natak Akademi, and youth theatre workshops across Rajasthan from 2021 to 2026.",
+      "accent": "#E8720C"
+    },
+    {
+      "title": "Rangmanch Smarika 2026",
+      "filename": "Rangmanch_Smarika_2026.pdf",
+      "path": "https://drive.google.com/file/d/REPLACE_WITH_SMARIKA_DRIVE_ID/view",
+      "openInNew": true,
+      "size": "69.2 MB",
+      "type": "PDF Document",
+      "description": "The 2026 commemorative souvenir booklet containing messages from state and national cultural heads, essays on traditional folk drama forms, signature repertoire descriptions, and archive highlights.",
+      "accent": "#D4880A"
+    },
+    {
+      "title": "Kalpurush Play Brochure",
+      "filename": "Kalpurush_Play_Brochure.pdf",
+      "path": "/documents/Kalpurush_Play_Brochure.pdf",
+      "openInNew": false,
+      "size": "4.1 MB",
+      "type": "PDF Brochure",
+      "description": "Official play brochure and cast sheet for 'Kalpurush' (Krantikari Veer Savarkar), including script synopsis, production design notes, research references, and the full list of cast and crew members.",
+      "accent": "#8E44AD"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "logo": {
+    "src": "/images/logo.png",
+    "alt": "Actors Theater at Rajasthan Logo",
+    "mainText": "Actors Theater",
+    "subText": "at Rajasthan"
+  },
+  "links": [
+    {
+      "type": "dropdown",
+      "label": "About",
+      "href": "#about",
+      "items": [
+        { "label": "About ATR", "href": "#about" },
+        { "label": "Mission", "href": "#mission" },
+        { "label": "Executive Committee", "href": "/executive-committee/" }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "label": "Productions",
+      "href": "#productions",
+      "items": [
+        { "label": "All Productions", "href": "#productions" },
+        { "label": "Rajrangam", "href": "#rajrangam" }
+      ]
+    },
+    { "type": "link", "label": "Workshops", "href": "#workshops" },
+    { "type": "link", "label": "Media", "href": "/press/" },
+    { "type": "link", "label": "Gallery", "href": "/gallery/" },
+    { "type": "link", "label": "Activities", "href": "/activities/" },
+    { "type": "link", "label": "Resources", "href": "/resources/" },
+    { "type": "cta", "label": "Donate & Support", "href": "/donate/" }
+  ]
+}

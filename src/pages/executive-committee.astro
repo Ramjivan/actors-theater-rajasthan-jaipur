@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import data from '../content/pages/executive-committee.json';
 ---
 
 <Layout 
@@ -15,46 +16,16 @@ import Footer from '../components/Footer.astro';
       <div class="page-header">
         <h1 class="page-title">Executive Committee</h1>
         <div class="gold-divider"></div>
-        <p class="page-subtitle">The dedicated leadership team guiding Actors Theatre Rajasthan.</p>
+        <p class="page-subtitle">{data.subtitle}</p>
       </div>
       
       <div class="committee-grid">
-        <div class="committee-member">
-          <h4>Chandradeep Hada</h4>
-          <p>PRESIDENT</p>
-        </div>
-        <div class="committee-member">
-          <h4>Dilip Singh</h4>
-          <p>VICE PRESIDENT</p>
-        </div>
-        <div class="committee-member">
-          <h4>Devendra Singh Shekhawat</h4>
-          <p>SECRETARY</p>
-        </div>
-        <div class="committee-member">
-          <h4>Prakash Chand Saini</h4>
-          <p>DEPUTY SECRETARY</p>
-        </div>
-        <div class="committee-member">
-          <h4>Sanjay Vyas</h4>
-          <p>TREASURER</p>
-        </div>
-        <div class="committee-member">
-          <h4>Amardeep Sakarwal</h4>
-          <p>MEMBER</p>
-        </div>
-        <div class="committee-member">
-          <h4>Bhushan Sharma</h4>
-          <p>MEMBER</p>
-        </div>
-        <div class="committee-member">
-          <h4>Suruchi Sharma</h4>
-          <p>MEMBER</p>
-        </div>
-        <div class="committee-member">
-          <h4>Vaid Prakash Dhar</h4>
-          <p>MEMBER</p>
-        </div>
+        {data.members.map((member) => (
+          <div class="committee-member">
+            <h4>{member.name}</h4>
+            <p>{member.role}</p>
+          </div>
+        ))}
       </div>
     </div>
   </main>

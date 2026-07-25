@@ -1,0 +1,47 @@
+{
+  "slides": [
+    "/images/events/traditional_performance_stage.jpeg",
+    "/images/events/patriotic_performance_stage.jpeg",
+    "/images/events/rajrangam_musical_performance.jpeg"
+  ],
+  "badge": "Registered NGO · Since 1995",
+  "title": {
+    "line1": "Where Stories",
+    "highlight": "Transform",
+    "line2": "Society"
+  },
+  "description": "Actors Theatre Rajasthan is a cultural force using the power of theatre to illuminate social issues, preserve heritage, and awaken communities across the heartland of India.",
+  "actions": [
+    {
+      "text": "Explore Our Work",
+      "href": "#productions",
+      "type": "primary",
+      "icon": true
+    },
+    {
+      "text": "Support Our Cause",
+      "href": "/donate/",
+      "type": "ghost"
+    },
+    {
+      "text": "Rajrangam Festival",
+      "href": "#rajrangam",
+      "type": "ghost",
+      "opacity": 0.7
+    }
+  ],
+  "stats": [
+    {
+      "number": "25+",
+      "label": "Years of Impact"
+    },
+    {
+      "number": "200+",
+      "label": "Productions Staged"
+    },
+    {
+      "number": "50K+",
+      "label": "Lives Touched"
+    }
+  ]
+}

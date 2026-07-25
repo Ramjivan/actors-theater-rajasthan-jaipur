@@ -1,0 +1,55 @@
+{
+  "imageBlock": {
+    "src": "/images/workshop-1.jpeg",
+    "alt": "School students training in a theatre workshop session",
+    "captionTitle": "Actors Academy of Rajasthan",
+    "captionAddress": "P-3 Kisan Marg, W-2, Madhuban Colony, Tonk Road, Jaipur – 302015",
+    "badgeTitle": "Actors Academy",
+    "badgeSubtitle": "Professional Theatre Training",
+    "badgeIcon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"18\" height=\"18\"><path d=\"M22 10v6M2 10l10-5 10 5-10 5z\"/><path d=\"M6 12v5c3 3 9 3 12 0v-5\"/></svg>"
+  },
+  "content": {
+    "label": "Academy & Workshops",
+    "title": "Train with the<br />Best in Rajasthan",
+    "text": "The Actors Academy of Rajasthan is ATR's educational wing — a dedicated space for serious theatre artists. Our faculty includes seasoned directors, National School of Drama alumni, and cultural practitioners with decades of experience.",
+    "courses": [
+      {
+        "num": "01",
+        "title": "Foundation in Theatre Arts",
+        "desc": "Voice modulation, body movement, stage presence, and script reading — the essential toolkit for every actor.",
+        "meta": ["3 Months", "•", "Beginner – Intermediate"]
+      },
+      {
+        "num": "02",
+        "title": "Direction & Dramaturgy",
+        "desc": "Learn the craft of stage direction, play analysis, blocking, and visual storytelling from experienced directors.",
+        "meta": ["6 Months", "•", "Intermediate – Advanced"]
+      },
+      {
+        "num": "03",
+        "title": "Applied Theatre for Social Change",
+        "desc": "Use theatre as a tool for community engagement, awareness campaigns, and advocacy in social contexts.",
+        "meta": ["Intensive Workshop", "•", "All Levels"]
+      },
+      {
+        "num": "04",
+        "title": "Rajasthani Folk Traditions",
+        "desc": "Study traditional Khyal, Turra-Kalagi and other folk performance forms unique to Rajasthan.",
+        "meta": ["Ongoing", "•", "Heritage Track"]
+      }
+    ],
+    "ctaText": "Enrol in a Workshop",
+    "ctaLink": "#contact"
+  },
+  "audience": {
+    "image": "/images/workshop-2.jpeg",
+    "alt": "School workshop training activity session",
+    "title": "Reaching Every Corner of Rajasthan",
+    "text": "From packed proscenium theatres in Jaipur to village squares in rural districts, ATR takes theatre to where it matters most. Our outreach programmes have brought live performances to audiences who have never experienced professional theatre.",
+    "stats": [
+      { "n": "10,000+", "l": "Audience per Festival" },
+      { "n": "100+", "l": "School Performances" },
+      { "n": "20+", "l": "Districts Reached" }
+    ]
+  }
+}

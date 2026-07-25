@@ -1,12 +1,13 @@
 ---
+import data from '../../content/home/hero.json';
 ---
 
 <section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-slides">
-      <div class="hero-slide active" style="background-image: url('/images/events/traditional_performance_stage.jpeg');"></div>
-      <div class="hero-slide" style="background-image: url('/images/events/patriotic_performance_stage.jpeg');"></div>
-      <div class="hero-slide" style="background-image: url('/images/events/rajrangam_musical_performance.jpeg');"></div>
+      {data.slides.map((slide, index) => (
+        <div class={`hero-slide ${index === 0 ? 'active' : ''}`} style={`background-image: url('${slide}');`}></div>
+      ))}
     </div>
     <div class="hero-overlay"></div>
     <!-- Kesariya saffron glow — patriotic warmth bleeding in from right -->
@@ -23,50 +24,45 @@
   <div class="hero-content container">
     <div class="hero-badge animate-in">
       <span class="badge-dot"></span>
-      Registered NGO · Since 1995
+      {data.badge}
     </div>
 
     <h1 class="hero-title animate-in">
-      Where Stories<br />
-      <em>Transform</em> Society
+      {data.title.line1}<br />
+      <em>{data.title.highlight}</em> {data.title.line2}
     </h1>
 
     <p class="hero-description animate-in">
-      Actors Theatre Rajasthan is a cultural force using the power of theatre 
-      to illuminate social issues, preserve heritage, and awaken communities 
-      across the heartland of India.
+      {data.description}
     </p>
 
     <div class="hero-actions animate-in">
-      <a href="#productions" class="btn-primary">
-        <span>Explore Our Work</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <a href="/donate/" class="btn-ghost">
-        Support Our Cause
-      </a>
-      <a href="#rajrangam" class="btn-ghost" style="opacity: 0.7;">
-        Rajrangam Festival
-      </a>
+      {data.actions.map((action) => (
+        <a 
+          href={action.href} 
+          class={action.type === 'primary' ? 'btn-primary' : 'btn-ghost'}
+          style={action.opacity ? `opacity: ${action.opacity};` : undefined}
+        >
+          {action.type === 'primary' ? <span>{action.text}</span> : action.text}
+          {action.icon && (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          )}
+        </a>
+      ))}
     </div>
 
     <div class="hero-stats animate-in">
-      <div class="stat-item">
-        <span class="stat-number">25+</span>
-        <span class="stat-label">Years of Impact</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">200+</span>
-        <span class="stat-label">Productions Staged</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">50K+</span>
-        <span class="stat-label">Lives Touched</span>
-      </div>
+      {data.stats.map((stat, index) => (
+        <>
+          <div class="stat-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+          {index < data.stats.length - 1 && <div class="stat-divider"></div>}
+        </>
+      ))}
     </div>
   </div>
 

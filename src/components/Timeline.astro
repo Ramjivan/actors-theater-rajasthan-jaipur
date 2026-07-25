@@ -1,214 +1,32 @@
 ---
-const events = [
-  {
-    year: "2026",
-    title: "City Palace Dhundhadi Play",
-    meta: "18 May – 18 June 2026 • City Palace, Jaipur",
-    category: "production",
-    description: "Conducted a 30-day Theatre Workshop in Sanskritik Virasat Prashikshan Shivir. Directed stage play 'Sanatan Ra Prahari Maharaja Mansingh Ji Pahla' in Dhundhadi language, performed at Sarvato Bhadra, City Palace.",
-    image: "/images/events/traditional_performance_stage.jpeg"
-  },
-  {
-    year: "2026",
-    title: "8th Rajrangam Festival",
-    meta: "04 April – 31 May 2026 • Jawahar Kala Kendra, Jaipur",
-    category: "festival",
-    description: "Organized the national-level 8th Rajasthan Rang Mahotsav, showcasing 3 full-length stage plays (Flirt, Tartuffe, Gopichand Bhartrihari), 2 street plays (Nukkad Natak), a seminar, and a directors' art exhibition.",
-    image: "/images/posters/poster_1.jpeg"
-  },
-  {
-    year: "2026",
-    title: "ISKCON Cultural Camp Play",
-    meta: "18 May – 01 June 2026 • Shri Shri Krishna Balram Mandir, Jaipur",
-    category: "workshop",
-    description: "Directed a 15-day theatre workshop at ISKCON Temple, Jagatpura, culminating in the play 'Gupt Vrindavan Ka Rahasya' staged at Rasikam Auditorium."
-  },
-  {
-    year: "2026",
-    title: "Ma Bharati ki Pukar",
-    meta: "12 June 2026 • SMS Stadium, Jaipur",
-    category: "production",
-    description: "Staged the play 'Ma Bharati ki Pukar' for the State Level Prakritik Kheti Karyashala, organized by Kisan Morcha of BJP Rajasthan.",
-    image: "/images/events/patriotic_performance_stage.jpeg"
-  },
-  {
-    year: "2026",
-    title: "Murlipura School Workshop",
-    meta: "19 March 2026 • Govt. Girls Sr. Sec. School, Murlipura",
-    category: "workshop",
-    description: "Conducted a children's theatre workshop designed to build confidence, vocal expression, and artistic awareness.",
-    image: "/images/events/school_workshop_outdoor_1.jpeg"
-  },
-  {
-    year: "2026",
-    title: "Ruparampura School Workshop",
-    meta: "24 January 2026 • Ruparampura Govt. School, Jaipur",
-    category: "workshop",
-    description: "Organized and directed an acting and storytelling workshop for rural children to build connection and creative expression.",
-    image: "/images/events/school_workshop_outdoor_2.jpeg"
-  },
-  {
-    year: "2025",
-    title: "Kalpurush (Krantikari Veer Savarkar)",
-    meta: "02 December 2025 • Ravindra Manch, Jaipur",
-    category: "production",
-    description: "Performed the historical play 'Kalpurush-Krantikari Veer Savarkar' at the Mini Theatre, Ravindra Manch, directed by Dr. Chandradeep Hada."
-  },
-  {
-    year: "2025",
-    title: "2nd Lok Natya Prayogotsav",
-    meta: "26 June 2025 • Jawahar Kala Kendra, Jaipur",
-    category: "festival",
-    description: "Staged 'Raja Bharthari' and 'Raja Mordhvaj' based on Turrakalangi and Kuchamani Khyal styles. Sanctioned by Sangeet Natak Akademi, New Delhi.",
-    image: "/images/posters/poster_3.jpeg"
-  },
-  {
-    year: "2025",
-    title: "Akhand Bharat Street Campaign",
-    meta: "20 June 2025 • Various Locations, Jaipur",
-    category: "campaign",
-    description: "Staged 4 shows of street play 'Akhand Bharat-Sapna Nahin Sankalp' across Jaipur to promote national integration, in association with Rudra Foundation."
-  },
-  {
-    year: "2025",
-    title: "SNA Youth Hostel Workshop",
-    meta: "27 May – 26 June 2025 • Youth Hostel, Jaipur",
-    category: "workshop",
-    description: "Conducted a 30-day professional theatre workshop sponsored and approved by Sangeet Natak Akademi, New Delhi.",
-    image: "/images/events/rehearsal_workshop.jpeg"
-  },
-  {
-    year: "2025",
-    title: "Acharya Bhikshu Stage Play",
-    meta: "07 September 2025 • Anuvibha Kendra, Jaipur",
-    category: "production",
-    description: "Directed stage play 'Acharya Bhikshu (Janma se Diksha)' for Terapanth Mahila Mandal, depicting the spiritual journey of the Acharya."
-  },
-  {
-    year: "2025",
-    title: "NSD Vishva Jan Rang Mahotsav",
-    meta: "2025 • New Delhi / Jaipur",
-    category: "production",
-    description: "Staged 'Pancham Ved' for the prestigious Vishva Jan Rang Mahotsav organized by the National School of Drama, New Delhi."
-  },
-  {
-    year: "2025",
-    title: "7th Rajrangam Festival",
-    meta: "02 – 06 January 2025 • Jawahar Kala Kendra, Jaipur",
-    category: "festival",
-    description: "Staged 5 stage plays, 1 seminar, and a 5-day exhibition. sanctioned by the Ministry of Culture, Govt. of India.",
-    image: "/images/posters/poster_7.jpeg"
-  },
-  {
-    year: "2024",
-    title: "Agnipath at Rang Swadhinta",
-    meta: "13 August 2024 • SNA Showcase, Jaipur",
-    category: "production",
-    description: "Staged play 'Agnipath' on the occasion of the 78th Independence Day in SNA's Rang Swadhinta Jashna. Written by Lt. Mahendra Jain.",
-    image: "/images/play-agnipath.png"
-  },
-  {
-    year: "2024",
-    title: "Bangkok International Workshop & Play",
-    meta: "19 – 21 January 2024 • Bangkok, Thailand",
-    category: "workshop",
-    description: "Traveled internationally to conduct a 3-day workshop with the Thai-Indian Theatre Club and staged 'Ram Lala Ghar Aaye' at the Marriott, Bangkok."
-  },
-  {
-    year: "2024",
-    title: "Baral Kranti Play",
-    meta: "13 April 2024 • Rajasthan International Centre, Jaipur",
-    category: "production",
-    description: "Staged the historical narrative 'Baral Kranti' for the release of Dr. Nimisha Gaur's book at the Rajasthan International Centre (RIC)."
-  },
-  {
-    year: "2024",
-    title: "1st Lok Natya Prayogotsav",
-    meta: "14 March 2024 • Darshak College, Jaipur",
-    category: "festival",
-    description: "Staged traditional folk plays 'Shiv Mahima' and 'Bheli Bat' on an open stage. Sanctioned by Sangeet Natak Akademi, New Delhi."
-  },
-  {
-    year: "2024",
-    title: "25th Bharat Rang Mahotsav (NSD)",
-    meta: "21 February 2024 • Jaipur",
-    category: "campaign",
-    description: "Performed street play 'Lo Aai Vapas Sone ki Chidiya' as Director and Lead Actor for the silver jubilee celebration of NSD's Bharat Rang Mahotsav."
-  },
-  {
-    year: "2024",
-    title: "Vanikaran Environmental Campaign",
-    meta: "28 November – 08 December 2024 • Jaipur",
-    category: "campaign",
-    description: "Performed 50 street play shows in schools, colleges, and public spots on forest conservation, in partnership with Vandematram Sanstha."
-  },
-  {
-    year: "2023",
-    title: "Kar Himmat Campaign",
-    meta: "18 January – 06 February 2023 • 9 Rajasthan Districts",
-    category: "campaign",
-    description: "Co-ordinated and performed 540 street play shows across 9 districts to promote youth empowerment and health, in partnership with Rajasthan Patrika.",
-    image: "/images/posters/poster_20.jpeg"
-  },
-  {
-    year: "2023",
-    title: "Election Voter Awareness Campaign",
-    meta: "2023 Election • 200 Assembly Constituencies",
-    category: "campaign",
-    description: "Staged voter awareness street plays, puppets, and magic shows. ATR teams staged 60 shows in Sanganer, Adarsh Nagar, and Hawa Mahal areas."
-  },
-  {
-    year: "2023",
-    title: "Meri Maa Stage Production",
-    meta: "23 July 2023 • Ravindra Manch, Jaipur",
-    category: "production",
-    description: "Staged 'Meri Maa' in the 1st Lok Natya Prayogotsav. Staged before SNA Chairman Dr. Sandhya Purecha, adapted by Jairoop Jeevan.",
-    image: "/images/play-meri-maa.jpeg"
-  },
-  {
-    year: "2023",
-    title: "ISKCON Children camps",
-    meta: "15 May – 25 June 2023 • ISKCON Temple, Jaipur",
-    category: "workshop",
-    description: "Directed two intensive 21-day children's acting camps at ISKCON Temple, Jagatpura, culminating in stages of the play 'Prakatya'."
-  },
-  {
-    year: "2023",
-    title: "Veer Savarkar 90-Day Camp",
-    meta: "05 April – 13 June 2023 • Birla Auditorium, Jaipur",
-    category: "workshop",
-    description: "Conducted a 90-day play workshop sanctioned by Ministry of Culture, Govt. of India, culminating in play 'Kalpurush' at Birla Auditorium.",
-    image: "/images/events/masked_theatre_performance.jpeg"
-  }
-];
+import data from '../../content/home/timeline.json';
 ---
 
 <section class="timeline-section section" id="timeline">
   <div class="container">
     <div class="timeline-header animate-in">
-      <span class="section-label">Timeline of Impact</span>
-      <h2 class="section-title">Decades of Action,<br />Years of Repertoire</h2>
+      <span class="section-label">{data.header.label}</span>
+      <h2 class="section-title" set:html={data.header.title}></h2>
       <div class="gold-divider"></div>
       <p class="section-subtitle">
-        Explore our active archive of stage productions, traditional folk festivals, 
-        educational academy workshops, and social awareness campaigns across India and beyond.
+        {data.header.subtitle}
       </p>
     </div>
 
     <!-- Filters -->
     <div class="timeline-filters animate-in">
-      <button class="filter-btn active" data-filter="all">All Activities</button>
-      <button class="filter-btn" data-filter="production">Stage Plays</button>
-      <button class="filter-btn" data-filter="festival">Festivals & Events</button>
-      <button class="filter-btn" data-filter="workshop">Workshops & Academy</button>
-      <button class="filter-btn" data-filter="campaign">Social Campaigns</button>
+      {data.filters.map(filter => (
+        <button class={`filter-btn ${filter.id === 'all' ? 'active' : ''}`} data-filter={filter.id}>
+          {filter.label}
+        </button>
+      ))}
     </div>
 
     <!-- Timeline Grid -->
     <div class="timeline-grid animate-in">
       <div class="timeline-track-line"></div>
       
-      {events.map((event) => (
+      {data.events.map((event) => (
         <div class="timeline-card" data-category={event.category}>
           <div class="timeline-badge-node">
             <span class="badge-year">{event.year}</span>
@@ -250,14 +68,14 @@ const events = [
     </div>
     
     <div class="report-cta animate-in">
-      <p>Want a complete report of our activities from 2021 to 2026?</p>
-      <a href="/documents/Activities_Report_2021_2026.pdf" target="_blank" class="btn-download">
+      <p>{data.reportCta.text}</p>
+      <a href={data.reportCta.link} target="_blank" class="btn-download">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
-        Download Activities Report (PDF)
+        {data.reportCta.button}
       </a>
     </div>
   </div>

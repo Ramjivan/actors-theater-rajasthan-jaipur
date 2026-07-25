@@ -1,0 +1,55 @@
+{
+  "header": {
+    "label": "Our Mission",
+    "title": "Theatre as a Tool<br />for Social Change",
+    "subtitle": "We believe every play has the power to change a mind, and every changed mind has the power to transform a community. Our work goes beyond the stage."
+  },
+  "cards": [
+    {
+      "number": "01",
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"28\" height=\"28\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"22\"/><line x1=\"5\" y1=\"7\" x2=\"19\" y2=\"7\"/><path d=\"M5 7L3 17h4L5 7z\"/><path d=\"M19 7l-2 10h4l-2-10z\"/></svg>",
+      "title": "Gender Justice & Women's Rights",
+      "description": "Productions like <em>Mera Kya Kasoor</em> — which won national acclaim at Rajrangam — tackle female foeticide, gender discrimination, and the plight of the girl child. Our plays have reached schools, rural communities, and urban audiences alike.",
+      "tag": "Social Theatre"
+    },
+    {
+      "number": "02",
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"28\" height=\"28\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 10c0-3.9 3.1-7 7-7h6c3.9 0 7 3.1 7 7 0 5.3-4.3 9.6-9.6 9.6-1.9 0-3.7-.6-5.2-1.6L2 20v-10z\"/><path d=\"M7 10h.01M17 10h.01M10 14q2 2 4 0\"/></svg>",
+      "title": "Cultural Heritage & Identity",
+      "description": "We work with Classical, Traditional and Modern Art Forms of Theatre. Regularly Performing Social Awareness, Contemporary, Comedy Stage Plays, Nukkad Natak, Musical Plays etc.",
+      "tag": "Cultural Preservation"
+    },
+    {
+      "number": "03",
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"28\" height=\"28\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 5L6 9H2v6h4l5 4V5z\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>",
+      "title": "Civic Awareness & Democracy",
+      "description": "From celebrating India's freedom struggle to staging plays about political accountability and voter rights, ATR takes theatre into the heart of civic discourse, making complex issues accessible to all.",
+      "tag": "Civic Theatre"
+    },
+    {
+      "number": "04",
+      "iconHtml": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" width=\"28\" height=\"28\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 10v6M2 10l10-5 10 5-10 5z\"/><path d=\"M6 12v5c3 3 9 3 12 0v-5\"/></svg>",
+      "title": "Youth Empowerment",
+      "description": "Through the Actors Academy of Rajasthan, we train young artists in voice, movement, direction, and dramaturgy — giving them tools not just for performance, but for life and leadership.",
+      "tag": "Education & Training"
+    }
+  ],
+  "impact": [
+    {
+      "number": "8",
+      "label": "Rajrangam Festivals Organised"
+    },
+    {
+      "number": "40+",
+      "label": "Plays in Repertoire"
+    },
+    {
+      "number": "15+",
+      "label": "National Theatre Groups Hosted"
+    },
+    {
+      "number": "∞",
+      "label": "Stories Still to Tell"
+    }
+  ]
+}

@@ -1,17 +1,16 @@
 ---
+import data from '../../content/layout/contact.json';
 ---
 
 <section class="contact section" id="contact">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info animate-in">
-        <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Join the Movement.<br />Support the Arts.</h2>
+        <span class="section-label">{data.header.label}</span>
+        <h2 class="section-title" set:html={data.header.title}></h2>
         <div class="gold-divider"></div>
         <p class="contact-text">
-          Whether you want to attend a performance, enrol in a workshop, invite ATR to 
-          your institution, support us as a donor, or collaborate as an artist — 
-          we'd love to hear from you.
+          {data.header.text}
         </p>
 
         <div class="contact-ways">
@@ -23,8 +22,8 @@
               </svg>
             </div>
             <div>
-              <h4>Visit Us</h4>
-              <p>P-3 Kisan Marg, W-2, Madhuban Colony<br />Tonk Road, Jaipur – 302015, Rajasthan</p>
+              <h4>{data.ways.visit.heading}</h4>
+              <p set:html={data.ways.visit.address}></p>
             </div>
           </div>
 
@@ -35,9 +34,9 @@
               </svg>
             </div>
             <div>
-              <h4>Call Us</h4>
-              <p><a href="tel:+917821844466" class="contact-link">+91 78218 44466</a></p>
-              <p class="sub-note">Mon–Sat, 10 AM – 6 PM</p>
+              <h4>{data.ways.call.heading}</h4>
+              <p><a href={`tel:${data.ways.call.phone.replace(/[^0-9+]/g, '')}`} class="contact-link">{data.ways.call.phone}</a></p>
+              <p class="sub-note">{data.ways.call.note}</p>
             </div>
           </div>
 
@@ -49,24 +48,23 @@
               </svg>
             </div>
             <div>
-              <h4>Email Us</h4>
-              <p><a href="mailto:contact@actorstheatreatrajasthan.org" class="contact-link">contact@actorstheatreatrajasthan.org</a></p>
-              <p><a href="mailto:actorsraj@gmail.com" class="contact-link">actorsraj@gmail.com</a></p>
+              <h4>{data.ways.email.heading}</h4>
+              {data.ways.email.emails.map(email => (
+                <p><a href={`mailto:${email}`} class="contact-link">{email}</a></p>
+              ))}
             </div>
           </div>
         </div>
 
         <div class="donate-cta">
           <div class="donate-text">
-            <h3>Support as a Donor</h3>
+            <h3>{data.donate.title}</h3>
             <p>
-              As a registered NGO, your donations to Actors Theatre Rajasthan support 
-              free community performances, scholarship programmes, and cultural preservation 
-              initiatives across Rajasthan.
+              {data.donate.text}
             </p>
           </div>
-          <a href="/donate/" class="btn-donate">
-            Donate to ATR
+          <a href={data.donate.buttonHref} class="btn-donate">
+            {data.donate.buttonLabel}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
@@ -76,40 +74,35 @@
 
       <div class="contact-form-wrap animate-in">
         <form class="contact-form" id="contact-form">
-          <h3>Send a Message</h3>
-          <p class="form-subtitle">We respond to all messages within 2–3 business days.</p>
+          <h3>{data.form.title}</h3>
+          <p class="form-subtitle">{data.form.subtitle}</p>
 
           <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Full Name" required />
+            <label for="name">{data.form.fields.name.label}</label>
+            <input type="text" id="name" name="name" placeholder={data.form.fields.name.placeholder} required />
           </div>
 
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <label for="email">{data.form.fields.email.label}</label>
+            <input type="email" id="email" name="email" placeholder={data.form.fields.email.placeholder} required />
           </div>
 
           <div class="form-group">
-            <label for="subject">I'm interested in…</label>
+            <label for="subject">{data.form.fields.subject.label}</label>
             <select id="subject" name="subject">
-              <option value="">Select a topic</option>
-              <option value="attend">Attending a Performance</option>
-              <option value="workshop">Joining a Workshop</option>
-              <option value="invite">Inviting ATR to Perform</option>
-              <option value="collaborate">Artist Collaboration</option>
-              <option value="donate">Making a Donation</option>
-              <option value="media">Media / Press</option>
-              <option value="other">Other</option>
+              {data.form.fields.subject.options.map(opt => (
+                <option value={opt.value}>{opt.label}</option>
+              ))}
             </select>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us more…" required></textarea>
+            <label for="message">{data.form.fields.message.label}</label>
+            <textarea id="message" name="message" rows="5" placeholder={data.form.fields.message.placeholder} required></textarea>
           </div>
 
           <button type="submit" class="btn-submit">
-            Send Message
+            {data.form.submitLabel}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="22" y1="2" x2="11" y2="13"/>
               <polygon points="22 2 15 22 11 13 2 9 22 2"/>

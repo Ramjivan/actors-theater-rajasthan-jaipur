@@ -3,7 +3,7 @@ media:
   output: /images
 content:
   - name: gallery
-    label: Gallery Photos
+    label: Gallery
     type: file
     path: content/gallery/index.json
     format: json
@@ -19,19 +19,878 @@ content:
           - name: caption
             label: Caption
             type: string
+  - name: about
+    label: About
+    type: file
+    path: content/home/about.json
+    format: json
+    fields:
+      - name: label
+        label: Label
+        type: string
+      - name: title
+        label: Title
+        type: text
+      - name: paragraphs
+        label: Paragraphs
+        type: list
+        fields:
+          - type: string
+            name: item
+      - name: pillars
+        label: Pillars
+        type: object
+        list: true
+        fields:
+          - name: iconHtml
+            label: IconHtml
+            type: text
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: string
+      - name: images
+        label: Images
+        type: object
+        fields:
+          - name: main
+            label: Main
+            type: object
+            fields:
+              - name: src
+                label: Src
+                type: image
+              - name: alt
+                label: Alt
+                type: string
+          - name: secondary
+            label: Secondary
+            type: object
+            fields:
+              - name: src
+                label: Src
+                type: image
+              - name: alt
+                label: Alt
+                type: string
+          - name: accent
+            label: Accent
+            type: object
+            fields:
+              - name: num
+                label: Num
+                type: string
+              - name: label
+                label: Label
+                type: text
+  - name: hero
+    label: Hero
+    type: file
+    path: content/home/hero.json
+    format: json
+    fields:
+      - name: slides
+        label: Slides
+        type: list
+        fields:
+          - type: string
+            name: item
+      - name: badge
+        label: Badge
+        type: string
+      - name: title
+        label: Title
+        type: object
+        fields:
+          - name: line1
+            label: Line1
+            type: string
+          - name: highlight
+            label: Highlight
+            type: string
+          - name: line2
+            label: Line2
+            type: string
+      - name: description
+        label: Description
+        type: string
+      - name: actions
+        label: Actions
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Text
+            type: string
+          - name: href
+            label: Href
+            type: string
+          - name: type
+            label: Type
+            type: string
+          - name: icon
+            label: Icon
+            type: boolean
+      - name: stats
+        label: Stats
+        type: object
+        list: true
+        fields:
+          - name: number
+            label: Number
+            type: string
+          - name: label
+            label: Label
+            type: string
+  - name: mission
+    label: Mission
+    type: file
+    path: content/home/mission.json
+    format: json
+    fields:
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: subtitle
+            label: Subtitle
+            type: string
+      - name: cards
+        label: Cards
+        type: object
+        list: true
+        fields:
+          - name: number
+            label: Number
+            type: string
+          - name: iconHtml
+            label: IconHtml
+            type: text
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: tag
+            label: Tag
+            type: string
+      - name: impact
+        label: Impact
+        type: object
+        list: true
+        fields:
+          - name: number
+            label: Number
+            type: string
+          - name: label
+            label: Label
+            type: string
+  - name: productions
+    label: Productions
+    type: file
+    path: content/home/productions.json
+    format: json
+    fields:
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: subtitle
+            label: Subtitle
+            type: string
+      - name: cta
+        label: Cta
+        type: object
+        fields:
+          - name: text
+            label: Text
+            type: text
+          - name: button
+            label: Button
+            type: string
+          - name: link
+            label: Link
+            type: string
+      - name: items
+        label: Items
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: subtitle
+            label: Subtitle
+            type: string
+          - name: genre
+            label: Genre
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: image
+            label: Image
+            type: image
+          - name: tag
+            label: Tag
+            type: string
+          - name: highlight
+            label: Highlight
+            type: string
+  - name: rajrangam
+    label: Rajrangam
+    type: file
+    path: content/home/rajrangam.json
+    format: json
+    fields:
+      - name: bgImage
+        label: BgImage
+        type: image
+      - name: bgAlt
+        label: BgAlt
+        type: string
+      - name: label
+        label: Label
+        type: string
+      - name: titleHindi
+        label: TitleHindi
+        type: string
+      - name: titleEnglish
+        label: TitleEnglish
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: features
+        label: Features
+        type: object
+        list: true
+        fields:
+          - name: iconHtml
+            label: IconHtml
+            type: text
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: string
+      - name: gallery
+        label: Gallery
+        type: object
+        list: true
+        fields:
+          - name: img
+            label: Img
+            type: image
+          - name: alt
+            label: Alt
+            type: string
+          - name: label
+            label: Label
+            type: string
+      - name: timeline
+        label: Timeline
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: editions
+            label: Editions
+            type: number
+  - name: timeline
+    label: Timeline
+    type: file
+    path: content/home/timeline.json
+    format: json
+    fields:
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: subtitle
+            label: Subtitle
+            type: string
+      - name: filters
+        label: Filters
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: Id
+            type: string
+          - name: label
+            label: Label
+            type: string
+      - name: reportCta
+        label: ReportCta
+        type: object
+        fields:
+          - name: text
+            label: Text
+            type: string
+          - name: button
+            label: Button
+            type: string
+          - name: link
+            label: Link
+            type: string
+      - name: events
+        label: Events
+        type: object
+        list: true
+        fields:
+          - name: year
+            label: Year
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: meta
+            label: Meta
+            type: string
+          - name: category
+            label: Category
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: image
+            label: Image
+            type: image
+  - name: workshops
+    label: Workshops
+    type: file
+    path: content/home/workshops.json
+    format: json
+    fields:
+      - name: imageBlock
+        label: ImageBlock
+        type: object
+        fields:
+          - name: src
+            label: Src
+            type: image
+          - name: alt
+            label: Alt
+            type: string
+          - name: captionTitle
+            label: CaptionTitle
+            type: string
+          - name: captionAddress
+            label: CaptionAddress
+            type: string
+          - name: badgeTitle
+            label: BadgeTitle
+            type: string
+          - name: badgeSubtitle
+            label: BadgeSubtitle
+            type: string
+          - name: badgeIcon
+            label: BadgeIcon
+            type: text
+      - name: content
+        label: Content
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: text
+            label: Text
+            type: string
+          - name: courses
+            label: Courses
+            type: object
+            list: true
+            fields:
+              - name: num
+                label: Num
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: desc
+                label: Desc
+                type: string
+              - name: meta
+                label: Meta
+                type: list
+                fields:
+                  - type: string
+                    name: item
+          - name: ctaText
+            label: CtaText
+            type: string
+          - name: ctaLink
+            label: CtaLink
+            type: string
+      - name: audience
+        label: Audience
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+          - name: alt
+            label: Alt
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: text
+            label: Text
+            type: string
+          - name: stats
+            label: Stats
+            type: object
+            list: true
+            fields:
+              - name: n
+                label: N
+                type: string
+              - name: l
+                label: L
+                type: string
+  - name: contact
+    label: Contact
+    type: file
+    path: content/layout/contact.json
+    format: json
+    fields:
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: text
+            label: Text
+            type: string
+      - name: ways
+        label: Ways
+        type: object
+        fields:
+          - name: visit
+            label: Visit
+            type: object
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+              - name: address
+                label: Address
+                type: text
+          - name: call
+            label: Call
+            type: object
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+              - name: phone
+                label: Phone
+                type: string
+              - name: note
+                label: Note
+                type: string
+          - name: email
+            label: Email
+            type: object
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+              - name: emails
+                label: Emails
+                type: list
+                fields:
+                  - type: string
+                    name: item
+      - name: donate
+        label: Donate
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: text
+            label: Text
+            type: string
+          - name: buttonLabel
+            label: ButtonLabel
+            type: string
+          - name: buttonHref
+            label: ButtonHref
+            type: string
+      - name: form
+        label: Form
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: subtitle
+            label: Subtitle
+            type: string
+          - name: fields
+            label: Fields
+            type: object
+            fields:
+              - name: name
+                label: Name
+                type: object
+                fields:
+                  - name: label
+                    label: Label
+                    type: string
+                  - name: placeholder
+                    label: Placeholder
+                    type: string
+              - name: email
+                label: Email
+                type: object
+                fields:
+                  - name: label
+                    label: Label
+                    type: string
+                  - name: placeholder
+                    label: Placeholder
+                    type: string
+              - name: subject
+                label: Subject
+                type: object
+                fields:
+                  - name: label
+                    label: Label
+                    type: string
+                  - name: options
+                    label: Options
+                    type: object
+                    list: true
+                    fields:
+                      - name: value
+                        label: Value
+                        type: string
+                      - name: label
+                        label: Label
+                        type: string
+              - name: message
+                label: Message
+                type: object
+                fields:
+                  - name: label
+                    label: Label
+                    type: string
+                  - name: placeholder
+                    label: Placeholder
+                    type: string
+          - name: submitLabel
+            label: SubmitLabel
+            type: string
+  - name: footer
+    label: Footer
+    type: file
+    path: content/layout/footer.json
+    format: json
+    fields:
+      - name: brand
+        label: Brand
+        type: object
+        fields:
+          - name: logo
+            label: Logo
+            type: object
+            fields:
+              - name: src
+                label: Src
+                type: image
+              - name: alt
+                label: Alt
+                type: string
+          - name: org
+            label: Org
+            type: string
+          - name: reg
+            label: Reg
+            type: string
+          - name: tagline
+            label: Tagline
+            type: string
+          - name: legal
+            label: Legal
+            type: object
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+              - name: registration
+                label: Registration
+                type: string
+              - name: policies
+                label: Policies
+                type: object
+                list: true
+                fields:
+                  - name: label
+                    label: Label
+                    type: string
+                  - name: href
+                    label: Href
+                    type: string
+          - name: socials
+            label: Socials
+            type: object
+            list: true
+            fields:
+              - name: name
+                label: Name
+                type: string
+              - name: href
+                label: Href
+                type: string
+              - name: svgPath
+                label: SvgPath
+                type: string
+      - name: columns
+        label: Columns
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: links
+            label: Links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: supporters
+        label: Supporters
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: list
+            label: List
+            type: list
+            fields:
+              - type: string
+                name: item
+      - name: bottom
+        label: Bottom
+        type: object
+        fields:
+          - name: copyright
+            label: Copyright
+            type: string
+          - name: craft
+            label: Craft
+            type: string
+  - name: media
+    label: Media
+    type: file
+    path: content/layout/media.json
+    format: json
+    fields:
+      - name: header
+        label: Header
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: title
+            label: Title
+            type: text
+          - name: subtitle
+            label: Subtitle
+            type: string
+      - name: tabs
+        label: Tabs
+        type: object
+        fields:
+          - name: photos
+            label: Photos
+            type: string
+          - name: posters
+            label: Posters
+            type: string
+      - name: actionPhotos
+        label: ActionPhotos
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Src
+            type: image
+          - name: title
+            label: Title
+            type: string
+          - name: caption
+            label: Caption
+            type: string
+      - name: eventPosters
+        label: EventPosters
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Src
+            type: image
+          - name: title
+            label: Title
+            type: string
+          - name: caption
+            label: Caption
+            type: string
+      - name: recognitions
+        label: Recognitions
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: list
+            label: List
+            type: object
+            list: true
+            fields:
+              - name: type
+                label: Type
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: string
+              - name: year
+                label: Year
+                type: string
+      - name: socialBlock
+        label: SocialBlock
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: text
+            label: Text
+            type: string
+          - name: links
+            label: Links
+            type: object
+            list: true
+            fields:
+              - name: platform
+                label: Platform
+                type: string
+              - name: href
+                label: Href
+                type: string
+              - name: handle
+                label: Handle
+                type: string
+  - name: navbar
+    label: Navbar
+    type: file
+    path: content/layout/navbar.json
+    format: json
+    fields:
+      - name: logo
+        label: Logo
+        type: object
+        fields:
+          - name: src
+            label: Src
+            type: image
+          - name: alt
+            label: Alt
+            type: string
+          - name: mainText
+            label: MainText
+            type: string
+          - name: subText
+            label: SubText
+            type: string
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - name: type
+            label: Type
+            type: string
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+          - name: items
+            label: Items
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
   - name: press
-    label: Press & Media
+    label: Press
     type: file
     path: content/press/index.json
     format: json
     fields:
       - name: clippings
-        label: Press Clippings
+        label: Clippings
         type: object
         list: true
         fields:
           - name: image
-            label: Press Image
+            label: Image
             type: image
           - name: title
             label: Title
@@ -39,6 +898,205 @@ content:
           - name: date
             label: Date
             type: datetime
-          - name: link
-            label: External Link
+  - name: activities
+    label: Activities
+    type: file
+    path: src/content/pages/activities.json
+    format: json
+    fields:
+      - name: activities
+        label: Activities
+        type: object
+        list: true
+        fields:
+          - name: num
+            label: Num
+            type: string
+          - name: text
+            label: Text
+            type: string
+          - name: images
+            label: Images
+            type: list
+            fields:
+              - type: string
+                name: item
+  - name: anti-discrimination-policy
+    label: Anti-discrimination-policy
+    type: file
+    path: src/content/pages/anti-discrimination-policy.json
+    format: json
+    fields:
+      - name: effectiveDate
+        label: EffectiveDate
+        type: string
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: content
+            label: Content
+            type: string
+          - name: list
+            label: List
+            type: list
+            fields:
+              - type: string
+                name: item
+  - name: donate
+    label: Donate
+    type: file
+    path: src/content/pages/donate.json
+    format: json
+    fields:
+      - name: bankAccounts
+        label: BankAccounts
+        type: object
+        list: true
+        fields:
+          - name: accountName
+            label: AccountName
+            type: string
+          - name: bankName
+            label: BankName
+            type: string
+          - name: accountNumber
+            label: AccountNumber
+            type: string
+          - name: ifscCode
+            label: IfscCode
+            type: string
+          - name: swiftCode
+            label: SwiftCode
+            type: string
+          - name: branch
+            label: Branch
+            type: string
+      - name: taxBenefits
+        label: TaxBenefits
+        type: object
+        fields:
+          - name: badges
+            label: Badges
+            type: list
+            fields:
+              - type: string
+                name: item
+          - name: description
+            label: Description
+            type: text
+          - name: registrations
+            label: Registrations
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: value
+                label: Value
+                type: string
+      - name: receiptRequest
+        label: ReceiptRequest
+        type: object
+        fields:
+          - name: badge
+            label: Badge
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: whatsappUrl
+            label: WhatsappUrl
+            type: string
+          - name: buttonText
+            label: ButtonText
+            type: string
+  - name: executive-committee
+    label: Executive-committee
+    type: file
+    path: src/content/pages/executive-committee.json
+    format: json
+    fields:
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: members
+        label: Members
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: role
+            label: Role
+            type: string
+  - name: privacy-policy
+    label: Privacy-policy
+    type: file
+    path: src/content/pages/privacy-policy.json
+    format: json
+    fields:
+      - name: effectiveDate
+        label: EffectiveDate
+        type: string
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: content
+            label: Content
+            type: string
+          - name: list
+            label: List
+            type: list
+            fields:
+              - type: string
+                name: item
+  - name: resources
+    label: Resources
+    type: file
+    path: src/content/pages/resources.json
+    format: json
+    fields:
+      - name: resources
+        label: Resources
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: filename
+            label: Filename
+            type: string
+          - name: path
+            label: Path
+            type: string
+          - name: openInNew
+            label: OpenInNew
+            type: boolean
+          - name: size
+            label: Size
+            type: string
+          - name: type
+            label: Type
+            type: string
+          - name: description
+            label: Description
+            type: string
+          - name: accent
+            label: Accent
             type: string
