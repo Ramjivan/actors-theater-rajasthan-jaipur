@@ -1,0 +1,44 @@
+media:
+  input: public/images
+  output: /images
+content:
+  - name: gallery
+    label: Gallery Photos
+    type: file
+    path: content/gallery/index.json
+    format: json
+    fields:
+      - name: photos
+        label: Photos
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Image
+            type: image
+          - name: caption
+            label: Caption
+            type: string
+  - name: press
+    label: Press & Media
+    type: file
+    path: content/press/index.json
+    format: json
+    fields:
+      - name: clippings
+        label: Press Clippings
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Press Image
+            type: image
+          - name: title
+            label: Title
+            type: string
+          - name: date
+            label: Date
+            type: datetime
+          - name: link
+            label: External Link
+            type: string
