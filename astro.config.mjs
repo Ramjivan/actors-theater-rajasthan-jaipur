@@ -28,6 +28,7 @@ export default defineConfig({
       }
     }
   },
+  trailingSlash: 'never',
   site: 'https://actorstheatrerajasthan.org',
   integrations: [
     sitemap({

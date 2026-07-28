@@ -11,8 +11,10 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://actorstheatrerajasthan.org');
-const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https://actorstheatrerajasthan.org');
+// Strictly normalize canonical path: strip trailing slash unless root, ensuring Google Search Console merges duplicate index listings
+const cleanPathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalURL = new URL(cleanPathname, Astro.site || 'https://actorstheatrerajasthan.org').toString();
+const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https://actorstheatrerajasthan.org').toString();
 ---
 
 <!doctype html>
@@ -21,8 +23,17 @@ const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https:/
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Advanced Robots & Generative AI Directives -->
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Strict Canonical Tag & Alternate Regional Links (Fixes GSC 'Alternative page with proper canonical tag') -->
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    <link rel="alternate" hreflang="en-IN" href={canonicalURL} />
+    <link rel="alternate" type="text/markdown" title="LLM & Generative AI Documentation" href="/llms.txt" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
@@ -30,6 +41,8 @@ const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https:/
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Actors Theatre Rajasthan" />
+    <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -45,6 +58,67 @@ const socialImage = new URL('/images/play-meri-maa.jpeg', Astro.site || 'https:/
       rel="stylesheet"
     />
     <title>{title}</title>
+
+    <!-- Schema.org Entity Knowledge Graph for Search Engines & Generative AI (GEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["NGO", "PerformingGroup", "TheaterGroup"],
+          "@id": "https://actorstheatrerajasthan.org/#organization",
+          "name": "Actors Theatre Rajasthan",
+          "alternateName": "ATR Jaipur",
+          "foundingDate": "1995",
+          "url": "https://actorstheatrerajasthan.org",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://actorstheatrerajasthan.org/favicon.png"
+          },
+          "image": socialImage,
+          "description": "Registered non-profit NGO committed to cultural awareness, social transformation, and heritage preservation through stage productions, children's theatre workshops, street plays, and national theatre festivals.",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Rajasthan, India"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jaipur",
+            "addressRegion": "Rajasthan",
+            "addressCountry": "IN"
+          },
+          "knowsAbout": [
+            "Theatre Arts in Rajasthan",
+            "Rajrangam National Theatre Festival",
+            "Children's Theatre Workshops",
+            "Street Plays for Social Awareness",
+            "Indian Folklore and Heritage Drama",
+            "Turra Kalangi and Kuchamani Khyal"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://actorstheatrerajasthan.org/#website",
+          "url": "https://actorstheatrerajasthan.org",
+          "name": "Actors Theatre Rajasthan",
+          "description": description,
+          "publisher": {
+            "@id": "https://actorstheatrerajasthan.org/#organization"
+          },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${canonicalURL}#webpage`,
+          "url": canonicalURL,
+          "name": title,
+          "description": description,
+          "isPartOf": {
+            "@id": "https://actorstheatrerajasthan.org/#website"
+          },
+          "inLanguage": "en-IN"
+        }
+      ]
+    })} />
   </head>
   <body>
     <slot />
