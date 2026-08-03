@@ -46,28 +46,17 @@ export async function POST(context: APIContext): Promise<Response> {
     `Sent via actorstheatrerajasthan.org contact form`
   ].join('\n');
 
-  const rawMimeMessage = [
-    `From: ATR Website <website@actorstheatrerajasthan.org>`,
-    `To: Actors Theatre Rajasthan <actorsraj@gmail.com>`,
-    `Reply-To: ${name} <${email}>`,
-    `Subject: [ATR Website] ${subject} — from ${name}`,
-    `Content-Type: text/plain; charset="utf-8"`,
-    ``,
-    emailBody
-  ].join('\r\n');
+
 
   // ── 5. Send using Native Cloudflare Email Worker Binding ────────────────
   try {
-    // Dynamically import to prevent top-level crash if the module isn't linked yet
-    const emailModule = await import('cloudflare:email');
-    const EmailMessage = emailModule.EmailMessage;
-
-    const msg = new EmailMessage(
-      'website@actorstheatrerajasthan.org',
-      'actorsraj@gmail.com',
-      rawMimeMessage
-    );
-    await env.SEND_EMAIL.send(msg);
+    // According to the new Cloudflare Email Service binding API
+    await env.SEND_EMAIL.send({
+      from: 'website@actorstheatrerajasthan.org',
+      to: 'actorsraj@gmail.com',
+      subject: `[ATR Website] ${subject} — from ${name}`,
+      text: emailBody
+    });
   } catch (err: any) {
     console.error('Cloudflare Email Worker error:', err);
     return jsonResponse({ error: 'Could not send email (' + err.message + '). Please contact us on WhatsApp.' }, 500);
