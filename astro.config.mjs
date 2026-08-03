@@ -21,10 +21,10 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ['next/headers', 'cloudflare:workers']
+        external: ['next/headers']
       },
       rolldownOptions: {
-        external: ['next/headers', 'cloudflare:workers']
+        external: ['next/headers']
       }
     }
   },
