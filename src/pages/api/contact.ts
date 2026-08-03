@@ -1,9 +1,10 @@
 import type { APIContext } from 'astro';
+import { env } from 'cloudflare:workers';
 
 export const prerender = false; // Makes this route serverless
 
 export async function POST(context: APIContext): Promise<Response> {
-  const { request, locals } = context;
+  const { request } = context;
   
   // ── 1. Parse the incoming form data ─────────────────────────────────────
   let data: FormData;
@@ -27,7 +28,6 @@ export async function POST(context: APIContext): Promise<Response> {
   }
 
   // ── 3. Check for Cloudflare Email Binding ───────────────────────────────
-  const env = (locals as any).runtime?.env;
   if (!env || !env.SEND_EMAIL) {
     console.error('Missing SEND_EMAIL binding in Cloudflare environment.');
     return jsonResponse({ error: 'Email service configuration missing. Please try WhatsApp.' }, 500);
