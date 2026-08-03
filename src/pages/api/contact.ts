@@ -52,7 +52,7 @@ export async function POST(context: APIContext): Promise<Response> {
   try {
     // According to the new Cloudflare Email Service binding API
     await env.SEND_EMAIL.send({
-      from: 'website@actorstheatrerajasthan.org',
+      from: 'website@actorstheatreatrajasthan.org',
       to: 'actorsraj@gmail.com',
       subject: `[ATR Website] ${subject} — from ${name}`,
       text: emailBody
