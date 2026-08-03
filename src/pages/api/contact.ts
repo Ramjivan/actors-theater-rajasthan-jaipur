@@ -1,17 +1,11 @@
-// src/pages/api/contact.ts
-// Serverless endpoint running on Cloudflare Pages Functions.
-// Receives the contact form POST, validates fields, then sends
-// the message as an email via MailChannels (free, built into Cloudflare Workers).
-//
-// DNS setup required on actorstheatrerajasthan.org before emails will deliver:
-//   SPF:  add `include:relay.mailchannels.net` to your existing SPF TXT record
-//   Lock: add TXT record  _mailchannels.actorstheatrerajasthan.org  →  v=mc1 cfid=actorstheatrerajasthan.org
-//
-// Both records are added in Cloudflare DNS dashboard (takes < 5 min).
+import type { APIContext } from 'astro';
+import { EmailMessage } from 'cloudflare:email';
 
-export const prerender = false; // ← This is the only line that makes this route serverless
+export const prerender = false; // Makes this route serverless
 
-export async function POST({ request }: { request: Request }): Promise<Response> {
+export async function POST(context: APIContext): Promise<Response> {
+  const { request, locals } = context;
+  
   // ── 1. Parse the incoming form data ─────────────────────────────────────
   let data: FormData;
   try {
@@ -33,7 +27,14 @@ export async function POST({ request }: { request: Request }): Promise<Response>
     return jsonResponse({ error: 'Please provide a valid email address.' }, 422);
   }
 
-  // ── 3. Build the plain-text email body ──────────────────────────────────
+  // ── 3. Check for Cloudflare Email Binding ───────────────────────────────
+  const env = (locals as any).runtime?.env;
+  if (!env || !env.SEND_EMAIL) {
+    console.error('Missing SEND_EMAIL binding in Cloudflare environment.');
+    return jsonResponse({ error: 'Email service configuration missing. Please try WhatsApp.' }, 500);
+  }
+
+  // ── 4. Build the plain-text email body & RFC 822 Message ────────────────
   const emailBody = [
     `New contact form submission from the ATR website`,
     `${'─'.repeat(48)}`,
@@ -46,44 +47,30 @@ export async function POST({ request }: { request: Request }): Promise<Response>
     `Sent via actorstheatrerajasthan.org contact form`
   ].join('\n');
 
-  // ── 4. Send via MailChannels (Cloudflare's free transactional email API) ─
-  let mcResponse: Response;
+  const rawMimeMessage = [
+    `From: ATR Website <website@actorstheatrerajasthan.org>`,
+    `To: Actors Theatre Rajasthan <actorsraj@gmail.com>`,
+    `Reply-To: ${name} <${email}>`,
+    `Subject: [ATR Website] ${subject} — from ${name}`,
+    `Content-Type: text/plain; charset="utf-8"`,
+    ``,
+    emailBody
+  ].join('\r\n');
+
+  // ── 5. Send using Native Cloudflare Email Worker Binding ────────────────
   try {
-    mcResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: 'actorsraj@gmail.com', name: 'Actors Theatre Rajasthan' }]
-        }],
-        from: {
-          // Must match a domain you control (the SPF/lock DNS records)
-          email: 'website@actorstheatrerajasthan.org',
-          name:  'ATR Website'
-        },
-        // reply-to = the visitor's address so you can just hit Reply in Gmail
-        reply_to: { email, name },
-        subject: `[ATR Website] ${subject} — from ${name}`,
-        content: [{
-          type:  'text/plain',
-          value: emailBody
-        }]
-      })
-    });
+    const msg = new EmailMessage(
+      'website@actorstheatrerajasthan.org',
+      'actorsraj@gmail.com',
+      rawMimeMessage
+    );
+    await env.SEND_EMAIL.send(msg);
   } catch (err) {
-    console.error('MailChannels fetch error:', err);
-    return jsonResponse({ error: 'Email service unavailable. Please try WhatsApp.' }, 503);
+    console.error('Cloudflare Email Worker error:', err);
+    return jsonResponse({ error: 'Could not send email. Please contact us on WhatsApp.' }, 500);
   }
 
-  // MailChannels returns 202 on success
-  if (mcResponse.status === 202) {
-    return jsonResponse({ success: true, message: 'Your message has been sent!' }, 200);
-  }
-
-  // Surface MailChannels error for debugging
-  const mcError = await mcResponse.text().catch(() => '(no body)');
-  console.error(`MailChannels error ${mcResponse.status}:`, mcError);
-  return jsonResponse({ error: 'Could not send email. Please contact us on WhatsApp.' }, 500);
+  return jsonResponse({ success: true, message: 'Your message has been sent!' }, 200);
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
