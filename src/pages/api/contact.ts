@@ -18,6 +18,8 @@ export async function POST(context: APIContext): Promise<Response> {
   const email   = (data.get('email')   as string | null)?.trim()  || '';
   const subject = (data.get('subject') as string | null)?.trim()  || 'General Enquiry';
   const message = (data.get('message') as string | null)?.trim()  || '';
+  const token   = data.get('cf-turnstile-response') as string;
+  const clientIp = request.headers.get('CF-Connecting-IP') || '';
 
   // ── 2. Basic server-side validation ─────────────────────────────────────
   if (!name || !email || !message) {
@@ -25,6 +27,32 @@ export async function POST(context: APIContext): Promise<Response> {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return jsonResponse({ error: 'Please provide a valid email address.' }, 422);
+  }
+
+  // ── Turnstile CAPTCHA Verification ──────────────────────────────────────
+  if (!token) {
+    return jsonResponse({ error: 'CAPTCHA verification missing. Please try again.' }, 403);
+  }
+
+  let turnstileResult;
+  try {
+    const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: (env as any).TURNSTILE_SECRET,
+        response: token,
+        remoteip: clientIp,
+      }),
+    });
+    if (!r.ok) throw new Error(`siteverify ${r.status}`);
+    turnstileResult = await r.json();
+  } catch (err) {
+    return jsonResponse({ error: 'CAPTCHA verification failed (network error).' }, 403);
+  }
+
+  if (!turnstileResult.success) {
+    return jsonResponse({ error: 'CAPTCHA verification failed. Please try again.' }, 403);
   }
 
   // ── 3. Check for Cloudflare Email Binding ───────────────────────────────
