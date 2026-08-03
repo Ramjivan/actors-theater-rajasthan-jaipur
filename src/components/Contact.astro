@@ -324,7 +324,12 @@ import data from '../../content/layout/contact.json';
         body: new FormData(this)
       });
 
-      const json = await res.json() as { success?: boolean; error?: string };
+      let json: { success?: boolean; error?: string } = {};
+      try {
+        json = await res.json();
+      } catch (parseError) {
+        throw new Error('Server returned an empty or invalid response. Please check your Cloudflare bindings.');
+      }
 
       if (res.ok && json.success) {
         // ── Success ──────────────────────────────────────────────────────

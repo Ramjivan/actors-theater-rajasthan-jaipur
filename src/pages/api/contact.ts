@@ -1,5 +1,4 @@
 import type { APIContext } from 'astro';
-import { EmailMessage } from 'cloudflare:email';
 
 export const prerender = false; // Makes this route serverless
 
@@ -59,15 +58,19 @@ export async function POST(context: APIContext): Promise<Response> {
 
   // ── 5. Send using Native Cloudflare Email Worker Binding ────────────────
   try {
+    // Dynamically import to prevent top-level crash if the module isn't linked yet
+    const emailModule = await import('cloudflare:email');
+    const EmailMessage = emailModule.EmailMessage;
+
     const msg = new EmailMessage(
       'website@actorstheatrerajasthan.org',
       'actorsraj@gmail.com',
       rawMimeMessage
     );
     await env.SEND_EMAIL.send(msg);
-  } catch (err) {
+  } catch (err: any) {
     console.error('Cloudflare Email Worker error:', err);
-    return jsonResponse({ error: 'Could not send email. Please contact us on WhatsApp.' }, 500);
+    return jsonResponse({ error: 'Could not send email (' + err.message + '). Please contact us on WhatsApp.' }, 500);
   }
 
   return jsonResponse({ success: true, message: 'Your message has been sent!' }, 200);
